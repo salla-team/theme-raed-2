@@ -1,9 +1,9 @@
 {
     "name": {
-        "ar": "رائد",
-        "en": "Theme Raed"
+        "ar": "بندر",
+        "en": "Bloome"
     },
-    "repository": "https://github.com/SallaApp/theme-raed",
+    "repository": "https://github.com/salla-team/theme-raed-2",
     "author_email": "support@salla.sa",
     "features": [
         "mega-menu",
@@ -221,21 +221,19 @@
             "key": "186b3f4f-25cf-4d3c-abca-cef7eed6f0ab",
             "title": "صور متحركة (محسنة)",
             "icon": "sicon-image-carousel",
-            "image": "https://cdn.salla.sa/mQgZlG/K36XDnXG3odwQs7Xzy68IpM2wNuJ7uTImfBInlQ8.png",
             "path": "home.enhanced-slider",
-            "is_default": true,
             "fields": [
                 {
                     "type": "static",
                     "format": "description",
                     "id": "static-desc",
-                    "value": "<div style='margin: -24px -20px 20px'><img class='w-full' src='https://cdn.salla.network/images/themes/raed/preview-images/images-slider-enhancement.png?v=1.1'></div>"
+                    "value": "<div ><img class='w-full' src='https://cdn.salla.network/images/themes/raed/preview-images/images-slider-enhancement.png?v=1.1'></div>"
                 },
                 {
-                  "type": "static",
-                  "format": "description",
-                  "id": "enhance-slider-note",
-                  "value": "<div style='background-color: #ddedff;color: #0a5a90;padding: 16px 20px;font-size: 14px;border-radius: 4px; margin: 0 0 30px;'>هذا العنصر غير مناسب لعرض البنرات، يمكنك استخدام عنصر <strong>صور متحركة</strong> بدلاً منه لتظهر صورة البنر بشكل كامل</div>"
+                    "type": "static",
+                    "format": "description",
+                    "id": "enhance-slider-note",
+                    "value": "<div >هذا العنصر غير مناسب لعرض البنرات، يمكنك استخدام عنصر <strong>صور متحركة</strong> بدلاً منه لتظهر صورة البنر بشكل كامل</div>"
                 },
                 {
                     "id": "slides",
@@ -300,6 +298,210 @@
                             "maxLength": 255
                         }
                     ]
+                },
+                {
+                    "id": "color",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "Color",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-fill",
+                    "value": "#004956",
+                    "required": false
+                },
+                {
+                    "id": "color_1",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "Color 1",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-fill",
+                    "value": "#004956",
+                    "required": false
+                },
+                {
+                    "id": "color_2",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "Color 2",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-fill",
+                    "value": "#004956",
+                    "required": false
+                },
+                {
+                    "id": "color_3",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "Color 3",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-fill",
+                    "value": "#004956",
+                    "required": false
+                },
+                {
+                    "id": "color_4",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "Color 4",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-fill",
+                    "value": "#004956",
+                    "required": false
+                },
+                {
+                    "id": "color_5",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "Color 5",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-fill",
+                    "value": "#004956",
+                    "required": false
+                },
+                {
+                    "id": "code",
+                    "type": "string",
+                    "format": "code",
+                    "label": "Code",
+                    "description": null,
+                    "labelHTML": null,
+                    "placeholder": "body { color: green; }",
+                    "icon": "sicon-browser-code",
+                    "value": null,
+                    "required": false
+                },
+                {
+                    "id": "code_1",
+                    "type": "string",
+                    "format": "code",
+                    "label": "Code 1",
+                    "description": null,
+                    "labelHTML": null,
+                    "placeholder": "body { color: green; }",
+                    "icon": "sicon-browser-code",
+                    "value": null,
+                    "required": false
+                },
+                {
+                    "id": "code_2",
+                    "type": "string",
+                    "format": "code",
+                    "label": "Code 2",
+                    "description": null,
+                    "labelHTML": null,
+                    "placeholder": "body { color: green; }",
+                    "icon": "sicon-browser-code",
+                    "value": null,
+                    "required": false
+                },
+                {
+                    "id": "code_3",
+                    "type": "string",
+                    "format": "code",
+                    "label": "Code 3",
+                    "description": null,
+                    "labelHTML": null,
+                    "placeholder": "body { color: green; }",
+                    "icon": "sicon-browser-code",
+                    "value": null,
+                    "required": false
+                },
+                {
+                    "id": "code_4",
+                    "type": "string",
+                    "format": "code",
+                    "label": "Code 4",
+                    "description": null,
+                    "labelHTML": null,
+                    "placeholder": "body { color: green; }",
+                    "icon": "sicon-browser-code",
+                    "value": null,
+                    "required": false
+                },
+                {
+                    "id": "code_5",
+                    "type": "string",
+                    "format": "code",
+                    "label": "Code 5",
+                    "description": null,
+                    "labelHTML": null,
+                    "placeholder": "body { color: green; }",
+                    "icon": "sicon-browser-code",
+                    "value": null,
+                    "required": false
+                },
+                {
+                    "id": "color_6",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "Color 6",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-fill",
+                    "value": "#004956",
+                    "required": false
+                },
+                {
+                    "id": "color_7",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "Color 7",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-fill",
+                    "value": "#e6a8d8",
+                    "required": false
+                },
+                {
+                    "id": "color_8",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "Color 8",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-fill",
+                    "value": "#004956",
+                    "required": false
+                },
+                {
+                    "id": "color_9",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "Color 9",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-fill",
+                    "value": "#004956",
+                    "required": false
+                },
+                {
+                    "id": "color_10",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "Color 10",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-fill",
+                    "value": "#004956",
+                    "required": false
                 }
             ]
         },
