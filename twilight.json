@@ -1233,21 +1233,6 @@
             "path": "home.banner",
             "fields": [
                 {
-                    "id": "banner-title",
-                    "type": "string",
-                    "format": "text",
-                    "label": "banner1",
-                    "description": null,
-                    "labelHTML": null,
-                    "placeholder": "Placeholder text ..",
-                    "icon": "sicon-format-text-alt",
-                    "value": null,
-                    "multilanguage": false,
-                    "required": false,
-                    "minLength": 6,
-                    "maxLength": 30
-                },
-                {
                     "id": "banner",
                     "type": "collection",
                     "format": "collection",
@@ -1258,10 +1243,25 @@
                     "icon": "sicon-list-add",
                     "fields": [
                         {
-                            "id": "banner.aanoan_alsort",
+                            "id": "banner.banner-title",
                             "type": "string",
                             "format": "text",
                             "label": "عنوان الصورة",
+                            "description": null,
+                            "labelHTML": null,
+                            "placeholder": "Placeholder text ..",
+                            "icon": "sicon-format-text-alt",
+                            "value": null,
+                            "multilanguage": false,
+                            "required": false,
+                            "minLength": 6,
+                            "maxLength": 30
+                        },
+                        {
+                            "id": "banner.banner-desc",
+                            "type": "string",
+                            "format": "text",
+                            "label": "وصف الصورة",
                             "description": null,
                             "labelHTML": null,
                             "placeholder": "Placeholder text ..",
