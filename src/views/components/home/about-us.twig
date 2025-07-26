@@ -1,0 +1,44 @@
+<section class="about-us-section container mx-auto my-12 p-8 rounded-lg shadow-lg bg-white dark:bg-gray-900 relative overflow-hidden">
+  <div class="about-us-anim-bg absolute inset-0 pointer-events-none"></div>
+  <div class="relative z-10 flex flex-col md:flex-row items-center gap-8">
+    <div class="flex-1 text-center md:text-right">
+      <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-primary animate-fade-in-up">من نحن</h2>
+      <p class="text-lg md:text-xl text-gray-700 dark:text-gray-200 leading-relaxed animate-fade-in-up delay-200">
+        نحن متجر رائد في تقديم أفضل المنتجات والخدمات لعملائنا الكرام، نؤمن بالجودة والابتكار ونسعى دائماً لتلبية تطلعاتكم بأعلى المعايير. رؤيتنا هي أن نكون الخيار الأول لكل من يبحث عن التميز والثقة.
+      </p>
+    </div>
+    <div class="flex-1 flex justify-center md:justify-end">
+      <img src="/assets/images/delivery-bro.svg" alt="من نحن" class="w-64 h-64 object-contain animate-float" loading="lazy" />
+    </div>
+  </div>
+  <style>
+    .about-us-section {
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+      background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
+      position: relative;
+    }
+    .about-us-anim-bg {
+      background: radial-gradient(circle at 80% 20%, #c7d2fe 0%, transparent 70%),
+                  radial-gradient(circle at 20% 80%, #fbcfe8 0%, transparent 70%);
+      opacity: 0.25;
+      z-index: 1;
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-up {
+      animation: fadeInUp 1s cubic-bezier(0.23, 1, 0.32, 1) both;
+    }
+    .animate-fade-in-up.delay-200 {
+      animation-delay: 0.2s;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-18px); }
+    }
+    .animate-float {
+      animation: float 3.5s ease-in-out infinite;
+    }
+  </style>
+</section> 
