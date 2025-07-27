@@ -7,43 +7,6 @@
 #}
 {% set important_links = theme.settings.get('important_links') %}
 <header class="store-header modern-header">
-
-
-
-    <div class="animated-text-container" dir="rtl">
-      <span class="animated-text">  مرحباً بكم في متجرنا! عروض وخصومات مميزة بانتظاركم 🎉  </span>
-    </div>
-    <style>
-      .animated-text-container {
-        width: 100%;
-        overflow: hidden;
-        margin-bottom: 1 rem;
-        text-align: center;
-        direction: rtl;
-       
-         margin-top: 20px; 
-         background-color: #85be1bff;
-color: #FFFFFFFF !important;
-
-      }
-      .animated-text {
-        display: inline-block;
-        white-space: nowrap;
-        font-size: 1.5rem;
-        font-weight: bold;
-        animation: slideTextRTL 8s linear infinite;
-        color: #1a202c;
-      }
-      @keyframes slideTextRTL {
-        0% {
-          transform: translateX(100%);
-        }
-        100% {
-          transform: translateX(-100%);
-        }
-      }
-    </style>
-
   {# Top Nav - منطقة البحث بدون صورة خلفية #}
   <div class="top-navbar animated-top-nav">
     <div class="container flex justify-between">
@@ -83,10 +46,10 @@ color: #FFFFFFFF !important;
   </div>
 
   {# Main Nav - الصورة الخلفية تبدأ من هنا #}
-  <div id="mainnav" class="main-nav-container shadow-default modern-main-nav" style="position: relative; background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/1400/aef1ce208772593.66f42369aa7b3.png'); background-size: cover; background-position: center; background-repeat: no-repeat;  height:800px;">
+  <div id="mainnav" class="main-nav-container shadow-default modern-main-nav" style="position: relative; background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/1400/aef1ce208772593.66f42369aa7b3.png'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 800px;">
     {# Overlay for better text readability #}
     <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255, 255, 255, 0.85); z-index: 1;"></div>
-    <div class="inner bg-inherit" style="position: relative; z-index: 2;">
+    <div class="inner bg-inherit" style="position: absolute; top: 0; left: 0; right: 0; z-index: 2;">
         <div class="container">
             <div class="flex items-stretch justify-between relative">
                 <div class="flex items-center">
