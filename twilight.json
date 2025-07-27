@@ -1251,7 +1251,7 @@
                             "labelHTML": null,
                             "placeholder": "Placeholder text ..",
                             "icon": "sicon-format-text-alt",
-                            "value": "welcome asmaa",
+                            "value": null,
                             "multilanguage": false,
                             "required": false,
                             "minLength": 6,
