@@ -7,6 +7,42 @@
 #}
 {% set important_links = theme.settings.get('important_links') %}
 <header class="store-header modern-header">
+
+
+    <div class="animated-text-container" dir="rtl">
+      <span class="animated-text">  مرحباً بكم في متجرنا! عروض وخصومات مميزة بانتظاركم 🎉  </span>
+    </div>
+    <style>
+      .animated-text-container {
+        width: 100%;
+        overflow: hidden;
+        margin-bottom: 1 rem;
+        text-align: center;
+        direction: rtl;
+       
+         margin-top: 20px; 
+         background-color: #85be1bff;
+color: #FFFFFFFF !important;
+
+      }
+      .animated-text {
+        display: inline-block;
+        white-space: nowrap;
+        font-size: 1.5rem;
+        font-weight: bold;
+        animation: slideTextRTL 8s linear infinite;
+        color: #1a202c;
+      }
+      @keyframes slideTextRTL {
+        0% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+    </style>
+
   {# Top Nav - منطقة البحث بدون صورة خلفية #}
   <div class="top-navbar animated-top-nav">
     <div class="container flex justify-between">
