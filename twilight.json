@@ -1289,7 +1289,7 @@
                             "type": "string",
                             "format": "image",
                             "label": "Image",
-                            "description": "image size is between 1108*700px",
+                            "description": "image size is between 1108*1180px",
                             "labelHTML": null,
                             "placeholder": "e.g. https://hostname.com/image.png",
                             "icon": "sicon-image",
