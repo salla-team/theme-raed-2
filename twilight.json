@@ -1243,7 +1243,7 @@
                     "icon": "sicon-list-add",
                     "fields": [
                         {
-                            "id": "banner.banner-title",
+                            "id": "banner.title",
                             "type": "string",
                             "format": "text",
                             "label": "عنوان الصورة",
@@ -1258,7 +1258,7 @@
                             "maxLength": 30
                         },
                         {
-                            "id": "banner.banner-desc",
+                            "id": "banner.subtitle",
                             "type": "string",
                             "format": "text",
                             "label": "وصف الصورة",
@@ -1273,7 +1273,7 @@
                             "maxLength": 30
                         },
                         {
-                            "id": "banner.banner-image",
+                            "id": "banner.image",
                             "type": "string",
                             "format": "image",
                             "label": "Image",
