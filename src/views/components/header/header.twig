@@ -7,6 +7,44 @@
 #}
 {% set important_links = theme.settings.get('important_links') %}
 <header class="store-header modern-header" style="background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/1400/aef1ce208772593.66f42369aa7b3.png'); background-size: cover; background-position: center; background-repeat: no-repeat; position: relative;">
+
+
+<div class="animated-text-container" dir="rtl">
+      <span class="animated-text">  مرحباً بكم في متجرنا! عروض وخصومات مميزة بانتظاركم 🎉  </span>
+    </div>
+    <style>
+      .animated-text-container {
+        width: 100%;
+        overflow: hidden;
+        margin-bottom: 1 rem;
+        text-align: center;
+        direction: rtl;
+       
+         margin-top: 20px; 
+         background-color: #85be1bff;
+color: #FFFFFFFF !important;
+
+      }
+      .animated-text {
+        display: inline-block;
+        white-space: nowrap;
+        font-size: 1.5rem;
+        font-weight: bold;
+        animation: slideTextRTL 8s linear infinite;
+        color: #1a202c;
+      }
+      @keyframes slideTextRTL {
+        0% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+    </style>
+
+
+
   {# Overlay for better text readability - stronger overlay for navbar area #}
   <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 0.95) 100%); z-index: 1;"></div>
   
