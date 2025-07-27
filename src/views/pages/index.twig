@@ -7,34 +7,6 @@
 #}
 {% extends "layouts.master" %}
 {% block content %}
-    <div class="animated-text-container" dir="rtl">
-      <span class="animated-text">  مرحباً بكم في متجرنا! عروض وخصومات مميزة بانتظاركم 🎉  </span>
-    </div>
-    <style>
-      .animated-text-container {
-        width: 100%;
-        overflow: hidden;
-        margin-bottom: 1.5rem;
-        text-align: center;
-        direction: rtl;
-      }
-      .animated-text {
-        display: inline-block;
-        white-space: nowrap;
-        font-size: 1.5rem;
-        font-weight: bold;
-        animation: slideTextRTL 8s linear infinite;
-        color: #1a202c;
-      }
-      @keyframes slideTextRTL {
-        0% {
-          transform: translateX(100%);
-        }
-        100% {
-          transform: translateX(-100%);
-        }
-      }
-    </style>
 
     {% component home %}
 {% endblock %}
