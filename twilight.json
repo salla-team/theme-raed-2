@@ -1277,12 +1277,12 @@
                             "type": "string",
                             "format": "image",
                             "label": "Image",
-                            "description": null,
+                            "description": "image must be 40 or more",
                             "labelHTML": null,
                             "placeholder": "e.g. https://hostname.com/image.png",
                             "icon": "sicon-image",
                             "value": null,
-                            "required": false
+                            "required": true
                         }
                     ],
                     "value": [],
