@@ -1,5 +1,4 @@
 <section class="s-block s-block--default home-slider s-block--full-bg">
-    <salla-slider auto-play pagination type="fullwidth">
         <div slot="items">
             {% for banner in component.banner %}
                 <div class="bg-no-repeat bg-cover swiper-slide swiper-lazy-wrap" style="background-color: black; background-image: Url('{{ banner.image }}')">
@@ -16,5 +15,4 @@
                 </div>
             {% endfor %}
         </div>
-    </salla-slider>
 </section>
