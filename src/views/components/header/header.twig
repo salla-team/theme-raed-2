@@ -42,6 +42,23 @@ color: #FFFFFFFF !important;
           transform: translateX(-100%);
         }
       }
+
+
+
+      @media (max-width: 768px) {
+  #mainnav {
+    min-height: 400px; /* تقلل ارتفاع البانر */
+    background-size: contain; /* تخلي الصورة تصغر وتبان كلها */
+  }
+}
+
+/* شاشات أصغر */
+@media (max-width: 480px) {
+  #mainnav {
+    min-height: 300px;
+    background-size: contain;
+  }
+}
     </style>
 
   {# Top Nav - منطقة البحث بدون صورة خلفية #}
