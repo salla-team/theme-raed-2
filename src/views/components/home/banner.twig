@@ -2,32 +2,53 @@
   <h2 class="section-title">تصنيفات شائعة</h2>
   <div class="carousel-container">
     <div class="carousel-track">
-      <!-- المنتج 1 -->
+      <!-- المنتجات الأصلية -->
       <div class="product-card">
         <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/fafb67231260947.688739296cfe7.png" alt="بلاشر ">
         <p>بلاشر </p>
       </div>
-      <!-- المنتج 2 -->
       <div class="product-card">
         <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/9c2642231260947.688739b5f09d9.png" alt="روج ">
         <p> روج</p>
       </div>
-      <!-- المنتج 3 -->
       <div class="product-card">
         <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/8a1dea231260947.688739b5eee4b.png" alt=" بدي سبلاش">
         <p> بدي سبلاش</p>
       </div>
-      <!-- المنتج 4 -->
       <div class="product-card">
         <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/f90f9e231260947.688739b5f00f8.png" alt="هايلايتر">
         <p>هايلايتر</p>
       </div>
-      <!-- المنتج 5 -->
       <div class="product-card">
         <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/6addfb231260947.688739b5f0fc2.png" alt=" ماسكارا">
         <p> ماسكارا</p>
       </div>
-      <!-- المنتج 6 -->
+      <div class="product-card">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/aa9493231260947.688739b5ef7ee.png" alt=" ليب جلوس">
+        <p> ليب جلوس</p>
+      </div>
+
+      <!-- نسخة مكررة لضمان حركة سلسة -->
+      <div class="product-card">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/fafb67231260947.688739296cfe7.png" alt="بلاشر ">
+        <p>بلاشر </p>
+      </div>
+      <div class="product-card">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/9c2642231260947.688739b5f09d9.png" alt="روج ">
+        <p> روج</p>
+      </div>
+      <div class="product-card">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/8a1dea231260947.688739b5eee4b.png" alt=" بدي سبلاش">
+        <p> بدي سبلاش</p>
+      </div>
+      <div class="product-card">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/f90f9e231260947.688739b5f00f8.png" alt="هايلايتر">
+        <p>هايلايتر</p>
+      </div>
+      <div class="product-card">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/6addfb231260947.688739b5f0fc2.png" alt=" ماسكارا">
+        <p> ماسكارا</p>
+      </div>
       <div class="product-card">
         <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/aa9493231260947.688739b5ef7ee.png" alt=" ليب جلوس">
         <p> ليب جلوس</p>
@@ -52,10 +73,7 @@
   color: #3A4F20; /* أخضر زيتي داكن */
   font-weight: bold;
 }
-h2{
-     margin-top: 15px;
- 
-}
+
 .carousel-container {
   overflow: hidden;
   position: relative;
@@ -64,7 +82,14 @@ h2{
 .carousel-track {
   display: flex;
   gap: 30px;
-  animation: scroll 18s linear infinite;
+  animation: scroll 25s linear infinite;
+  will-change: transform;
+}
+
+/* حركة مستمرة في اتجاه واحد */
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 .product-card {
@@ -76,11 +101,12 @@ h2{
   text-align: center;
   color: #fff;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .product-card:hover {
-  transform: scale(1.05);
+  transform: scale(1.08) translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
 .product-card img {
@@ -97,12 +123,6 @@ h2{
   margin: 0;
   font-size: 0.9rem;
   font-weight: bold;
-}
-
-/* أنيميشن الحركة */
-@keyframes scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
 }
 
 /* متجاوب */
@@ -125,47 +145,4 @@ h2{
     height: 60px;
   }
 }
-
-.carousel-track {
-  display: flex;
-  gap: 30px;
-  animation: scroll 25s ease-in-out infinite;
-  will-change: transform;
-}
-
-/* أنيميشن انسيابي */
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(-50%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-.product-card {
-  min-width: 150px;
-  max-width: 200px;
-  flex: 0 0 auto;
-  background: #6B8E23;
-  border-radius: 12px;
-  text-align: center;
-  color: #fff;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.product-card:hover {
-  transform: scale(1.08) translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
-
 </style>
-
-
-
-
-
-
