@@ -26,8 +26,8 @@
 
 <style>
 .store-features {
-  background: #1c1c1c;
-  color: #fff;
+  background: #F5F5DC; /* بيج */
+  color: #3A4F20; /* أخضر زيتي داكن للنصوص */
   padding: 30px 15px;
   border-radius: 12px;
   text-align: center;
@@ -37,8 +37,9 @@
 
 .section-title {
   font-size: 1.5rem;
-  color: #4dd0e1;
+  color: #556B2F; /* عنوان بالأخضر الزيتي */
   margin-bottom: 20px;
+  font-weight: bold;
 }
 
 .features-container {
@@ -49,15 +50,17 @@
 }
 
 .feature-box {
-  background: rgba(255, 255, 255, 0.05);
+  background: #6B8E23; /* أخضر زيتي */
   padding: 20px;
   border-radius: 12px;
   width: 180px;
   transition: transform 0.3s ease;
+  color: #fff;
 }
 
 .feature-box:hover {
   transform: scale(1.05);
+  background: #556B2F;
 }
 
 .feature-box img {
@@ -68,13 +71,15 @@
 
 .feature-box h3 {
   font-size: 1.8rem;
-  color: #4dd0e1;
+  color: #F5F5DC; /* الأرقام بالبيج */
   margin: 5px 0;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .feature-box p {
   font-size: 0.9rem;
-  color: #ccc;
+  color: #F5F5DC;
 }
 
 /* متجاوب */
@@ -93,12 +98,13 @@
 </style>
 
 <script>
-// عداد الأرقام مع ظهور القسم
-const counters = document.querySelectorAll('.counter');
-let started = false;
+document.querySelectorAll('.counter').forEach(counter => {
+  let started = false;
 
-function animateCounters() {
-  counters.forEach(counter => {
+  counter.addEventListener('mouseenter', () => {
+    if (started) return;
+    started = true;
+
     const target = +counter.getAttribute('data-target');
     let count = 0;
     const speed = Math.ceil(target / 60);
@@ -110,17 +116,8 @@ function animateCounters() {
         requestAnimationFrame(updateCount);
       }
     }
+
     updateCount();
   });
-  started = true;
-}
-
-// تشغيل الأنيميشن عند ظهور القسم في الشاشة
-window.addEventListener('scroll', () => {
-  const section = document.querySelector('.store-features');
-  const sectionTop = section.getBoundingClientRect().top;
-  if (sectionTop < window.innerHeight && !started) {
-    animateCounters();
-  }
 });
 </script>
