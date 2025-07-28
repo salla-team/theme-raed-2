@@ -1309,6 +1309,13 @@
             "icon": "sicon-store",
             "path": "home.newSection",
             "fields": []
+        },
+        {
+            "key": "bac09c90-3118-4325-9308-4edadd728c80",
+            "title": "clients-opinions",
+            "icon": "sicon-store",
+            "path": "home.clients-opinions",
+            "fields": []
         }
     ],
     "support_url": "https://salla.com/",
