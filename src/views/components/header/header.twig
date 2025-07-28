@@ -8,130 +8,130 @@
 {% set important_links = theme.settings.get('important_links') %}
 <header class="store-header modern-header">
 
-  <div class="animated-text-container" dir="rtl">
-    <span class="animated-text">مرحباً بكم في متجرنا! عروض وخصومات مميزة بانتظاركم 🎉</span>
-  </div>
 
-  <style>
-    .animated-text-container {
-      width: 100%;
-      overflow: hidden;
-      margin-bottom: 1rem;
-      text-align: center;
-      direction: rtl;
-      margin-top: 20px;
-      background-color: #85be1bff;
-      color: #FFFFFFFF !important;
-    }
-    .animated-text {
-      display: inline-block;
-      white-space: nowrap;
-      font-size: 1.5rem;
-      font-weight: bold;
-      animation: slideTextRTL 8s linear infinite;
-      color: #1a202c;
-    }
-    @keyframes slideTextRTL {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
-    }
+    <div class="animated-text-container" dir="rtl">
+      <span class="animated-text">  مرحباً بكم في متجرنا! عروض وخصومات مميزة بانتظاركم 🎉  </span>
+    </div>
+    <style>
+      .animated-text-container {
+        width: 100%;
+        overflow: hidden;
+        margin-bottom: 1 rem;
+        text-align: center;
+        direction: rtl;
+       
+         margin-top: 20px; 
+         background-color: #85be1bff;
+color: #FFFFFFFF !important;
 
-    #mainnav {
-      position: relative;
-      background-size: contain;
-      background-position: center;
-      background-repeat: no-repeat;
-      aspect-ratio: 1108 / 428;
-      width: 100%;
-    }
+      }
+      
+      .animated-text {
+        display: inline-block;
+        white-space: nowrap;
+        font-size: 1.5rem;
+        font-weight: bold;
+        animation: slideTextRTL 8s linear infinite;
+        color: #1a202c;
+      }
+      @keyframes slideTextRTL {
+        0% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
 
-    /* ✅ تثبيت روابط الـ Main Menu */
-    custom-main-menu {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.9); /* خلفية خفيفة */
-      backdrop-filter: blur(8px); /* تأثير زجاجي */
-      padding: 10px 0;
-      display: block; /* مهم عشان sticky تشتغل */
-    }
-  </style>
+#mainnav {
+  position: relative;
+  background-size: contain;    /* تظهر كاملة */
+  background-position: center;
+  background-repeat: no-repeat;
+   aspect-ratio: 1108 / 428;      /* نسبة العرض إلى الارتفاع */
+  width: 100%;
+}
+
+
+      
+    </style>
 
   {# Top Nav - منطقة البحث بدون صورة خلفية #}
   <div class="top-navbar animated-top-nav">
     <div class="container flex justify-between">
       <div class="flex-1 flex items-center gap-2">
-        {% if important_links %}
-          <salla-menu source="footer" topnav class="modern-menu"></salla-menu>
-        {% endif %}
-
-        <div class="header-buttons">
-          {% if store.settings.is_multilingual or store.settings.currencies_enabled %}
-            <button type="button" onclick="salla.event.dispatch('localization::open')" class="btn--rounded-gray basis-0 modern-btn">
-              <span class="flag iti__flag iti__{{ user.language.country_code }} rounded-sm"></span>
-              <span class="mx-1.5">|</span> <span>{{ currency.symbol }}</span>
-            </button>
-            <salla-localization-modal></salla-localization-modal>
+          {# Footer Menu #}
+          {% if important_links %}
+            <salla-menu source="footer" topnav class="modern-menu"></salla-menu>
           {% endif %}
-        </div>
 
-        {% if store.scope %}
-          <button class="btn--rounded-gray modern-btn"
-                  onclick="salla.event.dispatch('scopes::open', {'mode': 'default'})">
-            <i class="sicon-location rtl:ml-1 ltr:mr-1"></i> {{ store.scope.name }}
-          </button>
-        {% endif %}
+          {# Language & Currency Component #}
+          <div class="header-buttons">
+              {% if store.settings.is_multilingual or store.settings.currencies_enabled %}
+                  <button type="button" onclick="salla.event.dispatch('localization::open')" class="btn--rounded-gray basis-0 modern-btn">
+                      <span class="flag iti__flag iti__{{ user.language.country_code }} rounded-sm"></span>
+                      <span class="mx-1.5">|</span> <span>{{ currency.symbol }}</span>
+                  </button>
+                  <salla-localization-modal></salla-localization-modal>
+              {% endif %}
+          </div>
 
-        <div class="header-search flex-1">
-          <salla-search inline oval height="36" class="modern-search"></salla-search>
-        </div>
+          {# Scopes | Branches #}
+          {% if store.scope %}
+              <button class="btn--rounded-gray modern-btn"
+                      onclick="salla.event.dispatch('scopes::open', {'mode': 'default'})">
+                  <i class="sicon-location rtl:ml-1 ltr:mr-1"></i> {{ store.scope.name }}
+              </button>
+          {% endif %}
+
+          {# Search bar #}
+          <div class="header-search flex-1">
+            <salla-search inline oval height="36" class="modern-search"></salla-search>
+          </div>
       </div>
+
       <salla-contacts is-header class="modern-contacts"></salla-contacts>
     </div>
   </div>
 
   {# Main Nav - الصورة الخلفية تبدأ من هنا #}
-  <div id="mainnav" class="main-nav-container shadow-default modern-main-nav" 
-       style="position: relative; background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/f20c35231305789.688776adb24dd.gif'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 650px;">
+  <div id="mainnav" class="main-nav-container shadow-default modern-main-nav" style="position: relative; background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/f20c35231305789.688776adb24dd.gif'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 650px;">
+    {# Overlay for better text readability #}
     <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0;"></div>
     <div class="inner bg-inherit" style="position: absolute; top: 0; left: 0; right: 0; z-index: 2;">
-      <div class="container">
-        <div class="flex items-stretch justify-between relative">
-          <div class="flex items-center">
-            <a class="lg:hidden mburger mburger--collapse leading-none rtl:ml-4 ltr:mr-4 modern-mobile-menu" href="#mobile-menu" aria-label="Open-menu">
-              <i class="sicon-menu text-primary text-2xl"></i>
-            </a>
-            <a class="navbar-brand modern-brand" href="{{ store.url }}">
-              <img fetchpriority="high" width="100%" height="100%" loading="eager" src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/28dd4b231305789.68876cbe39046.jpg" alt="{{ store.name }} logo">
-              {% if is_page('index') %}
-                <h1 class="sr-only">{{ store.name }}</h1>
-              {% else %}
-                <h2 class="sr-only">{{ store.name }}</h2>
-              {% endif %}
-            </a>
-
-            <!-- ✅ روابط الـ Main Menu -->
-            <custom-main-menu class="modern-main-menu"></custom-main-menu>
-          </div>
-
-          <div class="flex items-center justify-end">
-            {% if user.type=='user' %}
-              <salla-user-menu avatar-only show-header class="modern-user-menu"></salla-user-menu>
-            {% else %}
-              <button class="header-btn modern-header-btn" aria-label="user-icon" onclick="salla.event.dispatch('login::open')">
-                <i class="header-btn__icon sicon-user-circle"></i>
-              </button>
-            {% endif %}
-            <salla-cart-summary class="ml-4 rtl:ml-[unset] rtl:mr-4 modern-cart">
-              <i slot="icon" class="header-btn__icon icon sicon-shopping-bag"></i>
-            </salla-cart-summary>
-          </div>
+        <div class="container">
+            <div class="flex items-stretch justify-between relative">
+                <div class="flex items-center">
+                    <a class="lg:hidden mburger mburger--collapse leading-none rtl:ml-4 ltr:mr-4 modern-mobile-menu" href="#mobile-menu" aria-label="Open-menu">
+                      <i class="sicon-menu text-primary text-2xl"></i>
+                    </a>
+                    <a class="navbar-brand modern-brand" href="{{ store.url }}">
+                        <img fetchpriority="high" width="100%" height="100%" loading="eager" src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/28dd4b231305789.68876cbe39046.jpg" alt="{{ store.name }} logo">
+                        {% if is_page('index') %}
+                          <h1 class="sr-only">{{ store.name }}</h1>
+                        {% else %}
+                          <h2 class="sr-only">{{ store.name }}</h2>
+                        {% endif %}
+                    </a>
+                    <custom-main-menu class="modern-main-menu"></custom-main-menu>
+                </div>
+                <div class="flex items-center justify-end">
+                    {% if user.type=='user' %}
+                      <salla-user-menu avatar-only show-header class="modern-user-menu"></salla-user-menu>
+                    {% else %}
+                        <button class="header-btn modern-header-btn" aria-label="user-icon" onclick="salla.event.dispatch('login::open')">
+                          <i class="header-btn__icon sicon-user-circle"></i>
+                        </button>
+                    {% endif %}
+                    <salla-cart-summary class="ml-4 rtl:ml-[unset] rtl:mr-4 modern-cart">
+                      <i slot="icon" class="header-btn__icon icon sicon-shopping-bag"></i>
+                    </salla-cart-summary>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
   </div>
 </header>
-
 {% if store.scope %}
-  <salla-scopes selection="{{ store.scope.display_as == 'popup' ? 'mandatory' : 'optional' }}"></salla-scopes>
+    <salla-scopes selection="{{ store.scope.display_as == 'popup' ? 'mandatory' : 'optional' }}"></salla-scopes>
 {% endif %}
