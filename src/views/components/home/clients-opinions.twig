@@ -2,6 +2,213 @@
   <h2 class="section-title">آراء عملائنا</h2>
 
   <div class="slider-wrapper">
+    <button class="arrow left" onclick="scrollCarousel(-1)">&#10094;</button>
+
+    <div class="testimonials-container" id="carousel">
+            <!-- مراجعة 1 -->
+      <div class="testimonial-card">
+        <div class="client-info">
+          <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp_webp/26e138231305789.688783036e93c.png" alt="عميل 1">
+          <div class="client-details">
+            <h3>أسماء علي</h3>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="review-text">
+          المنتجات رائعة وجودتها عالية جدًا! أحببت التغليف وخدمة العملاء أكثر من ممتازة.
+        </p>
+      </div>
+
+      <!-- مراجعة 2 -->
+      <div class="testimonial-card">
+        <div class="client-info">
+          <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp_webp/4421be231305789.688783036e3c6.png" alt="عميل 2">
+          <div class="client-details">
+            <h3>حسام خالد</h3>
+            <div class="stars">★★★★☆</div>
+          </div>
+        </div>
+        <p class="review-text">
+          تجربة شراء مميزة وسهلة. الألوان جميلة وتناسب كل أنواع البشرة. سأكرر الطلب بالتأكيد!
+        </p>
+      </div>
+
+      <!-- مراجعة 3 -->
+      <div class="testimonial-card">
+        <div class="client-info">
+          <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/845b6b231305789.688783036dde2.png" alt="عميل 3">
+          <div class="client-details">
+            <h3>أحمد علي</h3>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="review-text">
+          أحببت المتجر جدًا! سرعة التوصيل والتغليف الفاخر جعل التجربة فريدة من نوعها.
+        </p>
+      </div>
+
+      <!-- مراجعة 4 -->
+      <div class="testimonial-card">
+        <div class="client-info">
+          <img src="https://i.pravatar.cc/50?img=4" alt="عميل 4">
+          <div class="client-details">
+            <h3>منى محمد</h3>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="review-text">
+          الجودة ممتازة وسرعة الشحن رائعة. تجربة تسوق مميزة جدًا وسأعيد الشراء.
+        </p>
+      </div>
+
+      <!-- مراجعة 5 -->
+      <div class="testimonial-card">
+        <div class="client-info">
+          <img src="https://i.pravatar.cc/50?img=5" alt="عميل 5">
+          <div class="client-details">
+            <h3>كريم إبراهيم</h3>
+            <div class="stars">★★★★☆</div>
+          </div>
+        </div>
+        <p class="review-text">
+          المنتجات أصلية والتغليف أنيق جدًا. خدمة العملاء محترفة وسريعة الرد.
+        </p>
+      </div>
+
+      <!-- مراجعة 6 -->
+      <div class="testimonial-card">
+        <div class="client-info">
+          <img src="https://i.pravatar.cc/50?img=6" alt="عميل 6">
+          <div class="client-details">
+            <h3>ليلى أحمد</h3>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="review-text">
+          أحببت التعامل معكم. الجودة، التغليف، والأسعار أكثر من رائعة. شكراً لكم!
+        </p>
+      </div>
+    </div>
+
+    </div>
+
+    <button class="arrow right" onclick="scrollCarousel(1)">&#10095;</button>
+  </div>
+</section>
+
+<style>
+.testimonials-section {
+  background: #F5F5DC;
+  padding: 50px 20px;
+  text-align: center;
+  direction: rtl;
+  border-radius: 14px;
+  margin: 40px 0;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #556B2F;
+  margin-bottom: 30px;
+}
+
+.slider-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonials-container {
+  display: flex;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.testimonial-card {
+  flex: 0 0 300px;
+  min-width: 300px;
+  margin: 0 10px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  text-align: center;
+  border: 2px solid #6B8E23;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+}
+
+/* الأسهم */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #6B8E23;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.arrow.left { left: 10px; }
+.arrow.right { right: 10px; }
+
+.arrow:hover { background: #556B2F; }
+
+/* ✅ موبايل: يظهر كرت واحد فقط */
+@media (max-width: 768px) {
+  .testimonial-card {
+    flex: 0 0 90%;
+    min-width: 90%;
+    margin: 0 5%;
+  }
+}
+</style>
+
+<script>
+const container = document.getElementById('carousel');
+const cards = document.querySelectorAll('.testimonial-card');
+let currentIndex = 0;
+
+function scrollCarousel(dir) {
+  const total = cards.length;
+  currentIndex += dir;
+
+  if (currentIndex >= total) currentIndex = 0; // رجوع لأول عميل
+  if (currentIndex < 0) currentIndex = total - 1; // رجوع لآخر عميل
+
+  const cardWidth = cards[0].offsetWidth + 20;
+  container.scrollTo({
+    left: currentIndex * cardWidth,
+    behavior: 'smooth'
+  });
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="testimonials-section">
+  <h2 class="section-title">آراء عملائنا</h2>
+
+  <div class="slider-wrapper">
     <button class="arrow left" onclick="this.nextElementSibling.scrollBy({left:-320,behavior:'smooth'})">&#10094;</button>
 
     <div class="testimonials-container">
