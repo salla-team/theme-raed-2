@@ -2,32 +2,26 @@
   <h2 class="section-title">تصنيفات شائعة</h2>
   <div class="carousel-container">
     <div class="carousel-track">
-      <!-- المنتج 1 -->
       <div class="product-card">
         <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/fafb67231260947.688739296cfe7.png" alt="بلاشر ">
         <p>بلاشر </p>
       </div>
-      <!-- المنتج 2 -->
       <div class="product-card">
         <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/9c2642231260947.688739b5f09d9.png" alt="روج ">
         <p> روج</p>
       </div>
-      <!-- المنتج 3 -->
       <div class="product-card">
         <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/8a1dea231260947.688739b5eee4b.png" alt=" بدي سبلاش">
         <p> بدي سبلاش</p>
       </div>
-      <!-- المنتج 4 -->
       <div class="product-card">
         <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/f90f9e231260947.688739b5f00f8.png" alt="هايلايتر">
         <p>هايلايتر</p>
       </div>
-      <!-- المنتج 5 -->
       <div class="product-card">
         <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/6addfb231260947.688739b5f0fc2.png" alt=" ماسكارا">
         <p> ماسكارا</p>
       </div>
-      <!-- المنتج 6 -->
       <div class="product-card">
         <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/aa9493231260947.688739b5ef7ee.png" alt=" ليب جلوس">
         <p> ليب جلوس</p>
@@ -38,7 +32,7 @@
 
 <style>
 .popular-products {
-  background: #F5F5DC; /* بيج */
+  background: #F5F5DC;
   padding: 20px;
   border-radius: 12px;
   overflow: hidden;
@@ -49,7 +43,7 @@
   text-align: right;
   font-size: 1.5rem;
   margin-bottom: 15px;
-  color: #3A4F20; /* أخضر زيتي داكن */
+  color: #3A4F20;
   font-weight: bold;
 }
 
@@ -60,29 +54,37 @@
 
 .carousel-track {
   display: flex;
-  gap: 30px;
-  animation: scroll 18s linear infinite;
+  gap: 50px; /* فراغ أكبر بين الكروت */
+  animation: scroll 20s linear infinite;
+  will-change: transform;
+}
+
+/* حركة One Direction سلسة */
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-60%); } /* تحريك أقل عشان ما يفضاش */
 }
 
 .product-card {
-  min-width: 150px;
-  max-width: 200px;
+  min-width: 220px; /* كبرنا حجم الكارت */
+  max-width: 250px;
   flex: 0 0 auto;
-  background: #6B8E23; /* أخضر زيتي */
+  background: #6B8E23;
   border-radius: 12px;
   text-align: center;
   color: #fff;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .product-card:hover {
-  transform: scale(1.05);
+  transform: scale(1.08) translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
 .product-card img {
-  width: 100px;
-  height: 80px;
+  width: 130px;
+  height: 100px;
   object-fit: contain;
   background: #fff;
   border-radius: 50%;
@@ -92,42 +94,32 @@
 
 .product-card p {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: bold;
-}
-
-/* أنيميشن الحركة */
-@keyframes scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
 }
 
 /* متجاوب */
 @media (max-width: 768px) {
   .carousel-track {
-    gap: 10px;
+    gap: 20px;
   }
   .product-card {
-    min-width: 100px;
+    min-width: 150px;
+  }
+  .product-card img {
+    width: 90px;
+    height: 80px;
   }
 }
 
 @media (max-width: 480px) {
   .product-card {
-    min-width: 90px;
+    min-width: 120px;
     padding: 8px;
   }
   .product-card img {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
   }
 }
-
-
 </style>
-
-
-
-
-
-
