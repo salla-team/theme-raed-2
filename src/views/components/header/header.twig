@@ -52,14 +52,7 @@ color: #FFFFFFFF !important;
   width: 100%;
 }
 
-custom-main-menu {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: transparent; /* شفاف عشان الصورة تبقى ورا اللينكات */
-  padding: 10px 0;
-  display: block;
-}
+
 
       
     </style>
@@ -121,7 +114,17 @@ custom-main-menu {
                           <h2 class="sr-only">{{ store.name }}</h2>
                         {% endif %}
                     </a>
-                    <custom-main-menu class="modern-main-menu"></custom-main-menu>
+<custom-main-menu class="modern-main-menu"
+  style="
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: transparent;
+    padding: 10px 0;
+    display: inline-block;
+    vertical-align: middle;
+  ">
+</custom-main-menu>
                 </div>
                 <div class="flex items-center justify-end">
                     {% if user.type=='user' %}
