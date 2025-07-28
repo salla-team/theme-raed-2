@@ -1,0 +1,126 @@
+<section class="store-features">
+  <h2 class="section-title">مميزات المتجر</h2>
+  <div class="features-container">
+    <!-- ميزة 1 -->
+    <div class="feature-box">
+      <img src="path/to/icon1.png" alt="عدد العملاء">
+      <h3 class="counter" data-target="2793">0</h3>
+      <p>+ عميل يحب منتجاتنا</p>
+    </div>
+
+    <!-- ميزة 2 -->
+    <div class="feature-box">
+      <img src="path/to/icon2.png" alt="التقييم">
+      <h3 class="counter" data-target="5">0</h3>
+      <p>5/5 أفضل متجر</p>
+    </div>
+
+    <!-- ميزة 3 -->
+    <div class="feature-box">
+      <img src="path/to/icon3.png" alt="عدد التقييمات">
+      <h3 class="counter" data-target="399">0</h3>
+      <p>+ عدد التقييمات</p>
+    </div>
+  </div>
+</section>
+
+<style>
+.store-features {
+  background: #1c1c1c;
+  color: #fff;
+  padding: 30px 15px;
+  border-radius: 12px;
+  text-align: center;
+  direction: rtl;
+  margin: 20px 0;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  color: #4dd0e1;
+  margin-bottom: 20px;
+}
+
+.features-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.feature-box {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 12px;
+  width: 180px;
+  transition: transform 0.3s ease;
+}
+
+.feature-box:hover {
+  transform: scale(1.05);
+}
+
+.feature-box img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.feature-box h3 {
+  font-size: 1.8rem;
+  color: #4dd0e1;
+  margin: 5px 0;
+}
+
+.feature-box p {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* متجاوب */
+@media (max-width: 768px) {
+  .features-container {
+    gap: 15px;
+  }
+  .feature-box {
+    width: 140px;
+    padding: 15px;
+  }
+  .feature-box h3 {
+    font-size: 1.4rem;
+  }
+}
+</style>
+
+<script>
+// عداد الأرقام مع ظهور القسم
+const counters = document.querySelectorAll('.counter');
+let started = false;
+
+function animateCounters() {
+  counters.forEach(counter => {
+    const target = +counter.getAttribute('data-target');
+    let count = 0;
+    const speed = Math.ceil(target / 60);
+
+    function updateCount() {
+      if (count < target) {
+        count += speed;
+        counter.textContent = count > target ? target : count;
+        requestAnimationFrame(updateCount);
+      }
+    }
+    updateCount();
+  });
+  started = true;
+}
+
+// تشغيل الأنيميشن عند ظهور القسم في الشاشة
+window.addEventListener('scroll', () => {
+  const section = document.querySelector('.store-features');
+  const sectionTop = section.getBoundingClientRect().top;
+  if (sectionTop < window.innerHeight && !started) {
+    animateCounters();
+  }
+});
+</script>
