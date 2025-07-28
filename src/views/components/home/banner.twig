@@ -52,7 +52,10 @@
   color: #3A4F20; /* أخضر زيتي داكن */
   font-weight: bold;
 }
-
+h2{
+     margin-top: 15px;
+ 
+}
 .carousel-container {
   overflow: hidden;
   position: relative;
@@ -122,6 +125,43 @@
     height: 60px;
   }
 }
+
+.carousel-track {
+  display: flex;
+  gap: 30px;
+  animation: scroll 25s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* أنيميشن انسيابي */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.product-card {
+  min-width: 150px;
+  max-width: 200px;
+  flex: 0 0 auto;
+  background: #6B8E23;
+  border-radius: 12px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.08) translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
 </style>
 
 
@@ -129,24 +169,3 @@
 
 
 
-<section class="s-block s-block--default home-slider s-block--full-bg">
-    <salla-slider auto-play pagination type="fullwidth">
-        <div slot="items">
-            {% for banner in component.banner %}
-<div class="bg-no-repeat bg-cover swiper-slide swiper-lazy-wrap" style="background-color: black; height:900px; background-image: url('{{ banner.image }}')">
-                    <div class="container flex text-center items-center justify-center sm:justify-start ltr:sm:justify-end px-8 py-16 lg:px-12 lg:py-20 home-slider__content relative h-full">
-                        <div class="text-white w-full">
-                            <h3 class="" data-swiper-parallax="-300">
-                                {{ banner.title }}
-                            </h3>
-                            <p data-swiper-parallax="-700">
-                                {{ banner.subtitle }}
-                            </p>
-                            
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-    </salla-slider>
-</section>
