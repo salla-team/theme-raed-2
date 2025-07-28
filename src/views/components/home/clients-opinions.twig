@@ -1,10 +1,10 @@
 <section class="testimonials-section">
   <h2 class="section-title">آراء عملائنا</h2>
-  
+
   <div class="slider-wrapper">
-    <button class="arrow left" onclick="moveSlide(-1)">&#10094;</button>
-    
-    <div class="testimonials-container" id="testimonialSlider">
+    <button class="arrow left" onclick="this.nextElementSibling.scrollBy({left:-320,behavior:'smooth'})">&#10094;</button>
+
+    <div class="testimonials-container">
       <!-- مراجعة 1 -->
       <div class="testimonial-card">
         <div class="client-info">
@@ -90,7 +90,7 @@
       </div>
     </div>
 
-    <button class="arrow right" onclick="moveSlide(1)">&#10095;</button>
+    <button class="arrow right" onclick="this.previousElementSibling.scrollBy({left:320,behavior:'smooth'})">&#10095;</button>
   </div>
 </section>
 
@@ -102,7 +102,6 @@
   direction: rtl;
   border-radius: 14px;
   margin: 40px 0;
-  overflow: hidden;
 }
 
 .section-title {
@@ -120,7 +119,15 @@
 
 .testimonials-container {
   display: flex;
-  transition: transform 0.5s ease-in-out;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+}
+
+.testimonials-container::-webkit-scrollbar {
+  display: none;
 }
 
 .testimonial-card {
@@ -133,8 +140,9 @@
   text-align: right;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   border: 2px solid #6B8E23;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   flex-shrink: 0;
+  scroll-snap-align: start;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .testimonial-card:hover {
@@ -202,26 +210,6 @@
   }
 }
 </style>
-
-<script>
-let currentIndex = 0;
-const slider = document.getElementById('testimonialSlider');
-const cards = document.querySelectorAll('.testimonial-card');
-const visibleCards = 3; // عدد الكروت الظاهرة
-
-function moveSlide(direction) {
-  const totalCards = cards.length;
-  const maxIndex = totalCards - visibleCards;
-  
-  currentIndex += direction;
-  if (currentIndex < 0) currentIndex = 0;
-  if (currentIndex > maxIndex) currentIndex = maxIndex;
-
-  const cardWidth = cards[0].offsetWidth + 20; // عرض الكرت مع المسافة
-  slider.style.transform = `translateX(${-currentIndex * cardWidth}px)`;
-}
-</script>
-
 
 
 
