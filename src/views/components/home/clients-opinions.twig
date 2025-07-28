@@ -1,11 +1,18 @@
 <section class="testimonials-section">
   <h2 class="section-title">آراء عملائنا</h2>
 
-  <div class="slider-wrapper">
-    <button class="arrow left" onclick="scrollCarousel(-1)">&#10094;</button>
+  <!-- أزرار التحكم -->
+  <input type="radio" name="slider" id="slide1" checked>
+  <input type="radio" name="slider" id="slide2">
+  <input type="radio" name="slider" id="slide3">
 
-    <div class="testimonials-container" id="carousel">
-            <!-- مراجعة 1 -->
+  <div class="slider-wrapper">
+    <!-- أسهم -->
+    <label for="slide3" class="arrow left">&#10094;</label>
+    <label for="slide2" class="arrow right">&#10095;</label>
+
+    <div class="testimonials-container">
+      <!-- مراجعة 1 -->
       <div class="testimonial-card">
         <div class="client-info">
           <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp_webp/26e138231305789.688783036e93c.png" alt="عميل 1">
@@ -89,10 +96,6 @@
         </p>
       </div>
     </div>
-
-    </div>
-
-    <button class="arrow right" onclick="scrollCarousel(1)">&#10095;</button>
   </div>
 </section>
 
@@ -104,6 +107,7 @@
   direction: rtl;
   border-radius: 14px;
   margin: 40px 0;
+  overflow: hidden;
 }
 
 .section-title {
@@ -113,32 +117,47 @@
   margin-bottom: 30px;
 }
 
+/* إخفاء الراديو */
+input[name="slider"] {
+  display: none;
+}
+
 .slider-wrapper {
   position: relative;
+  max-width: 100%;
   overflow: hidden;
 }
 
 .testimonials-container {
   display: flex;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
+  width: 200%; /* لأن عندنا صفين */
+  transition: transform 0.6s ease-in-out;
+}
+
+/* الحالة لما يكون slide1 */
+#slide1:checked ~ .slider-wrapper .testimonials-container {
+  transform: translateX(0%);
+}
+
+/* الحالة لما يكون slide2 */
+#slide2:checked ~ .slider-wrapper .testimonials-container {
+  transform: translateX(-50%);
+}
+
+/* الحالة لما يكون slide3 (لو رجعنا للأول تاني) */
+#slide3:checked ~ .slider-wrapper .testimonials-container {
+  transform: translateX(0%);
 }
 
 .testimonial-card {
-  flex: 0 0 300px;
-  min-width: 300px;
-  margin: 0 10px;
-  background: #fff;
-  border-radius: 14px;
+  flex: 0 0 33.33%;
   padding: 20px;
-  text-align: center;
+  box-sizing: border-box;
+  background: #fff;
   border: 2px solid #6B8E23;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
-
-.testimonial-card:hover {
-  transform: translateY(-5px);
+  border-radius: 14px;
+  margin: 0 10px;
+  text-align: center;
 }
 
 /* الأسهم */
@@ -154,42 +173,23 @@
   cursor: pointer;
   border-radius: 50%;
   z-index: 10;
+  user-select: none;
 }
 
 .arrow.left { left: 10px; }
 .arrow.right { right: 10px; }
 
-.arrow:hover { background: #556B2F; }
-
-/* ✅ موبايل: يظهر كرت واحد فقط */
+/* موبايل يظهر كرت واحد فقط */
 @media (max-width: 768px) {
   .testimonial-card {
-    flex: 0 0 90%;
-    min-width: 90%;
-    margin: 0 5%;
+    flex: 0 0 100%;
+    margin: 0;
+  }
+  .testimonials-container {
+    width: 600%;
   }
 }
 </style>
-
-<script>
-const container = document.getElementById('carousel');
-const cards = document.querySelectorAll('.testimonial-card');
-let currentIndex = 0;
-
-function scrollCarousel(dir) {
-  const total = cards.length;
-  currentIndex += dir;
-
-  if (currentIndex >= total) currentIndex = 0; // رجوع لأول عميل
-  if (currentIndex < 0) currentIndex = total - 1; // رجوع لآخر عميل
-
-  const cardWidth = cards[0].offsetWidth + 20;
-  container.scrollTo({
-    left: currentIndex * cardWidth,
-    behavior: 'smooth'
-  });
-}
-</script>
 
 
 
