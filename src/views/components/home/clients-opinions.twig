@@ -52,3 +52,144 @@
     transform: rotate(45deg);
   }
 </style>
+
+
+
+
+
+
+<section class="testimonials-section">
+  <h2 class="section-title">آراء عملائنا</h2>
+  <div class="testimonials-container">
+    <!-- مراجعة 1 -->
+    <div class="testimonial-card">
+      <div class="client-info">
+        <img src="/path/client1.jpg" alt="عميل 1">
+        <div class="client-details">
+          <h3>سارة أحمد</h3>
+          <div class="stars">
+            ★★★★★
+          </div>
+        </div>
+      </div>
+      <p class="review-text">
+        المنتجات رائعة وجودتها عالية جدًا! أحببت التغليف وخدمة العملاء أكثر من ممتازة.
+      </p>
+    </div>
+
+    <!-- مراجعة 2 -->
+    <div class="testimonial-card">
+      <div class="client-info">
+        <img src="/path/client2.jpg" alt="عميل 2">
+        <div class="client-details">
+          <h3>منى خالد</h3>
+          <div class="stars">
+            ★★★★☆
+          </div>
+        </div>
+      </div>
+      <p class="review-text">
+        تجربة شراء مميزة وسهلة. الألوان جميلة وتناسب كل أنواع البشرة. سأكرر الطلب بالتأكيد!
+      </p>
+    </div>
+
+    <!-- مراجعة 3 -->
+    <div class="testimonial-card">
+      <div class="client-info">
+        <img src="/path/client3.jpg" alt="عميل 3">
+        <div class="client-details">
+          <h3>هدى علي</h3>
+          <div class="stars">
+            ★★★★★
+          </div>
+        </div>
+      </div>
+      <p class="review-text">
+        أحببت المتجر جدًا! سرعة التوصيل والتغليف الفاخر جعل التجربة فريدة من نوعها.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+.testimonials-section {
+  background: #F5F5DC; /* بيج */
+  padding: 50px 20px;
+  text-align: center;
+  direction: rtl;
+  border-radius: 14px;
+  margin: 40px 0;
+}
+
+.testimonials-section .section-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #556B2F;
+  margin-bottom: 30px;
+}
+
+.testimonials-container {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.testimonial-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  max-width: 300px;
+  flex: 1 1 280px;
+  text-align: right;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border: 2px solid #6B8E23;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.client-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.client-info img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #6B8E23;
+  margin-left: 10px;
+}
+
+.client-details h3 {
+  font-size: 1rem;
+  color: #3A4F20;
+  margin: 0;
+}
+
+.stars {
+  color: #FFD700;
+  font-size: 1.1rem;
+}
+
+.review-text {
+  font-size: 0.9rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* متجاوب */
+@media (max-width: 768px) {
+  .testimonials-container {
+    gap: 15px;
+  }
+  .testimonial-card {
+    max-width: 100%;
+  }
+}
+</style>
