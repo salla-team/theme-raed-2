@@ -43,22 +43,19 @@ color: #FFFFFFFF !important;
         }
       }
 
-
-
-      @media (max-width: 768px) {
-  #mainnav {
-    min-height: 400px; /* تقلل ارتفاع البانر */
-    background-size: contain; /* تخلي الصورة تصغر وتبان كلها */
-  }
+#mainnav {
+  position: relative;
+  background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/c03014231305789.6887489fbbb3f.gif');
+  background-size: contain;    /* تظهر كاملة */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #000;      /* خلفية للفراغات */
+  aspect-ratio: 16 / 9;        /* نسبة العرض إلى الارتفاع */
+  width: 100%;
 }
 
-/* شاشات أصغر */
-@media (max-width: 480px) {
-  #mainnav {
-    min-height: 300px;
-    background-size: contain;
-  }
-}
+
+      
     </style>
 
   {# Top Nav - منطقة البحث بدون صورة خلفية #}
