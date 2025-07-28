@@ -2,9 +2,8 @@
   <h2 class="section-title">مميزات المتجر</h2>
   <div class="features-container">
     <!-- ميزة 1 -->
-    <div class="feature-box">
+    <div class="feature-box fade-item">
       <div class="icon">
-        <!-- أيقونة عملاء -->
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#F5F5DC" width="40" height="40">
           <path d="M12 12c2.7 0 4.8-2.2 4.8-4.8S14.7 2.4 12 2.4 7.2 4.6 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
         </svg>
@@ -14,9 +13,8 @@
     </div>
 
     <!-- ميزة 2 -->
-    <div class="feature-box">
+    <div class="feature-box fade-item">
       <div class="icon">
-        <!-- أيقونة التقييم -->
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFD700" width="40" height="40">
           <path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.78 1.4 8.174L12 18.897l-7.334 3.852 1.4-8.174L.132 9.21l8.2-1.192z"/>
         </svg>
@@ -26,9 +24,8 @@
     </div>
 
     <!-- ميزة 3 -->
-    <div class="feature-box">
+    <div class="feature-box fade-item">
       <div class="icon">
-        <!-- أيقونة عدد التقييمات -->
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#F5F5DC" width="40" height="40">
           <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
         </svg>
@@ -41,8 +38,8 @@
 
 <style>
 .store-features {
-  background: #F5F5DC; /* بيج */
-  color: #3A4F20; /* نصوص أخضر زيتي */
+  background: #F5F5DC;
+  color: #3A4F20;
   padding: 30px 15px;
   border-radius: 12px;
   text-align: center;
@@ -52,7 +49,7 @@
 
 .section-title {
   font-size: 1.5rem;
-  color: #556B2F; /* عنوان بالأخضر الزيتي */
+  color: #556B2F;
   margin-bottom: 20px;
   font-weight: bold;
 }
@@ -65,17 +62,24 @@
 }
 
 .feature-box {
-  background: #a3e917ff; /* أخضر زيتي */
+  background: #89b929ff;
   padding: 20px;
   border-radius: 12px;
   width: 180px;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.5s ease;
   color: #fff;
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.feature-box.visible {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .feature-box:hover {
   transform: scale(1.05);
-  background: #384e12ff;
+  background: #556B2F;
 }
 
 .icon {
@@ -84,7 +88,7 @@
 
 .feature-box h3 {
   font-size: 1.8rem;
-  color: #F5F5DC; /* الأرقام بالبيج */
+  color: #F5F5DC;
   margin: 5px 0;
   font-weight: bold;
 }
@@ -94,7 +98,6 @@
   color: #F5F5DC;
 }
 
-/* متجاوب */
 @media (max-width: 768px) {
   .features-container {
     gap: 15px;
@@ -110,31 +113,48 @@
 </style>
 
 <script>
-function animateCounter(counter) {
+function animateCounterEaseOut(counter) {
   const target = +counter.getAttribute('data-target');
-  let count = 0;
-  counter.textContent = "0";
-  const speed = Math.ceil(target / 60);
+  let start = 0;
+  let startTime = null;
+  const duration = 2000;
 
-  function updateCount() {
-    if (count < target) {
-      count += speed;
-      counter.textContent = count > target ? target : count;
-      requestAnimationFrame(updateCount);
+  function easeOut(t) {
+    return 1 - Math.pow(1 - t, 3);
+  }
+
+  function update(timestamp) {
+    if (!startTime) startTime = timestamp;
+    const progress = Math.min((timestamp - startTime) / duration, 1);
+    const value = Math.floor(easeOut(progress) * target);
+    counter.textContent = value;
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    } else {
+      counter.textContent = target;
     }
   }
-  updateCount();
+
+  requestAnimationFrame(update);
 }
 
-// استخدام IntersectionObserver لتشغيل العد عند ظهور العنصر
 const counters = document.querySelectorAll('.counter');
+const featureBoxes = document.querySelectorAll('.feature-box');
+
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      animateCounter(entry.target);
+      entry.target.classList.add('visible');
+      const counter = entry.target.querySelector('.counter');
+      if (counter) animateCounterEaseOut(counter);
+    } else {
+      entry.target.classList.remove('visible');
+      const counter = entry.target.querySelector('.counter');
+      if (counter) counter.textContent = "0"; // إعادة التصفير عند الخروج
     }
   });
-}, { threshold: 0.6 });
+}, { threshold: 0.5 });
 
-counters.forEach(counter => observer.observe(counter));
+featureBoxes.forEach(box => observer.observe(box));
 </script>
