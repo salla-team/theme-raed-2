@@ -48,8 +48,9 @@ color: #FFFFFFFF !important;
    background-size: contain;    /* تظهر كاملة */
    background-position: center;
    background-repeat: no-repeat;
-    aspect-ratio: 1108 / 428;      /* نسبة العرض إلى الارتفاع */
+   aspect-ratio: 1108 / 428;      /* نسبة العرض إلى الارتفاع */
    width: 100%;
+   transition: all 0.3s ease; /* انتقال سلس */
  }
 
  /* Sticky Navigation Styles */
@@ -65,6 +66,7 @@ color: #FFFFFFFF !important;
    transition: all 0.3s ease;
    min-height: auto !important;
    aspect-ratio: auto !important;
+   background-image: none !important; /* إزالة الصورة الخلفية عند التثبيت */
  }
 
  .sticky-nav .inner {
@@ -76,6 +78,11 @@ color: #FFFFFFFF !important;
 
  .sticky-nav .overlay {
    display: none !important;
+ }
+
+ /* إخفاء الصورة الخلفية عند التثبيت */
+ .sticky-nav {
+   background-image: none !important;
  }
 
  /* Add padding to body when nav is sticky */
@@ -171,7 +178,8 @@ color: #FFFFFFFF !important;
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const navbar = document.getElementById('mainnav');
-    const originalOffset = navbar.offsetTop;
+    const navbarHeight = navbar.offsetHeight;
+    const originalOffset = navbar.offsetTop + navbarHeight; // التثبيت يبدأ بعد ظهور الصورة كاملة
     
     function handleScroll() {
         if (window.pageYOffset >= originalOffset) {
