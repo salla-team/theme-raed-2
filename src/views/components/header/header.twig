@@ -42,6 +42,36 @@ color: #FFFFFFFF !important;
           transform: translateX(-100%);
         }
       }
+
+      /* Sticky Navigation Styles */
+      .sticky-nav {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        min-height: auto !important;
+      }
+
+      .sticky-nav .inner {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+      }
+
+      .sticky-nav .overlay {
+        display: none !important;
+      }
+
+      /* Add padding to body when nav is sticky */
+      body.nav-sticky {
+        padding-top: 80px;
+      }
     </style>
 
   {# Top Nav - منطقة البحث بدون صورة خلفية #}
@@ -85,7 +115,7 @@ color: #FFFFFFFF !important;
   {# Main Nav - الصورة الخلفية تبدأ من هنا #}
   <div id="mainnav" class="main-nav-container shadow-default modern-main-nav" style="position: relative; background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/c03014231305789.6887489fbbb3f.gif'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 650px;">
     {# Overlay for better text readability #}
-    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0;"></div>
+    <div class="overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0;"></div>
     <div class="inner bg-inherit" style="position: absolute; top: 0; left: 0; right: 0; z-index: 2;">
         <div class="container">
             <div class="flex items-stretch justify-between relative">
@@ -123,3 +153,22 @@ color: #FFFFFFFF !important;
 {% if store.scope %}
     <salla-scopes selection="{{ store.scope.display_as == 'popup' ? 'mandatory' : 'optional' }}"></salla-scopes>
 {% endif %}
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const navbar = document.getElementById('mainnav');
+    const originalOffset = navbar.offsetTop;
+    
+    function handleScroll() {
+        if (window.pageYOffset >= originalOffset) {
+            navbar.classList.add('sticky-nav');
+            document.body.classList.add('nav-sticky');
+        } else {
+            navbar.classList.remove('sticky-nav');
+            document.body.classList.remove('nav-sticky');
+        }
+    }
+    
+    window.addEventListener('scroll', handleScroll);
+});
+</script>
