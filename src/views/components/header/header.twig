@@ -25,12 +25,15 @@
 color: #FFFFFFFF !important;
 
       }
-      #mainnav {
-  position: fixed !important;
+      .modern-main-menu {
+  position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
-  z-index: 9999;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10000;
+  background: rgba(255, 255, 255, 0.9); /* خلفية شبه شفافة */
+  padding: 10px 20px;
+  border-radius: 8px;
 }
 
       .animated-text {
