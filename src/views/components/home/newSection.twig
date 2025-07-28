@@ -4,7 +4,8 @@
     <!-- ميزة 1 -->
     <div class="feature-box fade-item">
       <div class="icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#F5F5DC" width="40" height="40">
+        <!-- أيقونة عملاء -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#F5F5DC" width="42" height="42">
           <path d="M12 12c2.7 0 4.8-2.2 4.8-4.8S14.7 2.4 12 2.4 7.2 4.6 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
         </svg>
       </div>
@@ -15,7 +16,8 @@
     <!-- ميزة 2 -->
     <div class="feature-box fade-item">
       <div class="icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFD700" width="40" height="40">
+        <!-- أيقونة التقييم -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFD700" width="42" height="42">
           <path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.78 1.4 8.174L12 18.897l-7.334 3.852 1.4-8.174L.132 9.21l8.2-1.192z"/>
         </svg>
       </div>
@@ -26,8 +28,11 @@
     <!-- ميزة 3 -->
     <div class="feature-box fade-item">
       <div class="icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#F5F5DC" width="40" height="40">
-          <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+        <!-- أيقونة عدد التقييمات الجديدة -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#F5F5DC" width="42" height="42">
+          <path d="M21 6h-2V4a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H3c-1.1 0-2 .9-2 2v11c0 1.1.9 2 
+                   2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM7 4h10v2H7V4zm0 7h5v5H7v-5zm12 
+                   9H3V8h2v2h14V8h2v12z"/>
         </svg>
       </div>
       <h3 class="counter" data-target="399">0</h3>
@@ -40,17 +45,17 @@
 .store-features {
   background: #F5F5DC;
   color: #3A4F20;
-  padding: 30px 15px;
-  border-radius: 12px;
+  padding: 40px 15px;
+  border-radius: 14px;
   text-align: center;
   direction: rtl;
-  margin: 20px 0;
+  margin: 30px 0;
 }
 
 .section-title {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   color: #556B2F;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   font-weight: bold;
 }
 
@@ -58,56 +63,58 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 25px;
 }
 
 .feature-box {
-  background: #89b929ff;
-  padding: 20px;
-  border-radius: 12px;
-  width: 180px;
-  transition: transform 0.3s ease, opacity 0.5s ease;
+  background: #6B8E23;
+  padding: 25px 20px;
+  border-radius: 14px;
+  width: 190px;
   color: #fff;
   opacity: 0;
-  transform: scale(0.8);
+  transform: translateY(30px) scale(0.9);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .feature-box.visible {
   opacity: 1;
-  transform: scale(1);
+  transform: translateY(0) scale(1);
 }
 
 .feature-box:hover {
-  transform: scale(1.05);
+  transform: translateY(-5px) scale(1.05);
   background: #556B2F;
 }
 
 .icon {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .feature-box h3 {
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   color: #F5F5DC;
-  margin: 5px 0;
+  margin: 6px 0;
   font-weight: bold;
 }
 
 .feature-box p {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: #F5F5DC;
 }
 
+/* متجاوب */
 @media (max-width: 768px) {
   .features-container {
-    gap: 15px;
+    gap: 18px;
   }
   .feature-box {
-    width: 140px;
-    padding: 15px;
+    width: 150px;
+    padding: 18px;
   }
   .feature-box h3 {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
   }
 }
 </style>
@@ -115,7 +122,6 @@
 <script>
 function animateCounterEaseOut(counter) {
   const target = +counter.getAttribute('data-target');
-  let start = 0;
   let startTime = null;
   const duration = 2000;
 
@@ -139,19 +145,19 @@ function animateCounterEaseOut(counter) {
   requestAnimationFrame(update);
 }
 
-const counters = document.querySelectorAll('.counter');
 const featureBoxes = document.querySelectorAll('.feature-box');
 
 const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
+  entries.forEach((entry, index) => {
+    const box = entry.target;
+    const counter = box.querySelector('.counter');
+
     if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      const counter = entry.target.querySelector('.counter');
+      setTimeout(() => box.classList.add('visible'), index * 200); // Stagger Animation
       if (counter) animateCounterEaseOut(counter);
     } else {
-      entry.target.classList.remove('visible');
-      const counter = entry.target.querySelector('.counter');
-      if (counter) counter.textContent = "0"; // إعادة التصفير عند الخروج
+      box.classList.remove('visible');
+      if (counter) counter.textContent = "0";
     }
   });
 }, { threshold: 0.5 });
