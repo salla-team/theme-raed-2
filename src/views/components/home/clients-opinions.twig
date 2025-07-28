@@ -18,12 +18,13 @@
         </svg>
       </button>
 
-      <!-- الإجابة مخفية افتراضياً -->
+      <!-- نخلي الإجابة متخبية بالكامل -->
       <div
         x-show="selected === {{ loop.index0 }}"
         x-transition
         x-cloak
-        class="hidden text-sm text-[#3b523d] mt-2"
+        style="display:none"
+        class="text-sm text-[#3b523d] mt-2"
       >
         {{ faq.a }}
       </div>
