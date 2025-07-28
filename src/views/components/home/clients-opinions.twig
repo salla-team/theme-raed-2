@@ -17,11 +17,13 @@
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
         </svg>
       </button>
+
+      <!-- الإجابة مخفية افتراضياً -->
       <div
         x-show="selected === {{ loop.index0 }}"
         x-transition
         x-cloak
-        class="text-sm text-[#3b523d] mt-2"
+        class="hidden text-sm text-[#3b523d] mt-2"
       >
         {{ faq.a }}
       </div>
@@ -34,5 +36,5 @@
     Alpine.data('faqComponent', () => ({
       selected: null
     }))
-  })
+  })
 </script>
