@@ -3,21 +3,36 @@
   <div class="features-container">
     <!-- ميزة 1 -->
     <div class="feature-box">
-      <img src="path/to/icon1.png" alt="عدد العملاء">
+      <div class="icon">
+        <!-- أيقونة عملاء -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#F5F5DC" width="40" height="40">
+          <path d="M12 12c2.7 0 4.8-2.2 4.8-4.8S14.7 2.4 12 2.4 7.2 4.6 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+        </svg>
+      </div>
       <h3 class="counter" data-target="2793">0</h3>
       <p>+ عميل يحب منتجاتنا</p>
     </div>
 
     <!-- ميزة 2 -->
     <div class="feature-box">
-      <img src="path/to/icon2.png" alt="التقييم">
+      <div class="icon">
+        <!-- أيقونة التقييم -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFD700" width="40" height="40">
+          <path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.78 1.4 8.174L12 18.897l-7.334 3.852 1.4-8.174L.132 9.21l8.2-1.192z"/>
+        </svg>
+      </div>
       <h3 class="counter" data-target="5">0</h3>
       <p>5/5 أفضل متجر</p>
     </div>
 
     <!-- ميزة 3 -->
     <div class="feature-box">
-      <img src="path/to/icon3.png" alt="عدد التقييمات">
+      <div class="icon">
+        <!-- أيقونة عدد التقييمات -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#F5F5DC" width="40" height="40">
+          <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+        </svg>
+      </div>
       <h3 class="counter" data-target="399">0</h3>
       <p>+ عدد التقييمات</p>
     </div>
@@ -27,7 +42,7 @@
 <style>
 .store-features {
   background: #F5F5DC; /* بيج */
-  color: #3A4F20; /* أخضر زيتي داكن للنصوص */
+  color: #3A4F20; /* نصوص أخضر زيتي */
   padding: 30px 15px;
   border-radius: 12px;
   text-align: center;
@@ -50,7 +65,7 @@
 }
 
 .feature-box {
-  background: #6B8E23; /* أخضر زيتي */
+  background: #a3e917ff; /* أخضر زيتي */
   padding: 20px;
   border-radius: 12px;
   width: 180px;
@@ -60,12 +75,10 @@
 
 .feature-box:hover {
   transform: scale(1.05);
-  background: #556B2F;
+  background: #384e12ff;
 }
 
-.feature-box img {
-  width: 40px;
-  height: 40px;
+.icon {
   margin-bottom: 10px;
 }
 
@@ -74,7 +87,6 @@
   color: #F5F5DC; /* الأرقام بالبيج */
   margin: 5px 0;
   font-weight: bold;
-  cursor: pointer;
 }
 
 .feature-box p {
@@ -98,26 +110,31 @@
 </style>
 
 <script>
-document.querySelectorAll('.counter').forEach(counter => {
-  let started = false;
+function animateCounter(counter) {
+  const target = +counter.getAttribute('data-target');
+  let count = 0;
+  counter.textContent = "0";
+  const speed = Math.ceil(target / 60);
 
-  counter.addEventListener('mouseenter', () => {
-    if (started) return;
-    started = true;
-
-    const target = +counter.getAttribute('data-target');
-    let count = 0;
-    const speed = Math.ceil(target / 60);
-
-    function updateCount() {
-      if (count < target) {
-        count += speed;
-        counter.textContent = count > target ? target : count;
-        requestAnimationFrame(updateCount);
-      }
+  function updateCount() {
+    if (count < target) {
+      count += speed;
+      counter.textContent = count > target ? target : count;
+      requestAnimationFrame(updateCount);
     }
+  }
+  updateCount();
+}
 
-    updateCount();
+// استخدام IntersectionObserver لتشغيل العد عند ظهور العنصر
+const counters = document.querySelectorAll('.counter');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateCounter(entry.target);
+    }
   });
-});
+}, { threshold: 0.6 });
+
+counters.forEach(counter => observer.observe(counter));
 </script>
