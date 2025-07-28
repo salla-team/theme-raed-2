@@ -1,24 +1,126 @@
-
-
-
-<section class="s-block s-block--default home-slider s-block--full-bg">
-    <salla-slider auto-play pagination type="fullwidth">
-        <div slot="items">
-            {% for banner in component.banner %}
-<div class="bg-no-repeat bg-cover swiper-slide swiper-lazy-wrap" style="background-color: black; height:900px; background-image: url('{{ banner.image }}')">
-                    <div class="container flex text-center items-center justify-center sm:justify-start ltr:sm:justify-end px-8 py-16 lg:px-12 lg:py-20 home-slider__content relative h-full">
-                        <div class="text-white w-full">
-                            <h3 class="" data-swiper-parallax="-300">
-                                {{ banner.title }}
-                            </h3>
-                            <p data-swiper-parallax="-700">
-                                {{ banner.subtitle }}
-                            </p>
-                            
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-    </salla-slider>
+<section class="popular-products">
+  <h2 class="section-title">تصنيفات شائعة</h2>
+  <div class="carousel-container">
+    <div class="carousel-track">
+      <!-- المنتج 1 -->
+      <div class="product-card">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/aef1ce208772593.66f42369aa7b3.png" alt="سماعات ذكية">
+        <p>سماعات ذكية</p>
+      </div>
+      <!-- المنتج 2 -->
+      <div class="product-card">
+        <img src="path/to/image2.png" alt="ماوس وكيبورد">
+        <p>ماوس وكيبورد</p>
+      </div>
+      <!-- المنتج 3 -->
+      <div class="product-card">
+        <img src="path/to/image3.png" alt="أجهزة لابتوب">
+        <p>أجهزة لابتوب</p>
+      </div>
+      <!-- المنتج 4 -->
+      <div class="product-card">
+        <img src="path/to/image4.png" alt="كاميرات">
+        <p>كاميرات</p>
+      </div>
+      <!-- المنتج 5 -->
+      <div class="product-card">
+        <img src="path/to/image5.png" alt="ساعات ذكية">
+        <p>ساعات ذكية</p>
+      </div>
+      <!-- المنتج 6 -->
+      <div class="product-card">
+        <img src="path/to/image6.png" alt="أجهزة ألعاب">
+        <p>أجهزة ألعاب</p>
+      </div>
+    </div>
+  </div>
 </section>
+
+<style>
+.popular-products {
+  background: #F5F5DC; /* بيج */
+  padding: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  direction: rtl;
+}
+
+.section-title {
+  text-align: right;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #3A4F20; /* أخضر زيتي داكن */
+  font-weight: bold;
+}
+
+.carousel-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 15px;
+  animation: scroll 18s linear infinite;
+}
+
+.product-card {
+  min-width: 120px;
+  max-width: 150px;
+  flex: 0 0 auto;
+  background: #6B8E23; /* أخضر زيتي */
+  border-radius: 12px;
+  text-align: center;
+  padding: 10px;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+}
+
+.product-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 50%;
+  margin-bottom: 8px;
+  padding: 8px;
+}
+
+.product-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+/* أنيميشن الحركة */
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* متجاوب */
+@media (max-width: 768px) {
+  .carousel-track {
+    gap: 10px;
+  }
+  .product-card {
+    min-width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-card {
+    min-width: 90px;
+    padding: 8px;
+  }
+  .product-card img {
+    width: 60px;
+    height: 60px;
+  }
+}
+</style>
