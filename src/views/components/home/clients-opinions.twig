@@ -1,0 +1,31 @@
+<section class="bg-[#f4f6f4] p-6 rounded-xl shadow-md" x-data="faqComponent()">
+  <h2 class="text-center text-2xl font-bold text-[#1f3526] mb-6">إجابات على أهم الأسئلة</h2>
+
+  {% for faq in [
+    { "q": "ما هو متجرنا الإلكتروني؟", "a": "متجر يقدم مستحضرات تجميل عالية الجودة بطريقة آمنة وسهلة." },
+    { "q": "ما هي طريقة الطلب من المتجر؟", "a": "اختاري المنتجات المفضلة، أضيفيها للسلة، وأكملي عملية الدفع." },
+    { "q": "هل يمكن استرجاع واستبدال الطلبات؟", "a": "نعم، خلال 7 أيام من الاستلام، بشرط عدم فتح المنتج." },
+    { "q": "ما هي طرق التواصل مع الدعم؟", "a": "من خلال صفحة اتصلي بنا أو عبر واتساب وخدمة العملاء المباشرة." }
+  ] %}
+    <div class="mb-4 border-b border-[#3b523d] pb-3">
+      <button
+        class="w-full text-right text-lg font-semibold text-[#1f3526] flex justify-between items-center"
+        @click="selected === {{ loop.index0 }} ? selected = null : selected = {{ loop.index0 }}"
+      >
+        <span>{{ faq.q }}</span>
+        <svg :class="{ 'rotate-45': selected === {{ loop.index0 }} }" class="w-6 h-6 transform transition-transform duration-300 text-[#3b523d]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+        </svg>
+      </button>
+      <div x-show="selected === {{ loop.index0 }}" x-transition class="text-sm text-[#3b523d] mt-2">{{ faq.a }}</div>
+    </div>
+  {% endfor %}
+</section>
+
+<script>
+  document.addEventListener('alpine:init', () => {
+    Alpine.data('faqComponent', () => ({
+      selected: null
+    }))
+  })
+</script>
