@@ -170,8 +170,6 @@ featureBoxes.forEach(box => observer.observe(box));
 
 
 
-{# WhatsApp Floating Button for Salla Theme - Add in footer.twig or base.twig #}
-
 <style>
   #whatsapp-widget {
     position: fixed;
@@ -193,6 +191,11 @@ featureBoxes.forEach(box => observer.observe(box));
     font-family: "Arial", sans-serif;
   }
 
+  /* ✅ يظهر لما الرابط يكون مستهدف */
+  #whatsapp-popup:target {
+    display: block;
+  }
+
   #whatsapp-popup-header {
     display: flex;
     justify-content: space-between;
@@ -208,21 +211,16 @@ featureBoxes.forEach(box => observer.observe(box));
     font-size: 14px;
   }
 
-  #whatsapp-popup button {
+  #whatsapp-popup a.button {
+    display: block;
     background-color: #25d366;
     color: white;
-    border: none;
+    text-align: center;
+    text-decoration: none;
     padding: 10px 20px;
     margin-top: 10px;
     border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
     font-size: 14px;
-  }
-
-  #whatsapp-popup .close-btn {
-    cursor: pointer;
-    font-size: 18px;
   }
 
   #whatsapp-widget img {
@@ -230,33 +228,28 @@ featureBoxes.forEach(box => observer.observe(box));
     height: 48px;
     cursor: pointer;
   }
+
+  /* زر الإغلاق */
+  .close-btn {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+  }
 </style>
 
+<!-- أيقونة واتساب -->
 <div id="whatsapp-widget">
-  <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp" onclick="toggleWhatsappPopup()" />
+  <a href="#whatsapp-popup"><img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp" /></a>
 </div>
 
+<!-- البوب أب -->
 <div id="whatsapp-popup">
   <div id="whatsapp-popup-header">
     خدمة عملاء الزيت المثالي
-    <span class="close-btn" onclick="toggleWhatsappPopup()">×</span>
+    <a href="#" class="close-btn">×</a>
   </div>
   <div id="whatsapp-popup-content">
     <p>مرحباً بك،<br>نحن متواجدون لخدمتك</p>
-    <button onclick="openWhatsapp()">تواصل معنا <i class="fa fa-whatsapp"></i></button>
+    <a href="https://wa.me/01018456340" target="_blank" class="button">تواصل معنا</a>
   </div>
 </div>
-
-<script>
-  const phoneNumber = "966500000000";
-
-  function toggleWhatsappPopup() {
-    const popup = document.getElementById('whatsapp-popup');
-    popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
-  }
-
-  function openWhatsapp() {
-    const link = `https://wa.me/${phoneNumber}`;
-    window.open(link, '_blank');
-  }
-</script>
