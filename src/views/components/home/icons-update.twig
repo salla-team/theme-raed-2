@@ -113,3 +113,58 @@
 }
 
 </style>
+
+
+
+
+
+
+
+<section class="categories-section" style="padding: 40px 20px; background-color: #f9f9f9;">
+  <h2 style="text-align: center; font-size: 24px; font-weight: bold; margin-bottom: 30px;">تسوقي حسب التصنيف</h2>
+
+  <div class="categories-grid" style="
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  ">
+    {% set categories = [
+      { name: 'بلاشر', icon: '🥰' },
+      { name: 'ليب جلاس', icon: '💄' },
+      { name: 'روج', icon: '💋' },
+      { name: 'بودي سبلاش', icon: '🌸' },
+      { name: 'هايلايتر', icon: '✨' },
+      { name: 'ماسكارا', icon: '👁' }
+    ] %}
+
+    {% for category in categories %}
+      <div class="category-card" style="
+        background-color: white;
+        border-radius: 1rem;
+        padding: 1rem;
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease;
+      ">
+        <div class="category-icon" style="font-size: 2rem; margin-bottom: 0.5rem;">{{ category.icon }}</div>
+        <div class="category-title" style="font-weight: 500; font-size: 0.9rem;">{{ category.name }}</div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.category-card');
+      cards.forEach((card, index) => {
+        setTimeout(() => {
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, index * 200); // توقيت التدرج بين الكروت
+      });
+    });
+  </script>
+</section>
