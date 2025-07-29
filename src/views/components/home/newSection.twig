@@ -248,7 +248,6 @@ featureBoxes.forEach(box => observer.observe(box));
 </div>
 
 <script>
-  // ✅ غيّر الرقم هنا حسب صاحب المتجر (بدون +)
   const phoneNumber = "966500000000";
 
   function toggleWhatsappPopup() {
@@ -257,7 +256,7 @@ featureBoxes.forEach(box => observer.observe(box));
   }
 
   function openWhatsapp() {
-    const link = https://wa.me/${phoneNumber};
+    const link = `https://wa.me/${phoneNumber}`;
     window.open(link, '_blank');
-  }
+  }
 </script>
