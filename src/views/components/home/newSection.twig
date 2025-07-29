@@ -173,25 +173,37 @@ featureBoxes.forEach(box => observer.observe(box));
 <style>
   #whatsapp-widget {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 25px;
+    right: 25px;
     z-index: 9999;
+    transition: all 0.3s ease;
+  }
+
+  #whatsapp-widget:hover {
+    transform: scale(1.1);
   }
 
   #whatsapp-popup {
     display: none;
     position: fixed;
     bottom: 90px;
-    right: 20px;
+    right: 25px;
     background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    padding: 15px;
-    width: 280px;
-    font-family: "Arial", sans-serif;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    width: 300px;
+    max-width: 90%;
+    font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+    animation: fadeIn 0.3s ease;
+    border: 1px solid #e0e0e0;
   }
 
-  /* ✅ يظهر لما الرابط يكون مستهدف */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
   #whatsapp-popup:target {
     display: block;
   }
@@ -200,15 +212,22 @@ featureBoxes.forEach(box => observer.observe(box));
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-weight: bold;
-    color: #333;
-    font-size: 15px;
+    font-weight: 600;
+    color: #075e54;
+    font-size: 16px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f0f0f0;
   }
 
   #whatsapp-popup-content {
-    margin-top: 10px;
     color: #555;
     font-size: 14px;
+    line-height: 1.5;
+  }
+
+  #whatsapp-popup-content p {
+    margin-bottom: 15px;
   }
 
   #whatsapp-popup a.button {
@@ -217,23 +236,55 @@ featureBoxes.forEach(box => observer.observe(box));
     color: white;
     text-align: center;
     text-decoration: none;
-    padding: 10px 20px;
-    margin-top: 10px;
-    border-radius: 5px;
-    font-size: 14px;
+    padding: 12px 20px;
+    margin-top: 15px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(37, 211, 102, 0.3);
+  }
+
+  #whatsapp-popup a.button:hover {
+    background-color: #128c7e;
   }
 
   #whatsapp-widget img {
-    width: 48px;
-    height: 48px;
+    width: 56px;
+    height: 56px;
     cursor: pointer;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
   }
 
-  /* زر الإغلاق */
   .close-btn {
     text-decoration: none;
+    color: #888;
+    font-size: 22px;
+    line-height: 1;
+    transition: color 0.2s ease;
+  }
+
+  .close-btn:hover {
     color: #333;
-    font-size: 18px;
+  }
+
+  /* تأثيرات للهواتف */
+  @media (max-width: 768px) {
+    #whatsapp-widget {
+      bottom: 15px;
+      right: 15px;
+    }
+    
+    #whatsapp-popup {
+      right: 15px;
+      width: 280px;
+    }
+    
+    #whatsapp-widget img {
+      width: 50px;
+      height: 50px;
+    }
   }
 </style>
 
@@ -245,11 +296,13 @@ featureBoxes.forEach(box => observer.observe(box));
 <!-- البوب أب -->
 <div id="whatsapp-popup">
   <div id="whatsapp-popup-header">
-    خدمة عملاء الزيت المثالي
-    <a href="#" class="close-btn">×</a>
+    <span>💬 خدمة العملاء</span>
+    <a href="#" class="close-btn" aria-label="إغلاق">×</a>
   </div>
   <div id="whatsapp-popup-content">
-    <p>مرحباً بك،<br>نحن متواجدون لخدمتك</p>
-    <a href="https://wa.me/01070682455" target="_blank" class="button">تواصل معنا</a>
+    <p>مرحباً بك عزيزنا العميل،<br>نحن هنا لمساعدتك على مدار الساعة. لا تتردد في التواصل معنا عبر واتساب.</p>
+    <a href="https://wa.me/01070682455" target="_blank" rel="noopener" class="button">
+      💬 ابدأ المحادثة الآن
+    </a>
   </div>
 </div>
