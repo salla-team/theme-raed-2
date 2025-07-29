@@ -120,56 +120,86 @@
 
 
 
-<section style="padding: 40px 0; background-color: #fef2f5;">
-  <h2 style="text-align: center; font-size: 24px; font-weight: bold; margin-bottom: 30px;">تسوقي حسب التصنيف</h2>
+<section style="background-color: #fef2f5; padding: 40px 0; overflow: hidden;">
+  <h2 style="text-align: center; font-size: 24px; font-weight: bold; margin-bottom: 30px;">
+    تسوقي حسب التصنيف
+  </h2>
 
-  <div class="carousel-container" style="overflow-x: auto; white-space: nowrap; scroll-behavior: smooth; padding: 0 20px;">
-    <div class="carousel-track" style="display: inline-flex; gap: 20px;">
-
+  <div class="slider-wrapper">
+    <div class="slider-track">
       {% set categories = [
-        { name: 'كونسيلر', image: 'https://i.postimg.cc/XYzzCfn8/concealer.png' },
-        { name: 'بلاشر', image: 'https://i.postimg.cc/Ghwgkn0v/blusher.png' },
-        { name: 'احمر الشفاه', image: 'https://i.postimg.cc/mr3s6PY7/lipstick.png' },
-        { name: 'الحواجب', image: 'https://i.postimg.cc/XJ0xyLCN/brows.png' },
-        { name: 'البودر', image: 'https://i.postimg.cc/nzHryRQj/powder.png' }
+        { name: 'كونسيلر', image: 'https://i.postimg.cc/J7fML0kk/concealer.png', link: '/category/concealer' },
+        { name: 'بلاشر', image: 'https://i.postimg.cc/Ghwgkn0v/blusher.png', link: '/category/blusher' },
+        { name: 'احمر الشفاه', image: 'https://i.postimg.cc/mr3s6PY7/lipstick.png', link: '/category/lipstick' },
+        { name: 'الحواجب', image: 'https://i.postimg.cc/2SwZ84qw/lip-gloss.png', link: '/category/eyebrow' },
+        { name: 'البودر', image: 'https://i.postimg.cc/Kzb9zTtv/bodysplash.png', link: '/category/powder' }
       ] %}
 
-      {% for cat in categories %}
-        <div style="
-          background-color: #fbd6df;
-          border-radius: 50%;
-          width: 120px;
-          height: 120px;
-          flex: 0 0 auto;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          position: relative;
-          overflow: hidden;
-        ">
-          <img src="{{ cat.image }}" alt="{{ cat.name }}" style="width: 70px; height: auto;">
-          <div style="position: absolute; bottom: -20px; width: 100%; text-align: center; font-size: 13px; font-weight: bold; color: #333; background: transparent;">
-            {{ cat.name }}
-          </div>
-        </div>
+      {% for i in 1..2 %}
+        {% for cat in categories %}
+          <a href="{{ cat.link }}" class="slider-item">
+            <div class="image-circle">
+              <img src="{{ cat.image }}" alt="{{ cat.name }}">
+            </div>
+            <p>{{ cat.name }}</p>
+          </a>
+        {% endfor %}
       {% endfor %}
-
     </div>
   </div>
 
-  <script>
-    // سكرول تلقائي بسيط
-    document.addEventListener('DOMContentLoaded', () => {
-      const container = document.querySelector('.carousel-container');
-      let scrollAmount = 0;
-      setInterval(() => {
-        scrollAmount += 1;
-        container.scrollLeft += 1;
-        if (scrollAmount > container.scrollWidth - container.clientWidth) {
-          container.scrollLeft = 0;
-          scrollAmount = 0;
-        }
-      }, 30); // سرعة الحركة
-    });
-  </script>
+  <style>
+    .slider-wrapper {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      direction: rtl;
+    }
+
+    .slider-track {
+      display: flex;
+      gap: 40px;
+      animation: scroll-left 20s linear infinite;
+      width: max-content;
+    }
+
+    .slider-item {
+      text-align: center;
+      flex: 0 0 auto;
+      transition: transform 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .slider-item:hover {
+      transform: scale(1.1);
+    }
+
+    .image-circle {
+      background-color: #fbd6df;
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+    }
+
+    .image-circle img {
+      width: 60px;
+      height: auto;
+    }
+
+    .slider-item p {
+      margin-top: 10px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    @keyframes scroll-left {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+  </style>
 </section>
