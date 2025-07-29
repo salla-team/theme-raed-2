@@ -136,7 +136,7 @@
         { name: 'ماسكارا', image: 'https://i.postimg.cc/4yTX9brW/mascara.png', link: '/category/mascara' }
       ] %}
 
-      {% for i in 1..3 %}
+      {% for i in 1..4 %}
         {% for cat in categories %}
           <a href="{{ cat.link }}" class="item">
             <div class="circle">
@@ -159,8 +159,8 @@
 
     .track {
       display: flex;
-      width: max-content;
-      animation: scrollLoop 40s linear infinite;
+      width: fit-content;
+      animation: scrollLoop 30s linear infinite;
     }
 
     .item {
@@ -200,7 +200,7 @@
 
     @keyframes scrollLoop {
       0%   { transform: translateX(0); }
-      100% { transform: translateX(-33.333%); } /* العرض حسب التكرار */
+      100% { transform: translateX(-50%); }
     }
   </style>
 </section>
