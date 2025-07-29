@@ -205,32 +205,33 @@
     }
 
 
-    #div1 {
-   background-size: contain;    /* تظهر كاملة */
-   background-position: center;
-   background-repeat: no-repeat;
-   aspect-ratio: 1024 / 525;      /* نسبة العرض إلى الارتفاع */
-   width: 100%;
-   transition: all 0.3s ease; /* انتقال سلس */
- }
   </style>
 </section>
 
 
-<div   id="div1"   style="position: relative; background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/31a8d9231305789.6888f45dc6124.gif'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 650px;">
+<div id="div1"
+   style="position: relative; 
+          background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/31a8d9231305789.6888f45dc6124.gif'); 
+          background-position: center; 
+          background-repeat: no-repeat; 
+          min-height: 650px;">
+</div>
 
- </div>
-
-  <style>
-
+<style>
   #div1 {
-   background-size: contain;    /* تظهر كاملة */
-   background-position: center;
-   background-repeat: no-repeat;
-   aspect-ratio: 1024 / 525;      /* نسبة العرض إلى الارتفاع */
-   width: 100%;
-   transition: all 0.3s ease; /* انتقال سلس */
- }
-  </style>
+    background-size: cover;  /* وضع افتراضي للكمبيوتر */
+    background-position: center;
+    background-repeat: no-repeat;
+    aspect-ratio: 1024 / 525;
+    width: 100%;
+    transition: all 0.3s ease;
+  }
 
- 
+  /* على الموبايل */
+  @media (max-width: 768px) {
+    #div1 {
+      background-size: contain; /* تظهر كاملة */
+      min-height: 300px;        /* ارتفاع مناسب للموبايل */
+    }
+  }
+</style>
