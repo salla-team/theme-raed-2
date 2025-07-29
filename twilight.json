@@ -1316,6 +1316,13 @@
             "icon": "sicon-store",
             "path": "home.clients-opinions",
             "fields": []
+        },
+        {
+            "key": "2d4cddba-eb99-406e-98a9-7eec2a5390ef",
+            "title": "icons-update",
+            "icon": "sicon-store",
+            "path": "home.icons-update",
+            "fields": []
         }
     ],
     "support_url": "https://salla.com/",
