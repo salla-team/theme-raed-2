@@ -120,51 +120,56 @@
 
 
 
-<section class="categories-section" style="padding: 40px 20px; background-color: #f9f9f9;">
+<section style="padding: 40px 0; background-color: #fef2f5;">
   <h2 style="text-align: center; font-size: 24px; font-weight: bold; margin-bottom: 30px;">تسوقي حسب التصنيف</h2>
 
-  <div class="categories-grid" style="
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 20px;
-    max-width: 900px;
-    margin: 0 auto;
-  ">
-    {% set categories = [
-      { name: 'بلاشر', icon: '🥰' },
-      { name: 'ليب جلاس', icon: '💄' },
-      { name: 'روج', icon: '💋' },
-      { name: 'بودي سبلاش', icon: '🌸' },
-      { name: 'هايلايتر', icon: '✨' },
-      { name: 'ماسكارا', icon: '👁' }
-    ] %}
+  <div class="carousel-container" style="overflow-x: auto; white-space: nowrap; scroll-behavior: smooth; padding: 0 20px;">
+    <div class="carousel-track" style="display: inline-flex; gap: 20px;">
 
-    {% for category in categories %}
-      <div class="category-card" style="
-        background-color: white;
-        border-radius: 1rem;
-        padding: 1rem;
-        text-align: center;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.6s ease;
-      ">
-        <div class="category-icon" style="font-size: 2rem; margin-bottom: 0.5rem;">{{ category.icon }}</div>
-        <div class="category-title" style="font-weight: 500; font-size: 0.9rem;">{{ category.name }}</div>
-      </div>
-    {% endfor %}
+      {% set categories = [
+        { name: 'كونسيلر', image: 'https://i.postimg.cc/XYzzCfn8/concealer.png' },
+        { name: 'بلاشر', image: 'https://i.postimg.cc/Ghwgkn0v/blusher.png' },
+        { name: 'احمر الشفاه', image: 'https://i.postimg.cc/mr3s6PY7/lipstick.png' },
+        { name: 'الحواجب', image: 'https://i.postimg.cc/XJ0xyLCN/brows.png' },
+        { name: 'البودر', image: 'https://i.postimg.cc/nzHryRQj/powder.png' }
+      ] %}
+
+      {% for cat in categories %}
+        <div style="
+          background-color: #fbd6df;
+          border-radius: 50%;
+          width: 120px;
+          height: 120px;
+          flex: 0 0 auto;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          overflow: hidden;
+        ">
+          <img src="{{ cat.image }}" alt="{{ cat.name }}" style="width: 70px; height: auto;">
+          <div style="position: absolute; bottom: -20px; width: 100%; text-align: center; font-size: 13px; font-weight: bold; color: #333; background: transparent;">
+            {{ cat.name }}
+          </div>
+        </div>
+      {% endfor %}
+
+    </div>
   </div>
 
   <script>
+    // سكرول تلقائي بسيط
     document.addEventListener('DOMContentLoaded', () => {
-      const cards = document.querySelectorAll('.category-card');
-      cards.forEach((card, index) => {
-        setTimeout(() => {
-          card.style.opacity = '1';
-          card.style.transform = 'translateY(0)';
-        }, index * 200); // توقيت التدرج بين الكروت
-      });
+      const container = document.querySelector('.carousel-container');
+      let scrollAmount = 0;
+      setInterval(() => {
+        scrollAmount += 1;
+        container.scrollLeft += 1;
+        if (scrollAmount > container.scrollWidth - container.clientWidth) {
+          container.scrollLeft = 0;
+          scrollAmount = 0;
+        }
+      }, 30); // سرعة الحركة
     });
   </script>
 </section>
