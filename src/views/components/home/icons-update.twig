@@ -1,31 +1,31 @@
 <section class="features-section">
+  <!-- شحن سريع -->
   <div class="feature-card">
     <div class="icon">
-      <!-- SVG الشحن -->
-      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" viewBox="0 0 24 24">
-        <path d="M3 3h13v13H3V3zm10 15a2 2 0 114 0 2 2 0 01-4 0zM5 18a2 2 0 114 0 2 2 0 01-4 0z"/>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="50" height="50" fill="white">
+        <path d="M2 12h34v28H2zM36 20h14l10 12v8H36zM14 44a6 6 0 11-6 6 6 6 0 016-6zm30 0a6 6 0 11-6 6 6 6 0 016-6z"/>
       </svg>
     </div>
     <h3>شحن سريع</h3>
     <p>استلم طلبك في وقت قياسي</p>
   </div>
 
+  <!-- خدمة العملاء -->
   <div class="feature-card">
     <div class="icon">
-      <!-- SVG خدمة العملاء -->
-      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" viewBox="0 0 24 24">
-        <path d="M12 2a10 10 0 00-10 10v4a2 2 0 002 2h2v-8H4a8 8 0 0116 0h-2v8h2a2 2 0 002-2v-4A10 10 0 0012 2z"/>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="50" height="50" fill="white">
+        <path d="M32 6a26 26 0 00-26 26v8a6 6 0 006 6h4V30H12a20 20 0 1140 0h-4v16h4a6 6 0 006-6v-8A26 26 0 0032 6z"/>
       </svg>
     </div>
     <h3>خدمة العملاء</h3>
     <p>تواصل معنا في أي وقت</p>
   </div>
 
+  <!-- تسوق آمن -->
   <div class="feature-card">
     <div class="icon">
-      <!-- SVG تسوق آمن -->
-      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" viewBox="0 0 24 24">
-        <path d="M4 4h16v2H4zm0 4h16v12H4z"/>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="50" height="50" fill="white">
+        <path d="M8 12h48v8H8zm4 12h40v28H12z"/>
       </svg>
     </div>
     <h3>تسوق آمن</h3>
@@ -33,66 +33,62 @@
   </div>
 </section>
 
-<style>
+
 
 .features-section {
   display: flex;
   justify-content: center;
-  gap: 30px;
-  padding: 50px 20px;
+  gap: 35px;
+  padding: 60px 20px;
   background: #fffaf3; /* بيج فاتح */
   direction: rtl;
 }
 
 .feature-card {
   background: #fff;
-  border-radius: 15px;
-  padding: 30px 20px;
+  border-radius: 18px;
+  padding: 35px 25px;
   text-align: center;
-  width: 250px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  width: 270px;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   opacity: 0;
   transform: translateY(50px);
   animation: fadeUp 0.8s forwards;
 }
 
-.feature-card:nth-child(2) {
-  animation-delay: 0.3s;
-}
-.feature-card:nth-child(3) {
-  animation-delay: 0.6s;
-}
+.feature-card:nth-child(2) { animation-delay: 0.3s; }
+.feature-card:nth-child(3) { animation-delay: 0.6s; }
 
 .feature-card:hover {
-  transform: translateY(-10px) scale(1.05);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transform: translateY(-12px) scale(1.05);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
 }
 
 .icon {
-  background: #4b5d2c; /* أخضر زيتي */
-  width: 70px;
-  height: 70px;
+  background: linear-gradient(135deg, #4b5d2c, #5f7340); /* تدرج أخضر زيتي */
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 15px;
+  margin: 0 auto 20px;
   animation: bounce 2s infinite;
 }
 
 .feature-card h3 {
-  color: #2f3e1d; /* أخضر غامق */
-  font-size: 18px;
-  margin-bottom: 8px;
+  color: #2f3e1d;
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
 .feature-card p {
   color: #555;
-  font-size: 14px;
+  font-size: 15px;
 }
 
-/* Animation Keyframes */
+/* Animation */
 @keyframes fadeUp {
   to {
     opacity: 1;
@@ -112,5 +108,3 @@
     align-items: center;
   }
 }
-
-</style>
