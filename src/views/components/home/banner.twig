@@ -1,11 +1,5 @@
 <section class="popular-products">
-  <div class="section-header">
-    <h2 class="section-title">التصنيفات الشائعة</h2>
-    <div class="controls">
-      <button class="control-btn prev-btn" aria-label="السابق">‹</button>
-      <button class="control-btn next-btn" aria-label="التالي">›</button>
-    </div>
-  </div>
+  <h2 class="section-title">التصنيفات الشائعة</h2>
   <div class="carousel-container">
     <div class="carousel-track">
       <div class="product-card">
@@ -50,7 +44,7 @@
 
 <style>
 .popular-products {
-  background: linear-gradient(135deg, #f9f9f9 0%, #f0f0f0 100%);
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9f5ee 100%);
   padding: 30px 20px;
   border-radius: 16px;
   margin: 30px auto;
@@ -59,19 +53,12 @@
   direction: rtl;
 }
 
-.section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 25px;
-  padding: 0 10px;
-}
-
 .section-title {
+  text-align: right;
   font-size: 1.8rem;
-  color: #2c3e50;
+  color: #2b5e3b;
   font-weight: 700;
-  margin: 0;
+  margin-bottom: 25px;
   position: relative;
   padding-right: 15px;
 }
@@ -83,35 +70,8 @@
   bottom: -8px;
   width: 60px;
   height: 3px;
-  background: linear-gradient(90deg, #e84393 0%, #fd79a8 100%);
+  background: linear-gradient(90deg, #2b5e3b 0%, #4caf50 100%);
   border-radius: 3px;
-}
-
-.controls {
-  display: flex;
-  gap: 10px;
-}
-
-.control-btn {
-  background: #fff;
-  border: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
-  font-size: 1.2rem;
-  color: #2c3e50;
-}
-
-.control-btn:hover {
-  background: #e84393;
-  color: white;
-  transform: translateY(-2px);
 }
 
 .carousel-container {
@@ -123,7 +83,13 @@
 .carousel-track {
   display: flex;
   gap: 25px;
-  transition: transform 0.5s ease;
+  animation: scroll 25s linear infinite;
+  will-change: transform;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 12.5px)); }
 }
 
 .product-card {
@@ -132,7 +98,7 @@
   background: white;
   border-radius: 16px;
   text-align: center;
-  color: #2c3e50;
+  color: #2b5e3b;
   box-shadow: 0 5px 15px rgba(0,0,0,0.08);
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   padding: 20px 15px;
@@ -152,7 +118,7 @@
   left: 0;
   width: 100%;
   height: 5px;
-  background: linear-gradient(90deg, #e84393 0%, #fd79a8 100%);
+  background: linear-gradient(90deg, #2b5e3b 0%, #4caf50 100%);
 }
 
 .card-img-container {
@@ -162,7 +128,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+  background: linear-gradient(135deg, #f0f9f2 0%, #e0f2e9 100%);
   border-radius: 50%;
   padding: 15px;
   transition: all 0.3s ease;
@@ -170,7 +136,7 @@
 
 .product-card:hover .card-img-container {
   transform: scale(1.05);
-  background: linear-gradient(135deg, #ffeef4 0%, #ffd6e7 100%);
+  background: linear-gradient(135deg, #e0f2e9 0%, #c8e6d5 100%);
 }
 
 .product-card img {
@@ -184,7 +150,7 @@
   margin: 0;
   font-size: 1.1rem;
   font-weight: 600;
-  color: #2c3e50;
+  color: #2b5e3b;
   padding-top: 10px;
 }
 
@@ -200,6 +166,8 @@
   .card-img-container {
     width: 100px;
     height: 100px;
+  padding: 12px;
+  margin-bottom: 12px;
   }
 }
 
@@ -210,6 +178,7 @@
   
   .carousel-track {
     gap: 15px;
+    animation-duration: 20s;
   }
   
   .product-card {
@@ -229,14 +198,13 @@
 }
 
 @media (max-width: 480px) {
-  .section-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
+  .popular-products {
+    padding: 20px 10px;
   }
   
-  .controls {
-    align-self: flex-end;
+  .section-title {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
   }
   
   .product-card {
@@ -246,34 +214,11 @@
   .card-img-container {
     width: 70px;
     height: 70px;
+    padding: 8px;
+  }
+  
+  .product-card p {
+    font-size: 0.9rem;
   }
 }
 </style>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const track = document.querySelector('.carousel-track');
-  const prevBtn = document.querySelector('.prev-btn');
-  const nextBtn = document.querySelector('.next-btn');
-  const cards = document.querySelectorAll('.product-card');
-  const cardWidth = cards[0].offsetWidth + 25; // width + gap
-  
-  let currentPosition = 0;
-  
-  nextBtn.addEventListener('click', function() {
-    currentPosition -= cardWidth * 2;
-    if (currentPosition < - (track.scrollWidth - track.offsetWidth)) {
-      currentPosition = 0;
-    }
-    track.style.transform = `translateX(${currentPosition}px)`;
-  });
-  
-  prevBtn.addEventListener('click', function() {
-    currentPosition += cardWidth * 2;
-    if (currentPosition > 0) {
-      currentPosition = - (track.scrollWidth - track.offsetWidth);
-    }
-    track.style.transform = `translateX(${currentPosition}px)`;
-  });
-});
-</script>
