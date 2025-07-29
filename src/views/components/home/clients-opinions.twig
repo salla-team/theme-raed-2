@@ -312,3 +312,106 @@
 
 
 
+<section class="features-section">
+  <div class="feature-card">
+    <div class="icon"><i class="fas fa-truck"></i></div>
+    <h3>شحن سريع</h3>
+    <p>استلم طلبك في وقت قياسي</p>
+  </div>
+
+  <div class="feature-card">
+    <div class="icon"><i class="fas fa-headset"></i></div>
+    <h3>خدمة العملاء</h3>
+    <p>تواصل معنا في أي وقت</p>
+  </div>
+
+  <div class="feature-card">
+    <div class="icon"><i class="fas fa-store"></i></div>
+    <h3>تسوق آمن</h3>
+    <p>استمتع بتجربة آمنة وخصوصية تامة</p>
+  </div>
+</section>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
+.features-section {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 50px 20px;
+  background: #fffaf3; /* بيج فاتح */
+  direction: rtl;
+}
+
+.feature-card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 30px 20px;
+  text-align: center;
+  width: 250px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeUp 0.8s forwards;
+}
+
+.feature-card:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.feature-card:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.icon {
+  background: #4b5d2c; /* أخضر زيتي */
+  color: #fff;
+  font-size: 28px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+  animation: bounce 2s infinite;
+}
+
+.feature-card h3 {
+  color: #2f3e1d; /* أخضر غامق */
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.feature-card p {
+  color: #555;
+  font-size: 14px;
+}
+
+/* Animation Keyframes */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .features-section {
+    flex-direction: column;
+    align-items: center;
+  }
+}
