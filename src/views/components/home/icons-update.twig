@@ -136,7 +136,7 @@
         { name: 'ماسكارا', image: 'https://i.postimg.cc/4yTX9brW/mascara.png', link: '/category/mascara' }
       ] %}
 
-      {% for i in 1..4 %}
+      {% for i in 1..2 %}
         {% for cat in categories %}
           <a href="{{ cat.link }}" class="item">
             <div class="circle">
@@ -159,14 +159,15 @@
 
     .track {
       display: flex;
-      width: fit-content;
+      width: calc(6 * 2 * 160px); /* 6 عناصر × مرتين × عرض العنصر تقريباً */
       animation: scrollLoop 30s linear infinite;
     }
 
     .item {
       text-align: center;
       flex: 0 0 auto;
-      margin: 0 20px;
+      width: 160px;
+      margin: 0 10px;
       text-decoration: none;
       color: inherit;
       transition: transform 0.3s ease;
