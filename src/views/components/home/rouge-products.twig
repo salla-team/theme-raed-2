@@ -20,8 +20,12 @@
         <p data-swiper-parallax="-700">
             {{ rouge_product1.name_product1 }}
         </p>
-        <p data-swiper-parallax="-700">
-            {{ rouge_product1.image_product1 }}
-        </p>
+       <img 
+    data-swiper-parallax="-700" 
+    src="{{ rouge_product1.image_product1 }}" 
+    alt="{{ rouge_product1.name_product1 }}" 
+    class="w-full h-auto"
+/>
+
     </div>
 {% endfor %}
