@@ -86,15 +86,7 @@ color: #FFFFFFFF !important;
    display: none !important;
  }
 
- /* إخفاء الصورة الخلفية عند التثبيت */
- .sticky-nav {
-   background-image: none !important;
- }
-
- /* Add padding to body when nav is sticky */
- body.nav-sticky {
-   padding-top: 80px;
- }
+ 
 
 
 
@@ -181,22 +173,3 @@ color: #FFFFFFFF !important;
     <salla-scopes selection="{{ store.scope.display_as == 'popup' ? 'mandatory' : 'optional' }}"></salla-scopes>
 {% endif %}
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const navbar = document.getElementById('mainnav');
-    const navbarHeight = navbar.offsetHeight;
-    const originalOffset = navbar.offsetTop + navbarHeight; // التثبيت يبدأ بعد ظهور الصورة كاملة
-    
-    function handleScroll() {
-        if (window.pageYOffset >= originalOffset) {
-            navbar.classList.add('sticky-nav');
-            document.body.classList.add('nav-sticky');
-        } else {
-            navbar.classList.remove('sticky-nav');
-            document.body.classList.remove('nav-sticky');
-        }
-    }
-    
-    window.addEventListener('scroll', handleScroll);
-});
-</script>
