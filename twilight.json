@@ -1383,7 +1383,7 @@
                     "icon": "sicon-list-add",
                     "fields": [
                         {
-                            "id": "rouge-product1.sort_almntg",
+                            "id": "rouge-product1.image-product1",
                             "type": "string",
                             "format": "image",
                             "label": "صورة المنتج",
@@ -1395,7 +1395,7 @@
                             "required": false
                         },
                         {
-                            "id": "rouge-product1.asm_almntg",
+                            "id": "rouge-product1.name-product1",
                             "type": "string",
                             "format": "text",
                             "label": "اسم المنتج",
@@ -1410,7 +1410,7 @@
                             "maxLength": 30
                         },
                         {
-                            "id": "rouge-product1.saar_almntg",
+                            "id": "rouge-product1.price1",
                             "type": "string",
                             "format": "text",
                             "label": "سعر المنتج",
