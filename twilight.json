@@ -1323,6 +1323,13 @@
             "icon": "sicon-store",
             "path": "home.icons-update",
             "fields": []
+        },
+        {
+            "key": "45c39481-b993-4dc2-ba91-3f4d04d676fc",
+            "title": "rouge-products",
+            "icon": "sicon-store",
+            "path": "home.rouge-products",
+            "fields": []
         }
     ],
     "support_url": "https://salla.com/",
