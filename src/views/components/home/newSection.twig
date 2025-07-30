@@ -178,18 +178,19 @@ featureBoxes.forEach(box => observer.observe(box));
     --gold-accent: #c4a35a;
   }
 
-  #whatsapp-widget {
+  
+#whatsapp-widget {
     position: fixed;
     bottom: 30px;
     right: 30px;
     z-index: 9999;
     transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-    filter: drop-shadow(0 4px 8px rgba(110, 127, 89, 0.3));
   }
 
   #whatsapp-widget:hover {
     transform: scale(1.1) rotate(5deg);
-  }
+  }
+ 
 
   #whatsapp-popup {
     display: none;
@@ -336,10 +337,8 @@ featureBoxes.forEach(box => observer.observe(box));
 <!-- أيقونة واتساب -->
 <div id="whatsapp-widget">
   <a href="#whatsapp-popup">
-    <div class="logo-circle">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon">
-    </div>
-  </a>
+    <img src="https://img.icons8.com/fluency/96/whatsapp.png" alt="WhatsApp" />
+  </a>
 </div>
 
 <!-- نافذة البوب أب -->
