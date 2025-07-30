@@ -1,8 +1,8 @@
  {% for rouge in component.rouge %}
-<div class="bg-no-repeat bg-cover swiper-slide swiper-lazy-wrap" style=" height:900px; background-image: url('{{ rouge.image-section }}')">
+<div class="bg-no-repeat bg-cover swiper-slide swiper-lazy-wrap" style=" height:900px; background-image: url('{{ rouge.image_section }}')">
                         <div class="text-black w-full">
                             <h3 class="" data-swiper-parallax="-300">
-                                {{ rouge.section-title }}
+                                {{ rouge.section_title }}
                             </h3>
                            
                             
@@ -12,17 +12,16 @@
 
 
 
- {% for rouge-product1 in component.rouge-product1 %}
-                        <div class="text-black w-full">
-                            <h3 class="" data-swiper-parallax="-300">
-                                {{ rouge-product1.price1 }}
-                            </h3>
-                            <p data-swiper-parallax="-700">
-                                {{ rouge-product1.name-product1 }}
-                            </p>
-                            <p data-swiper-parallax="-700">
-                                {{ rouge-product1.image-product1 }}
-                            </p>
-                            
-                </div>
-            {% endfor %}
+{% for rouge_product1 in component.rouge_product1 %}
+    <div class="text-black w-full">
+        <h3 class="" data-swiper-parallax="-300">
+            {{ rouge_product1.price1 }}
+        </h3>
+        <p data-swiper-parallax="-700">
+            {{ rouge_product1.name_product1 }}
+        </p>
+        <p data-swiper-parallax="-700">
+            {{ rouge_product1.image_product1 }}
+        </p>
+    </div>
+{% endfor %}
