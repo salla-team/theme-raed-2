@@ -1329,7 +1329,107 @@
             "title": "rouge-products",
             "icon": "sicon-store",
             "path": "home.rouge-products",
-            "fields": []
+            "fields": [
+                {
+                    "id": "rouge",
+                    "type": "collection",
+                    "format": "collection",
+                    "label": "rouge",
+                    "description": null,
+                    "labelHTML": null,
+                    "item_label": null,
+                    "icon": "sicon-list-add",
+                    "fields": [
+                        {
+                            "id": "rouge.section-title",
+                            "type": "string",
+                            "format": "text",
+                            "label": "عنوان القسم",
+                            "description": null,
+                            "labelHTML": null,
+                            "placeholder": "Placeholder text ..",
+                            "icon": "sicon-format-text-alt",
+                            "value": null,
+                            "multilanguage": false,
+                            "required": false,
+                            "minLength": 6,
+                            "maxLength": 30
+                        },
+                        {
+                            "id": "rouge.image-section",
+                            "type": "string",
+                            "format": "image",
+                            "label": "Image",
+                            "description": null,
+                            "labelHTML": null,
+                            "placeholder": "e.g. https://hostname.com/image.png",
+                            "icon": "sicon-image",
+                            "value": null,
+                            "required": false
+                        }
+                    ],
+                    "value": [],
+                    "minLength": 1,
+                    "maxLength": 5
+                },
+                {
+                    "id": "rouge-product1",
+                    "type": "collection",
+                    "format": "collection",
+                    "label": "rouge-product1",
+                    "description": null,
+                    "labelHTML": null,
+                    "item_label": null,
+                    "icon": "sicon-list-add",
+                    "fields": [
+                        {
+                            "id": "rouge-product1.sort_almntg",
+                            "type": "string",
+                            "format": "image",
+                            "label": "صورة المنتج",
+                            "description": null,
+                            "labelHTML": null,
+                            "placeholder": "e.g. https://hostname.com/image.png",
+                            "icon": "sicon-image",
+                            "value": null,
+                            "required": false
+                        },
+                        {
+                            "id": "rouge-product1.asm_almntg",
+                            "type": "string",
+                            "format": "text",
+                            "label": "اسم المنتج",
+                            "description": null,
+                            "labelHTML": null,
+                            "placeholder": "Placeholder text ..",
+                            "icon": "sicon-format-text-alt",
+                            "value": null,
+                            "multilanguage": false,
+                            "required": false,
+                            "minLength": 6,
+                            "maxLength": 30
+                        },
+                        {
+                            "id": "rouge-product1.saar_almntg",
+                            "type": "string",
+                            "format": "text",
+                            "label": "سعر المنتج",
+                            "description": null,
+                            "labelHTML": null,
+                            "placeholder": "Placeholder text ..",
+                            "icon": "sicon-format-text-alt",
+                            "value": null,
+                            "multilanguage": false,
+                            "required": false,
+                            "minLength": 6,
+                            "maxLength": 30
+                        }
+                    ],
+                    "value": [],
+                    "minLength": 1,
+                    "maxLength": 5
+                }
+            ]
         }
     ],
     "support_url": "https://salla.com/",
