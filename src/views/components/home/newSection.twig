@@ -171,12 +171,20 @@ featureBoxes.forEach(box => observer.observe(box));
 
 
 <style>
+  :root {
+    --olive-green: #6e7f59;
+    --light-olive: #8f9779;
+    --cream-bg: #f8f8f2;
+    --gold-accent: #c4a35a;
+  }
+
   #whatsapp-widget {
     position: fixed;
     bottom: 30px;
     right: 30px;
     z-index: 9999;
     transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    filter: drop-shadow(0 4px 8px rgba(110, 127, 89, 0.3));
   }
 
   #whatsapp-widget:hover {
@@ -188,15 +196,14 @@ featureBoxes.forEach(box => observer.observe(box));
     position: fixed;
     bottom: 110px;
     right: 30px;
-    background: linear-gradient(135deg, #fff9f5 0%, #fff0eb 100%);
-    border-radius: 20px;
-    box-shadow: 0 15px 40px rgba(206, 152, 152, 0.2);
-    padding: 25px;
-    width: 320px;
-    font-family: 'Montserrat', 'Arial', sans-serif;
-    animation: fadeInUp 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border: 1px solid rgba(255, 214, 214, 0.3);
-    backdrop-filter: blur(5px);
+    background: var(--cream-bg);
+    border-radius: 18px;
+    box-shadow: 0 15px 40px rgba(110, 127, 89, 0.15);
+    padding: 22px;
+    width: 300px;
+    font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+    animation: fadeInUp 0.5s ease;
+    border: 1px solid rgba(110, 127, 89, 0.1);
   }
 
   @keyframes fadeInUp {
@@ -212,70 +219,87 @@ featureBoxes.forEach(box => observer.observe(box));
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #d4a59a;
+    color: var(--olive-green);
     font-weight: 600;
-    font-size: 18px;
+    font-size: 17px;
     margin-bottom: 15px;
     padding-bottom: 12px;
-    border-bottom: 1px solid rgba(212, 165, 154, 0.2);
+    border-bottom: 1px solid rgba(110, 127, 89, 0.15);
   }
 
   #whatsapp-popup-content {
-    color: #8a6e6e;
-    font-size: 15px;
-    line-height: 1.7;
+    color: #5a5a5a;
+    font-size: 14px;
+    line-height: 1.6;
   }
 
   #whatsapp-popup-content p {
-    margin-bottom: 20px;
+    margin-bottom: 18px;
   }
 
   #whatsapp-popup a.button {
     display: block;
-    background: linear-gradient(45deg, #d4a59a 0%, #c88a8a 100%);
+    background: var(--olive-green);
     color: white;
     text-align: center;
     text-decoration: none;
-    padding: 14px;
-    border-radius: 12px;
-    font-size: 16px;
-    font-weight: 600;
-    box-shadow: 0 5px 15px rgba(212, 165, 154, 0.4);
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(110, 127, 89, 0.25);
     transition: all 0.3s ease;
-    margin-top: 10px;
-    letter-spacing: 0.5px;
+    margin-top: 8px;
   }
 
   #whatsapp-popup a.button:hover {
-    background: linear-gradient(45deg, #c88a8a 0%, #d4a59a 100%);
+    background: #5e6f49;
     transform: translateY(-2px);
-    box-shadow: 0 7px 20px rgba(212, 165, 154, 0.5);
-  }
-
-  #whatsapp-widget img {
-    width: 65px;
-    height: 65px;
-    cursor: pointer;
-    filter: drop-shadow(0 5px 15px rgba(212, 165, 154, 0.3));
-    transition: all 0.4s ease;
+    box-shadow: 0 6px 16px rgba(110, 127, 89, 0.35);
   }
 
   .close-btn {
     text-decoration: none;
-    color: #d4a59a;
-    font-size: 24px;
+    color: var(--light-olive);
+    font-size: 22px;
     transition: all 0.3s ease;
     line-height: 1;
   }
 
   .close-btn:hover {
-    color: #c88a8a;
+    color: var(--olive-green);
     transform: rotate(90deg);
   }
 
-  .beauty-icon {
-    margin-right: 8px;
-    font-size: 20px;
+  .logo-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(110, 127, 89, 0.3);
+    border: 2px solid white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .logo-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .logo-circle:hover {
+    transform: scale(1.1);
+  }
+
+  .popup-logo {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 15px;
+    display: block;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(110, 127, 89, 0.2);
   }
 
   @media (max-width: 768px) {
@@ -287,34 +311,41 @@ featureBoxes.forEach(box => observer.observe(box));
     #whatsapp-popup {
       right: 20px;
       width: 85%;
-      max-width: 320px;
     }
 
-    #whatsapp-widget img {
-      width: 55px;
-      height: 55px;
+    .logo-circle {
+      width: 50px;
+      height: 50px;
+    }
+
+    .popup-logo {
+      width: 60px;
+      height: 60px;
     }
   }
 </style>
 
-<!-- أيقونة واتساب -->
+<!-- أيقونة واتساب باللوجو -->
 <div id="whatsapp-widget">
   <a href="#whatsapp-popup">
-    <img src="https://img.icons8.com/fluency/96/whatsapp.png" alt="WhatsApp" />
+    <div class="logo-circle">
+      <img src="https://i.postimg.cc/1Rd1Ym9Y/Bloom-logo-transparent-1.png" alt="Bloomé Logo">
+    </div>
   </a>
 </div>
 
-<!-- نافذة البوب أب الفاخرة -->
+<!-- نافذة البوب أب -->
 <div id="whatsapp-popup">
   <div id="whatsapp-popup-header">
-    <span><span class="beauty-icon">💄</span> استشاري تجميل خاص بك</span>
+    <span>💄 Bloomé | خدمة العملاء</span>
     <a href="#" class="close-btn" aria-label="إغلاق">×</a>
   </div>
   <div id="whatsapp-popup-content">
-    <p>مرحباً بجميلتنا! 🌸<br><br>
-    فريق خبراء التجميل لدينا جاهز لمساعدتك في اختيار أفضل المنتجات والعناية ببشرتك. تواصلي معنا للحصول على استشارة مجانية.</p>
+    <img class="popup-logo" src="https://i.postimg.cc/1Rd1Ym9Y/Bloom-logo-transparent-1.png" alt="Bloomé Logo">
+    <p>مرحباً بكِ في Bloomé،<br>
+    هل تحتاجين مساعدة في اختيار منتج مناسب لبشرتك؟ أو عندك استفسار عن الطلب؟ فريقنا جاهز 💌</p>
     <a href="https://wa.me/966XXXXXXXXX" target="_blank" rel="noopener" class="button">
-      💬 محادثة مباشرة مع خبير تجميل
+      تواصلي معنا على واتساب
     </a>
   </div>
 </div>
