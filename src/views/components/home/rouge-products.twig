@@ -1,15 +1,28 @@
  {% for rouge in component.rouge %}
 <div class="bg-no-repeat bg-cover swiper-slide swiper-lazy-wrap" style=" height:900px; background-image: url('{{ rouge.image-section }}')">
-                    <div class="container flex text-center items-center justify-center sm:justify-start ltr:sm:justify-end px-8 py-16 lg:px-12 lg:py-20 home-slider__content relative h-full">
-                        <div class="text-white w-full">
+                        <div class="text-black w-full">
                             <h3 class="" data-swiper-parallax="-300">
                                 {{ rouge.section-title }}
                             </h3>
                            
                             
                         </div>
-                    </div>
                 </div>
             {% endfor %}
 
 
+
+ {% for rouge-product1 in component.rouge-product1 %}
+                        <div class="text-black w-full">
+                            <h3 class="" data-swiper-parallax="-300">
+                                {{ rouge-product1.price1 }}
+                            </h3>
+                            <p data-swiper-parallax="-700">
+                                {{ rouge-product1.name-product1 }}
+                            </p>
+                            <p data-swiper-parallax="-700">
+                                {{ rouge-product1.image-product1 }}
+                            </p>
+                            
+                </div>
+            {% endfor %}
