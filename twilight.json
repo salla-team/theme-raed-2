@@ -1421,7 +1421,7 @@
                             "value": null,
                             "multilanguage": false,
                             "required": false,
-                            "minLength": 6,
+                            "minLength": "1",
                             "maxLength": 30
                         }
                     ],
