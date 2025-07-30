@@ -1,120 +1,321 @@
-<div class="rouge-section">
+<div class="luxury-products-section">
     {% for rouge_product1 in component.rouge_product1 %}
-    <div class="product-card">
-        <div class="image-wrapper">
-            <img src="{{ rouge_product1.image_product1 }}" alt="{{ rouge_product1.name_product1 }}">
-            <button class="wishlist-btn">♥</button>
+    <div class="luxury-product-card">
+        <div class="product-badge">حصري</div>
+        <div class="product-image-container">
+            <img src="{{ rouge_product1.image_product1 }}" alt="{{ rouge_product1.name_product1 }}" class="product-image">
+            <button class="wishlist-btn" aria-label="Add to wishlist">♥</button>
+            <div class="quick-view">معاينة سريعة</div>
         </div>
-        <div class="product-info">
-            <h3 class="product-name">{{ rouge_product1.name_product1 }}</h3>
-            <p class="product-price">{{ rouge_product1.price1 }} USD</p>
-            <button class="add-cart-btn">🛒 إضافة إلى السلة</button>
+        <div class="product-details">
+            <h3 class="product-title">{{ rouge_product1.name_product1 }}</h3>
+            <div class="price-section">
+                <span class="current-price">{{ rouge_product1.price1 }} USD</span>
+                {% if rouge_product1.old_price %}
+                <span class="old-price">{{ rouge_product1.old_price }} USD</span>
+                {% endif %}
+            </div>
+            <div class="product-actions">
+                <button class="add-to-cart-btn">🛒 إضافة إلى السلة</button>
+                <div class="rating">
+                    ★★★★★ <span class="rating-count">(24)</span>
+                </div>
+            </div>
         </div>
     </div>
     {% endfor %}
 </div>
+
 <style>
 :root {
-  --olive: #6B8E23;       /* أخضر زيتي */
-  --olive-dark: #556B2F;  /* درجة أغمق */
-  --beige: #DCC7A1;       /* بيج */
+  --olive-primary: #6B8E23;       /* اللون الزيتوني الأساسي */
+  --olive-dark: #556B2F;          /* زيتوني داكن */
+  --olive-light: #8F9779;         /* زيتوني فاتح */
+  --beige-primary: #DCC7A1;       /* البيج الأساسي */
+  --beige-light: #F5F5DC;         /* بيج فاتح */
+  --white: #FFFFFF;               /* أبيض نقي */
+  --gray-light: #F8F8F8;          /* رمادي فاتح للخلفيات */
+  --text-dark: #333333;           /* لون النصوص الداكنة */
+  --text-medium: #555555;         /* لون النصوص المتوسطة */
+  --transition-speed: 0.3s;       /* سرعة الانتقالات */
 }
 
-.rouge-section {
+.luxury-products-section {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  padding: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+  background-color: var(--gray-light);
 }
 
-.product-card {
-  background: #fff;
-  border-radius: 15px;
+.luxury-product-card {
+  background: var(--white);
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+  position: relative;
+  transition: all var(--transition-speed) ease;
+  border: 1px solid rgba(0,0,0,0.05);
 }
 
-.image-wrapper {
+.luxury-product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  border-color: var(--olive-light);
+}
+
+.product-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background-color: var(--olive-primary);
+  color: var(--white);
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  z-index: 2;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.product-image-container {
   position: relative;
   width: 100%;
+  padding-top: 100%; /* نسبة 1:1 للصورة */
+  overflow: hidden;
 }
-.image-wrapper img {
+
+.product-image {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  display: block;
-  border-bottom: 1px solid #eee;
-  border-radius: 15px 15px 0 0;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.luxury-product-card:hover .product-image {
+  transform: scale(1.05);
 }
 
 .wishlist-btn {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  background: #fff;
+  top: 15px;
+  right: 15px;
+  width: 36px;
+  height: 36px;
+  background: var(--white);
   border: none;
   border-radius: 50%;
-  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 18px;
-  color: var(--olive);
+  color: var(--olive-primary);
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  transition: all var(--transition-speed) ease;
+  z-index: 2;
 }
+
 .wishlist-btn:hover {
-  background: var(--olive);
-  color: #fff;
+  background: var(--olive-primary);
+  color: var(--white);
   transform: scale(1.1);
 }
 
-.product-info {
-  padding: 15px;
+.quick-view {
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  width: 100%;
+  background: rgba(107, 142, 35, 0.9);
+  color: var(--white);
+  text-align: center;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all var(--transition-speed) ease;
+  cursor: pointer;
+}
+
+.luxury-product-card:hover .quick-view {
+  bottom: 0;
+}
+
+.product-details {
+  padding: 20px;
   text-align: center;
 }
 
-.product-name {
+.product-title {
   font-size: 18px;
   font-weight: 600;
-  color: var(--olive);
-  margin-bottom: 8px;
-}
-
-.product-price {
-  font-size: 16px;
-  font-weight: bold;
-  color: var(--beige);
+  color: var(--text-dark);
   margin-bottom: 12px;
+  line-height: 1.4;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.add-cart-btn {
-  background: var(--olive);
-  color: #fff;
+.price-section {
+  margin-bottom: 15px;
+}
+
+.current-price {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--olive-primary);
+  margin-right: 8px;
+}
+
+.old-price {
+  font-size: 16px;
+  color: var(--text-medium);
+  text-decoration: line-through;
+}
+
+.product-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.add-to-cart-btn {
+  background: var(--olive-primary);
+  color: var(--white);
   border: none;
-  padding: 10px 16px;
+  padding: 12px 20px;
   border-radius: 30px;
-  cursor: pointer;
   font-size: 15px;
-  font-weight: 500;
-  transition: background 0.3s ease;
-}
-.add-cart-btn:hover {
-  background: var(--olive-dark);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
-/* ✅ استجابة الشاشات الصغيرة */
-@media (max-width: 768px) {
-  .add-cart-btn {
-    width: 100%;
+.add-to-cart-btn:hover {
+  background: var(--olive-dark);
+  transform: translateY(-2px);
+}
+
+.rating {
+  color: var(--beige-primary);
+  font-size: 14px;
+}
+
+.rating-count {
+  color: var(--text-medium);
+  font-size: 13px;
+}
+
+/* تأثيرات إضافية للرفاهية */
+.luxury-product-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 60%, rgba(255,255,255,0.7) 100%);
+  pointer-events: none;
+}
+
+/* استجابة للشاشات المختلفة */
+@media (max-width: 1200px) {
+  .luxury-products-section {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+    padding: 25px;
   }
-  .product-name {
+}
+
+@media (max-width: 992px) {
+  .luxury-products-section {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .product-title {
+    font-size: 16px;
+    min-height: 45px;
+  }
+}
+
+@media (max-width: 768px) {
+  .luxury-products-section {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 15px;
+  }
+  
+  .product-details {
+    padding: 15px;
+  }
+  
+  .add-to-cart-btn {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .luxury-products-section {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+    padding: 12px;
+  }
+  
+  .product-badge {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+  
+  .product-title {
+    font-size: 14px;
+    min-height: 40px;
+  }
+  
+  .current-price {
     font-size: 16px;
   }
+  
+  .old-price {
+    font-size: 14px;
+  }
 }
 
+/* تأثيرات الحركة عند التحميل */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.luxury-product-card {
+  animation: fadeInUp 0.5s ease forwards;
+  opacity: 0;
+}
+
+.luxury-product-card:nth-child(1) { animation-delay: 0.1s; }
+.luxury-product-card:nth-child(2) { animation-delay: 0.2s; }
+.luxury-product-card:nth-child(3) { animation-delay: 0.3s; }
+.luxury-product-card:nth-child(4) { animation-delay: 0.4s; }
+.luxury-product-card:nth-child(5) { animation-delay: 0.5s; }
+.luxury-product-card:nth-child(6) { animation-delay: 0.6s; }
 </style>
