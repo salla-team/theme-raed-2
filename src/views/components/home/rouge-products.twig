@@ -1,0 +1,15 @@
+ {% for rouge in component.rouge %}
+<div class="bg-no-repeat bg-cover swiper-slide swiper-lazy-wrap" style="background-color: black; height:900px; background-image: url('{{ rouge.image-section }}')">
+                    <div class="container flex text-center items-center justify-center sm:justify-start ltr:sm:justify-end px-8 py-16 lg:px-12 lg:py-20 home-slider__content relative h-full">
+                        <div class="text-white w-full">
+                            <h3 class="" data-swiper-parallax="-300">
+                                {{ rouge.section-title }}
+                            </h3>
+                           
+                            
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+
