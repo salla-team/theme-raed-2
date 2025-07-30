@@ -1341,7 +1341,7 @@
                     "icon": "sicon-list-add",
                     "fields": [
                         {
-                            "id": "rouge.section-title",
+                            "id": "rouge.section_title",
                             "type": "string",
                             "format": "text",
                             "label": "عنوان القسم",
@@ -1356,7 +1356,7 @@
                             "maxLength": 30
                         },
                         {
-                            "id": "rouge.image-section",
+                            "id": "rouge.image_section",
                             "type": "string",
                             "format": "image",
                             "label": "Image",
@@ -1373,17 +1373,17 @@
                     "maxLength": 5
                 },
                 {
-                    "id": "rouge-product1",
+                    "id": "rouge_product1",
                     "type": "collection",
                     "format": "collection",
-                    "label": "rouge-product1",
+                    "label": "rouge_product1",
                     "description": null,
                     "labelHTML": null,
                     "item_label": null,
                     "icon": "sicon-list-add",
                     "fields": [
                         {
-                            "id": "rouge-product1.image-product1",
+                            "id": "rouge_product1.image_product1",
                             "type": "string",
                             "format": "image",
                             "label": "صورة المنتج",
@@ -1395,7 +1395,7 @@
                             "required": false
                         },
                         {
-                            "id": "rouge-product1.name-product1",
+                            "id": "rouge_product1.name_product1",
                             "type": "string",
                             "format": "text",
                             "label": "اسم المنتج",
@@ -1410,7 +1410,7 @@
                             "maxLength": 30
                         },
                         {
-                            "id": "rouge-product1.price1",
+                            "id": "rouge_product1.price1",
                             "type": "string",
                             "format": "text",
                             "label": "سعر المنتج",
