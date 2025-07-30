@@ -1,23 +1,17 @@
-<div class="rouge-section container mx-auto px-4 py-8">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {% for rouge_product1 in component.rouge_product1 %}
-        <div class="product-card bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col items-center text-center p-4">
-            <div class="relative w-full">
-                <img src="{{ rouge_product1.image_product1 }}" alt="{{ rouge_product1.name_product1 }}" class="w-full h-auto rounded-xl object-cover">
-                <button class="wishlist-btn absolute top-3 right-3 bg-white text-olive rounded-full p-2 shadow">
-                    ♥
-                </button>
-            </div>
-            <div class="p-4 flex flex-col items-center">
-                <h3 class="product-name font-semibold text-lg text-olive mb-2">{{ rouge_product1.name_product1 }}</h3>
-                <p class="product-price text-beige font-bold mb-3">{{ rouge_product1.price1 }} USD</p>
-                <button class="add-cart-btn bg-olive text-white font-medium py-2 px-4 rounded-full hover:bg-olive-dark transition-all">
-                    🛒 إضافة إلى السلة
-                </button>
-            </div>
+<div class="rouge-section">
+    {% for rouge_product1 in component.rouge_product1 %}
+    <div class="product-card">
+        <div class="image-wrapper">
+            <img src="{{ rouge_product1.image_product1 }}" alt="{{ rouge_product1.name_product1 }}">
+            <button class="wishlist-btn">♥</button>
         </div>
-        {% endfor %}
+        <div class="product-info">
+            <h3 class="product-name">{{ rouge_product1.name_product1 }}</h3>
+            <p class="product-price">{{ rouge_product1.price1 }} USD</p>
+            <button class="add-cart-btn">🛒 إضافة إلى السلة</button>
+        </div>
     </div>
+    {% endfor %}
 </div>
 <style>
 :root {
@@ -26,17 +20,52 @@
   --beige: #DCC7A1;       /* بيج */
 }
 
+.rouge-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
 .product-card {
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .product-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+}
+.image-wrapper img {
+  width: 100%;
+  display: block;
+  border-bottom: 1px solid #eee;
+  border-radius: 15px 15px 0 0;
 }
 
 .wishlist-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 8px 10px;
   font-size: 18px;
-  transition: background 0.3s ease, transform 0.2s ease;
+  color: var(--olive);
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
 }
 .wishlist-btn:hover {
   background: var(--olive);
@@ -44,27 +73,48 @@
   transform: scale(1.1);
 }
 
+.product-info {
+  padding: 15px;
+  text-align: center;
+}
+
+.product-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--olive);
+  margin-bottom: 8px;
+}
+
+.product-price {
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--beige);
+  margin-bottom: 12px;
+}
+
 .add-cart-btn {
+  background: var(--olive);
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
   transition: background 0.3s ease;
 }
 .add-cart-btn:hover {
   background: var(--olive-dark);
 }
 
-.product-name {
-  color: var(--olive);
-}
-.product-price {
-  color: var(--olive-dark);
-}
-
-/* ✅ استجابة لكل الشاشات */
+/* ✅ استجابة الشاشات الصغيرة */
 @media (max-width: 768px) {
-  .product-card {
-    padding: 10px;
-  }
   .add-cart-btn {
     width: 100%;
   }
+  .product-name {
+    font-size: 16px;
+  }
 }
+
 </style>
