@@ -574,34 +574,53 @@
 .luxury-product-card:nth-child(5) { animation-delay: 0.5s; }
 .luxury-product-card:nth-child(6) { animation-delay: 0.6s; }
 
-/* Large Desktop Styles (1200px and up) */
-@media (min-width: 1200px) {
-  .luxury-products-section {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 🔥 عرض 4 كروت */
-    gap: 30px;
-    padding: 30px;
-    max-width: 1400px;
-    margin: 0 auto;
-  }
-  
+.luxury-product-card {
+  background: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  position: relative;
+  transition: all var(--transition-speed) ease;
+  border: 1px solid rgba(0,0,0,0.05);
+  min-height: 320px; /* ⬅️ كان 400px */
+  display: flex;
+  flex-direction: column;
+}
+
+/* نجعل الصورة أقل طولاً */
+.product-image-container {
+  position: relative;
+  width: 100%;
+  padding-top: 80%; /* ⬅️ بدل 100% لتقليل ارتفاع الصورة */
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
   .luxury-product-card {
-    min-height: 500px;
+    min-height: 360px; /* ⬅️ بدل 450px */
   }
-  
-  .product-title {
-    font-size: 20px;
-    min-height: 55px;
+}
+
+/* Small Desktop */
+@media (min-width: 1024px) {
+  .luxury-product-card {
+    min-height: 380px; /* ⬅️ بدل 480px */
   }
-  
-  .current-price {
-    font-size: 22px;
+}
+
+/* Large Desktop */
+@media (min-width: 1200px) {
+  .luxury-product-card {
+    min-height: 400px; /* ⬅️ بدل 500px */
   }
-  
-  .add-to-cart-btn {
-    padding: 14px 24px;
-    font-size: 16px;
-    min-height: 50px;
+}
+
+/* Extra Large */
+@media (min-width: 1400px) {
+  .luxury-product-card {
+    min-height: 420px; /* ⬅️ بدل 520px */
   }
 }
 
