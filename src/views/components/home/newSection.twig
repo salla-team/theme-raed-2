@@ -170,3 +170,189 @@ featureBoxes.forEach(box => observer.observe(box));
 
 
 
+<style>
+  :root {
+    --olive-green: #6e7f59;
+    --light-olive: #8f9779;
+    --cream-bg: #f8f8f2;
+    --gold-accent: #c4a35a;
+  }
+
+  
+#whatsapp-widget {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  }
+
+  #whatsapp-widget:hover {
+    transform: scale(1.1) rotate(5deg);
+  }
+ 
+
+  #whatsapp-popup {
+    display: none;
+    position: fixed;
+    bottom: 110px;
+    right: 30px;
+    background: var(--cream-bg);
+    border-radius: 18px;
+    box-shadow: 0 15px 40px rgba(110, 127, 89, 0.15);
+    padding: 22px;
+    width: 300px;
+    font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+    animation: fadeInUp 0.5s ease;
+    border: 1px solid rgba(110, 127, 89, 0.1);
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  #whatsapp-popup:target {
+    display: block;
+  }
+
+  #whatsapp-popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--olive-green);
+    font-weight: 600;
+    font-size: 17px;
+    margin-bottom: 15px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(110, 127, 89, 0.15);
+  }
+
+  #whatsapp-popup-content {
+    color: #5a5a5a;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  #whatsapp-popup-content p {
+    margin-bottom: 18px;
+  }
+
+  #whatsapp-popup a.button {
+    display: block;
+    background: var(--olive-green);
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(110, 127, 89, 0.25);
+    transition: all 0.3s ease;
+    margin-top: 8px;
+  }
+
+  #whatsapp-popup a.button:hover {
+    background: #5e6f49;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(110, 127, 89, 0.35);
+  }
+
+  .close-btn {
+    text-decoration: none;
+    color: var(--light-olive);
+    font-size: 22px;
+    transition: all 0.3s ease;
+    line-height: 1;
+  }
+
+  .close-btn:hover {
+    color: var(--olive-green);
+    transform: rotate(90deg);
+  }
+
+  .logo-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(110, 127, 89, 0.3);
+    border: 2px solid white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #25d366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-circle img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .logo-circle:hover {
+    transform: scale(1.1);
+  }
+
+  .popup-logo {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 15px;
+    display: block;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(110, 127, 89, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    #whatsapp-widget {
+      bottom: 20px;
+      right: 20px;
+    }
+
+    #whatsapp-popup {
+      right: 20px;
+      width: 85%;
+    }
+
+    .logo-circle {
+      width: 50px;
+      height: 50px;
+    }
+
+    .logo-circle img {
+      width: 26px;
+      height: 26px;
+    }
+
+    .popup-logo {
+      width: 60px;
+      height: 60px;
+    }
+  }
+</style>
+
+<!-- أيقونة واتساب -->
+<div id="whatsapp-widget">
+  <a href="#whatsapp-popup">
+    <img src="https://img.icons8.com/fluency/96/whatsapp.png" alt="WhatsApp" />
+  </a>
+</div>
+
+<!-- نافذة البوب أب -->
+<div id="whatsapp-popup">
+  <div id="whatsapp-popup-header">
+    <span>💄 Bloomé | خدمة العملاء</span>
+    <a href="#" class="close-btn" aria-label="إغلاق">×</a>
+  </div>
+  <div id="whatsapp-popup-content">
+    <img class="popup-logo" src="https://i.postimg.cc/1Rd1Ym9Y/Bloom-logo-transparent-1.png" alt="Bloomé Logo">
+    <p>مرحباً بكِ في Bloomé،<br>
+    هل تحتاجين مساعدة في اختيار منتج مناسب لبشرتك؟ أو عندك استفسار عن الطلب؟ فريقنا جاهز 💌</p>
+    <a href="https://wa.me/966XXXXXXXXX" target="_blank" rel="noopener" class="button">
+      تواصلي معنا على واتساب
+    </a>
+  </div>
+</div>
