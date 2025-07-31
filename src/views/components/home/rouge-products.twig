@@ -1,154 +1,106 @@
+
+
 <style>
-.rouge-section {
+.split-section {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   min-height: 100vh;
-  background-repeat: no-repeat;
-  background-size: cover;
+  direction: rtl;
   overflow: hidden;
-  position: relative;
 }
 
-@media (min-width: 768px) {
-  .rouge-section {
-    flex-direction: row;
-  }
-}
-
-.rouge-image {
+.split-image,
+.split-content {
   width: 100%;
   min-height: 50vh;
-  background-size: cover;
-  background-position: center;
-  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.rouge-section:hover .rouge-image {
-  transform: scale(1.03);
 }
 
 @media (min-width: 768px) {
-  .rouge-image {
+  .split-image, .split-content {
     width: 50%;
     min-height: 100vh;
   }
 }
 
-.rouge-content {
-  width: 100%;
-  position: relative;
+.split-image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 0.5s ease;
+}
+
+.split-section:hover .split-image {
+  transform: scale(1.03);
+}
+
+.split-content {
+  background-color: #f8f8f2;
   padding: 60px 30px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  background-color: #f8f8f2;
-  direction: rtl;
-  overflow: hidden;
-}
-
-@media (min-width: 768px) {
-  .rouge-content {
-    width: 50%;
-  }
-}
-
-.rouge-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(143, 151, 121, 0.7) 0%, rgba(100, 110, 80, 0.8) 100%);
-  z-index: 0;
-  opacity: 0;
-  transition: opacity 0.6s ease-out;
-}
-
-.rouge-section:hover .rouge-overlay {
-  opacity: 1;
-}
-
-.rouge-text {
+  align-items: flex-start;
+  text-align: right;
   position: relative;
-  max-width: 600px;
-  text-align: center;
-  z-index: 1;
-  color: #fff;
-  transform: translateY(20px);
-  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.rouge-section:hover .rouge-text {
-  transform: translateY(0);
-}
-
-.rouge-text h3 {
-  font-size: clamp(28px, 4vw, 42px);
-  margin-bottom: 24px;
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   opacity: 0;
-  transition: opacity 0.6s ease-out 0.2s;
+  transform: translateX(50px);
+  animation: fadeSlideIn 1s ease forwards;
+  animation-delay: 0.2s;
 }
 
-.rouge-section:hover .rouge-text h3 {
-  opacity: 1;
+.split-content h3 {
+  font-size: clamp(24px, 4vw, 40px);
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #6e7f59;
 }
 
-.rouge-text p {
+.split-content p {
   font-size: clamp(16px, 2vw, 20px);
+  margin-bottom: 30px;
+  color: #333;
   line-height: 1.8;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
-  opacity: 0;
-  transition: opacity 0.6s ease-out 0.4s;
 }
 
-.rouge-section:hover .rouge-text p {
-  opacity: 1;
+.split-content a {
+  display: inline-block;
+  background-color: #8f9779;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
-/* Decorative elements */
-.rouge-content::before {
-  content: '';
-  position: absolute;
-  top: -50px;
-  right: -50px;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  z-index: 0;
+.split-content a:hover {
+  background-color: #6e7f59;
 }
 
-.rouge-content::after {
-  content: '';
-  position: absolute;
-  bottom: -30px;
-  left: -30px;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  z-index: 0;
+/* Animation */
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 </style>
 
 {% for rouge in component.rouge %}
-<div class="rouge-section">
+<div class="split-section">
   <!-- الصورة -->
-  <div class="rouge-image" style="background-image: url('{{ rouge.image_section }}');" loading="lazy"></div>
+  <div class="split-image" style="background-image: url('{{ rouge.image_section }}');"></div>
 
-  <!-- النص -->
-  <div class="rouge-content">
-    <div class="rouge-overlay"></div>
-
-    <div class="rouge-text">
-      <h3>{{ rouge.section_title }}</h3>
-      <p>&ldquo;{{ rouge.description }}&rdquo;</p>
-    </div>
+  <!-- النص + الزر -->
+  <div class="split-content">
+    <h3>{{ rouge.section_title }}</h3>
+    <p>{{ rouge.description }}</p>
+    {% if rouge.button_link %}
+      <a href="{{ rouge.button_link }}">{{ rouge.button_text | default('تسوقي الآن') }}</a>
+    {% endif %}
   </div>
 </div>
 {% endfor %}
-
-
 
 
 
