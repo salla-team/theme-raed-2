@@ -28,41 +28,43 @@
 
 <style>
 :root {
-  --olive-primary: #6B8E23;       /* اللون الزيتوني الأساسي */
-  --olive-dark: #556B2F;          /* زيتوني داكن */
-  --olive-light: #8F9779;         /* زيتوني فاتح */
-  --beige-primary: #DCC7A1;       /* البيج الأساسي */
-  --beige-light: #F5F5DC;         /* بيج فاتح */
-  --white: #FFFFFF;               /* أبيض نقي */
-  --gray-light: #F8F8F8;          /* رمادي فاتح للخلفيات */
-  --text-dark: #333333;           /* لون النصوص الداكنة */
-  --text-medium: #555555;         /* لون النصوص المتوسطة */
-  --transition-speed: 0.3s;       /* سرعة الانتقالات */
+  --olive-primary: #6B8E23;
+  --olive-dark: #556B2F;
+  --olive-light: #8F9779;
+  --beige-primary: #DCC7A1;
+  --beige-light: #F5F5DC;
+  --white: #FFFFFF;
+  --gray-light: #F8F8F8;
+  --text-dark: #333333;
+  --text-medium: #555555;
+  --transition-speed: 0.3s;
 }
 
-/* Mobile First Approach - Base styles for mobile */
+/* الشبكة */
 .luxury-products-section {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: 1fr;
   gap: 16px;
   padding: 16px;
   max-width: 100%;
   margin: 0 auto;
   background-color: var(--gray-light);
-  min-height: 100vh;
 }
 
+/* كارت المنتج */
 .luxury-product-card {
   background: var(--white);
-  border-radius: 8px;
+  border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 2px 10px rgba(0,0,0,0.08);
   position: relative;
   transition: all var(--transition-speed) ease;
   border: 1px solid rgba(0,0,0,0.05);
-  min-height: 200px;
   display: flex;
   flex-direction: column;
+  height: 100%;
+  min-height: 360px;
+  max-height: 420px;
 }
 
 .luxury-product-card:hover {
@@ -71,27 +73,12 @@
   border-color: var(--olive-light);
 }
 
-.product-badge {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  background-color: var(--olive-primary);
-  color: var(--white);
-  padding: 4px 10px;
-  border-radius: 16px;
-  font-size: 11px;
-  font-weight: 600;
-  z-index: 2;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
+/* جزء الصورة */
 .product-image-container {
   position: relative;
   width: 100%;
-  padding-top: 80%; /* نسبة 1:1 للصورة */
+  aspect-ratio: 1/1; /* صورة مربعة */
   overflow: hidden;
-  flex-shrink: 0;
 }
 
 .product-image {
@@ -108,11 +95,36 @@
   transform: scale(1.05);
 }
 
+/* تفاصيل المنتج */
+.product-details {
+  padding: 16px;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* باقي التنسيقات الأساسية */
+.product-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: var(--olive-primary);
+  color: var(--white);
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-size: 11px;
+  font-weight: 600;
+  z-index: 2;
+}
+
 .wishlist-btn {
   position: absolute;
   top: 12px;
   right: 12px;
   width: 32px;
+  height: 32px;
   background: var(--white);
   border: none;
   border-radius: 50%;
@@ -145,20 +157,10 @@
   font-size: 13px;
   font-weight: 500;
   transition: all var(--transition-speed) ease;
-  cursor: pointer;
 }
 
 .luxury-product-card:hover .quick-view {
   bottom: 0;
-}
-
-.product-details {
-  padding: 16px;
-  text-align: center;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .product-title {
@@ -167,10 +169,6 @@
   color: var(--text-dark);
   margin-bottom: 10px;
   line-height: 1.3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  word-wrap: break-word;
 }
 
 .price-section {
@@ -181,19 +179,12 @@
   font-size: 18px;
   font-weight: 700;
   color: var(--olive-primary);
-  margin-right: 6px;
 }
 
 .old-price {
   font-size: 14px;
   color: var(--text-medium);
   text-decoration: line-through;
-}
-
-.product-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
 }
 
 .add-to-cart-btn {
@@ -227,372 +218,19 @@
   font-size: 12px;
 }
 
-/* تأثيرات إضافية للرفاهية */
-.luxury-product-card::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, rgba(255,255,255,0) 60%, rgba(255,255,255,0.7) 100%);
-  pointer-events: none;
-}
-
-/* Tablet Styles (768px and up) */
-@media (min-width: 768px) {
-  .luxury-products-section {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
-  }
-  
-  .luxury-product-card {
-    border-radius: 10px;
-    min-height: 200px;
-  }
-  
-  .product-badge {
-    top: 15px;
-    left: 15px;
-    padding: 5px 12px;
-    font-size: 12px;
-    border-radius: 20px;
-  }
-  
-  .wishlist-btn {
-    top: 15px;
-    right: 15px;
-    width: 36px;
-    height: 36px;
-    font-size: 18px;
-  }
-  
-  .product-details {
-    padding: 20px;
-  }
-  
-  .product-title {
-    font-size: 18px;
-    min-height: 50px;
-  }
-  
-  .current-price {
-    font-size: 20px;
-  }
-  
-  .old-price {
-    font-size: 16px;
-  }
-  
-  .add-to-cart-btn {
-    padding: 12px 20px;
-    font-size: 15px;
-    min-height: 45px;
-  }
-  
-  .rating {
-    font-size: 14px;
-  }
-  
-  .rating-count {
-    font-size: 13px;
-  }
-}
-
-/* Small Desktop Styles (1024px and up) */
-@media (min-width: 1024px) {
-  .luxury-products-section {
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 25px;
-    padding: 25px;
-    max-width: 1200px;
-  }
-  
-  .luxury-product-card {
-    min-height: 300px;
-  }
-  
-  .luxury-product-card:hover {
-    transform: translateY(-6px);
-  }
-}
-
-/* Large Desktop Styles (1200px and up) */
-@media (min-width: 1200px) {
-  .luxury-products-section {
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 30px;
-    padding: 30px;
-    max-width: 1400px;
-  }
-  
-  .luxury-product-card {
-    min-height: 200px;
-  }
-  
-  .product-title {
-    font-size: 20px;
-  }
-  
-  .current-price {
-    font-size: 22px;
-  }
-  
-  .add-to-cart-btn {
-    padding: 14px 24px;
-    font-size: 16px;
-    min-height: 50px;
-  }
-}
-
-/* Extra Large Desktop Styles (1400px and up) */
-@media (min-width: 1400px) {
-  .luxury-products-section {
-    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-    gap: 35px;
-    padding: 35px;
-    max-width: 1600px;
-  }
-  
-  .luxury-product-card {
-    min-height: 200px;
-  }
-}
-
-/* Landscape Mobile Styles */
-@media (max-width: 767px) and (orientation: landscape) {
-  .luxury-products-section {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 12px;
-    padding: 12px;
-  }
-  
-  .luxury-product-card {
-    min-height: 200px;
-  }
-  
-  .product-details {
-    padding: 12px;
-  }
-  
-  .product-title {
-    font-size: 14px;
-  }
-}
-
-/* Very Small Mobile Styles */
-@media (max-width: 480px) {
-  .luxury-products-section {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 12px;
-    padding: 12px;
-  }
-  
-  .luxury-product-card {
-    min-height: 200px;
-  }
-  
-  .product-badge {
-    font-size: 10px;
-    padding: 3px 8px;
-    top: 8px;
-    left: 8px;
-  }
-  
-  .wishlist-btn {
-    width: 28px;
-    height: 28px;
-    font-size: 14px;
-    top: 8px;
-    right: 8px;
-  }
-  
-  .product-details {
-    padding: 12px;
-  }
-  
-  .product-title {
-    font-size: 14px;
-    min-height: 38px;
-  }
-  
-  .current-price {
-    font-size: 16px;
-  }
-  
-  .old-price {
-    font-size: 13px;
-  }
-  
-  .add-to-cart-btn {
-    padding: 8px 12px;
-    font-size: 13px;
-    min-height: 36px;
-  }
-  
-  .rating {
-    font-size: 12px;
-  }
-  
-  .rating-count {
-    font-size: 11px;
-  }
-}
-
-/* Touch Device Optimizations */
-@media (hover: none) and (pointer: coarse) {
-  .luxury-product-card:hover {
-    transform: none;
-  }
-  
-  .luxury-product-card:hover .product-image {
-    transform: none;
-  }
-  
-  .luxury-product-card:hover .quick-view {
-    bottom: -50px;
-  }
-  
-  .wishlist-btn:hover {
-    transform: none;
-  }
-  
-  .add-to-cart-btn:hover {
-    transform: none;
-  }
-  
-  /* Add touch-friendly interactions */
-  .wishlist-btn:active {
-    transform: scale(0.95);
-  }
-  
-  .add-to-cart-btn:active {
-    transform: scale(0.98);
-  }
-}
-
-/* High DPI Display Optimizations */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .product-image {
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
-  }
-}
-
-/* Print Styles */
-@media print {
-  .luxury-products-section {
-    display: block;
-    background: white;
-  }
-  
-  .luxury-product-card {
-    break-inside: avoid;
-    box-shadow: none;
-    border: 1px solid #ccc;
-    margin-bottom: 20px;
-  }
-  
-  .wishlist-btn,
-  .quick-view,
-  .add-to-cart-btn {
-    display: none;
-  }
-}
-
-/* Reduced Motion Preferences */
-@media (prefers-reduced-motion: reduce) {
-  .luxury-product-card,
-  .product-image,
-  .wishlist-btn,
-  .add-to-cart-btn,
-  .quick-view {
-    transition: none;
-    animation: none;
-  }
-  
-  .luxury-product-card:hover {
-    transform: none;
-  }
-  
-  .luxury-product-card:hover .product-image {
-    transform: none;
-  }
-  
-  .luxury-product-card:hover .quick-view {
-    bottom: -50px;
-  }
-}
-
-/* Dark Mode Support */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --white: #1a1a1a;
-    --gray-light: #2a2a2a;
-    --text-dark: #ffffff;
-    --text-medium: #cccccc;
-  }
-  
-  .luxury-product-card {
-    background: var(--white);
-    border-color: rgba(255,255,255,0.1);
-  }
-  
-  .wishlist-btn {
-    background: var(--white);
-    color: var(--olive-primary);
-  }
-}
-
-/* تأثيرات الحركة عند التحميل */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.luxury-product-card {
-  animation: fadeInUp 0.5s ease forwards;
-  opacity: 0;
-}
-
-.luxury-product-card:nth-child(1) { animation-delay: 0.1s; }
-.luxury-product-card:nth-child(2) { animation-delay: 0.2s; }
-.luxury-product-card:nth-child(3) { animation-delay: 0.3s; }
-.luxury-product-card:nth-child(4) { animation-delay: 0.4s; }
-.luxury-product-card:nth-child(5) { animation-delay: 0.5s; }
-.luxury-product-card:nth-child(6) { animation-delay: 0.6s; }
-
-
-
-/* Mobile First - 1 كارت افتراضياً */
-.luxury-products-section {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-  padding: 16px;
-  max-width: 100%;
-  margin: 0 auto;
-  background-color: var(--gray-light);
-  min-height: 100vh;
-}
-
-/* Tablet - 2 كروت */
+/* استجابة الشاشات */
 @media (min-width: 768px) {
   .luxury-products-section {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     padding: 20px;
   }
+  .luxury-product-card {
+    min-height: 380px;
+    max-height: 450px;
+  }
 }
 
-/* Small Desktop - 3 كروت */
 @media (min-width: 1024px) {
   .luxury-products-section {
     grid-template-columns: repeat(3, 1fr);
@@ -600,9 +238,12 @@
     padding: 25px;
     max-width: 1200px;
   }
+  .luxury-product-card {
+    min-height: 400px;
+    max-height: 480px;
+  }
 }
 
-/* Large Desktop - 4 كروت */
 @media (min-width: 1200px) {
   .luxury-products-section {
     grid-template-columns: repeat(4, 1fr);
@@ -611,7 +252,9 @@
     max-width: 1400px;
     margin: 0 auto;
   }
+  .luxury-product-card {
+    min-height: 420px;
+    max-height: 500px;
+  }
 }
-
-
 </style>
