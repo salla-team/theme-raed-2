@@ -2,6 +2,7 @@
   <h2 class="section-title">التصنيفات الشائعة</h2>
   <div class="carousel-container">
     <div class="carousel-track">
+      <!-- الكروت -->
       <div class="product-card">
         <div class="card-img-container">
           <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/fafb67231260947.688739296cfe7.png" alt="بلاشر" loading="lazy">
@@ -37,6 +38,20 @@
           <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/aa9493231260947.688739b5ef7ee.png" alt="ليب جلوس" loading="lazy">
         </div>
         <p>ليب جلوس</p>
+      </div>
+
+      <!-- تكرار الكروت عشان تعمل Loop سلس -->
+      <div class="product-card">
+        <div class="card-img-container">
+          <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/fafb67231260947.688739296cfe7.png" alt="بلاشر" loading="lazy">
+        </div>
+        <p>بلاشر</p>
+      </div>
+      <div class="product-card">
+        <div class="card-img-container">
+          <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/9c2642231260947.688739b5f09d9.png" alt="روج" loading="lazy">
+        </div>
+        <p>روج</p>
       </div>
     </div>
   </div>
@@ -83,13 +98,13 @@
 .carousel-track {
   display: flex;
   gap: 25px;
-  animation: scroll 25s linear infinite;
-  will-change: transform;
+  animation: scroll 30s linear infinite;
+  width: max-content;
 }
 
 @keyframes scroll {
   0% { transform: translateX(0); }
-  100% { transform: translateX(calc(-50% - 12.5px)); }
+  100% { transform: translateX(-50%); }
 }
 
 .product-card {
@@ -100,14 +115,14 @@
   text-align: center;
   color: #2b5e3b;
   box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.4s ease;
   padding: 20px 15px;
   position: relative;
   overflow: hidden;
 }
 
 .product-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-10px) scale(1.03);
   box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 
@@ -154,71 +169,24 @@
   padding-top: 10px;
 }
 
+/* ✅ شاشات التابلت */
 @media (max-width: 1024px) {
-  .popular-products {
-    padding: 25px 15px;
-  }
-  
-  .product-card {
-    min-width: 160px;
-  }
-  
-  .card-img-container {
-    width: 100px;
-    height: 100px;
-  padding: 12px;
-  margin-bottom: 12px;
-  }
+  .product-card { min-width: 160px; }
+  .card-img-container { width: 100px; height: 100px; padding: 12px; }
 }
 
+/* ✅ شاشات الموبايل */
 @media (max-width: 768px) {
-  .section-title {
-    font-size: 1.5rem;
-  }
-  
-  .carousel-track {
-    gap: 15px;
-    animation-duration: 20s;
-  }
-  
-  .product-card {
-    min-width: 140px;
-    padding: 15px 10px;
-  }
-  
-  .card-img-container {
-    width: 80px;
-    height: 80px;
-    padding: 10px;
-  }
-  
-  .product-card p {
-    font-size: 1rem;
-  }
+  .carousel-track { gap: 15px; animation-duration: 20s; }
+  .product-card { min-width: 140px; padding: 15px 10px; }
+  .card-img-container { width: 80px; height: 80px; padding: 10px; }
+  .product-card p { font-size: 1rem; }
 }
 
+/* ✅ شاشات صغيرة جداً */
 @media (max-width: 480px) {
-  .popular-products {
-    padding: 20px 10px;
-  }
-  
-  .section-title {
-    font-size: 1.3rem;
-    margin-bottom: 20px;
-  }
-  
-  .product-card {
-    min-width: 120px;
-  }
-  
-  .card-img-container {
-    width: 70px;
-    height: 70px;
-    padding: 8px;
-  }
-  
-  .product-card p {
-    font-size: 0.9rem;
-  }
+  .product-card { min-width: 120px; }
+  .card-img-container { width: 70px; height: 70px; padding: 8px; }
+  .product-card p { font-size: 0.9rem; }
 }
 </style>
