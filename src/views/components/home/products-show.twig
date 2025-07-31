@@ -1,34 +1,48 @@
-{% for products_show in component.products_show %}
-    <div class="text-black w-full">
+<section style="background-color: #f8f8f2; padding: 60px 20px;">
+  <h2 style="text-align: center; font-size: 32px; font-weight: bold; color: #6e7f59; margin-bottom: 40px;">
+    أحدث المنتجات
+  </h2>
+
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
+    {% for product in component.product %}
+      <div style="
+        background-color: white;
+        border-radius: 16px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+        max-width: 300px;
+        width: 100%;
+        overflow: hidden;
+        text-align: center;
+        transition: transform 0.3s ease;
+      " onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
         
-       
-   
- 
-        <h3 class="" data-swiper-parallax="-300">
-            {{ products_show }}
-        </h3>
+        <img 
+          src="{{ product.image }}" 
+          alt="{{ product.name }}" 
+          style="width: 100%; height: auto; border-bottom: 1px solid #eee;"
+        />
 
-    </div>
-{% endfor %}
+        <div style="padding: 20px;">
+          <p style="font-weight: bold; font-size: 20px; color: #6e7f59;">
+            {{ product.name }}
+          </p>
+          <h3 style="color: #c4a35a; font-size: 18px; margin: 10px 0;">
+            {{ product.price }}
+          </h3>
 
-
-
-{% for product in component.product %}
-    <div class="text-black w-full">
-        
-       
-       <img 
-    data-swiper-parallax="-700" 
-    src="{{ product.image }}" 
-    alt="{{   product.image}}" 
-    class="w-full h-auto"
-/>
- <p data-swiper-parallax="-700">
-            {{ product.name}}
-        </p>
-        <h3 class="" data-swiper-parallax="-300">
-            {{ product.price}}
-        </h3>
-
-    </div>
-{% endfor %}
+          <button style="
+            background-color: #6e7f59;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+          " onmouseover="this.style.backgroundColor='#8f9779'" onmouseout="this.style.backgroundColor='#6e7f59'">
+            أضف للسلة
+          </button>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
