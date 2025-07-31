@@ -2,17 +2,42 @@
   <h2 class="section-title">التصنيفات الشائعة</h2>
   <div class="carousel-container">
     <div class="carousel-track">
-      <!-- الكروت -->
-      <div class="product-card"><div class="card-img-container"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/fafb67231260947.688739296cfe7.png" alt="بلاشر"></div><p>بلاشر</p></div>
-      <div class="product-card"><div class="card-img-container"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/9c2642231260947.688739b5f09d9.png" alt="روج"></div><p>روج</p></div>
-      <div class="product-card"><div class="card-img-container"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/8a1dea231260947.688739b5eee4b.png" alt="بدي سبلاش"></div><p>بدي سبلاش</p></div>
-      <div class="product-card"><div class="card-img-container"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/f90f9e231260947.688739b5f00f8.png" alt="هايلايتر"></div><p>هايلايتر</p></div>
-      <div class="product-card"><div class="card-img-container"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/6addfb231260947.688739b5f0fc2.png" alt="ماسكارا"></div><p>ماسكارا</p></div>
-      <div class="product-card"><div class="card-img-container"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/aa9493231260947.688739b5ef7ee.png" alt="ليب جلوس"></div><p>ليب جلوس</p></div>
-
-      <!-- ✅ نسخ الكروت لتكرار الـ loop -->
-      <div class="product-card"><div class="card-img-container"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/fafb67231260947.688739296cfe7.png" alt="بلاشر"></div><p>بلاشر</p></div>
-      <div class="product-card"><div class="card-img-container"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/9c2642231260947.688739b5f09d9.png" alt="روج"></div><p>روج</p></div>
+      <div class="product-card">
+        <div class="card-img-container">
+          <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/fafb67231260947.688739296cfe7.png" alt="بلاشر" loading="lazy">
+        </div>
+        <p>بلاشر</p>
+      </div>
+      <div class="product-card">
+        <div class="card-img-container">
+          <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/9c2642231260947.688739b5f09d9.png" alt="روج" loading="lazy">
+        </div>
+        <p>روج</p>
+      </div>
+      <div class="product-card">
+        <div class="card-img-container">
+          <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/8a1dea231260947.688739b5eee4b.png" alt="بدي سبلاش" loading="lazy">
+        </div>
+        <p>بدي سبلاش</p>
+      </div>
+      <div class="product-card">
+        <div class="card-img-container">
+          <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/f90f9e231260947.688739b5f00f8.png" alt="هايلايتر" loading="lazy">
+        </div>
+        <p>هايلايتر</p>
+      </div>
+      <div class="product-card">
+        <div class="card-img-container">
+          <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/6addfb231260947.688739b5f0fc2.png" alt="ماسكارا" loading="lazy">
+        </div>
+        <p>ماسكارا</p>
+      </div>
+      <div class="product-card">
+        <div class="card-img-container">
+          <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/aa9493231260947.688739b5ef7ee.png" alt="ليب جلوس" loading="lazy">
+        </div>
+        <p>ليب جلوس</p>
+      </div>
     </div>
   </div>
 </section>
@@ -52,18 +77,19 @@
 .carousel-container {
   overflow: hidden;
   position: relative;
+  padding: 10px 0;
 }
 
 .carousel-track {
   display: flex;
-  gap: 20px;
-  width: max-content;
+  gap: 25px;
   animation: scroll 25s linear infinite;
+  will-change: transform;
 }
 
 @keyframes scroll {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 12.5px)); }
 }
 
 .product-card {
@@ -74,15 +100,25 @@
   text-align: center;
   color: #2b5e3b;
   box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-  transition: all 0.4s ease;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   padding: 20px 15px;
   position: relative;
   overflow: hidden;
 }
 
 .product-card:hover {
-  transform: translateY(-8px) scale(1.03);
+  transform: translateY(-10px);
   box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #2b5e3b 0%, #4caf50 100%);
 }
 
 .card-img-container {
@@ -95,32 +131,94 @@
   background: linear-gradient(135deg, #f0f9f2 0%, #e0f2e9 100%);
   border-radius: 50%;
   padding: 15px;
+  transition: all 0.3s ease;
+}
+
+.product-card:hover .card-img-container {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #e0f2e9 0%, #c8e6d5 100%);
 }
 
 .product-card img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  transition: transform 0.3s ease;
 }
 
-/* ✅ التابلت */
+.product-card p {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2b5e3b;
+  padding-top: 10px;
+}
+
 @media (max-width: 1024px) {
-  .carousel-track { animation-duration: 20s; gap: 15px; }
-  .product-card { min-width: 150px; padding: 18px 12px; }
-  .card-img-container { width: 100px; height: 100px; }
+  .popular-products {
+    padding: 25px 15px;
+  }
+  
+  .product-card {
+    min-width: 160px;
+  }
+  
+  .card-img-container {
+    width: 100px;
+    height: 100px;
+  padding: 12px;
+  margin-bottom: 12px;
+  }
 }
 
-/* ✅ الموبايل */
 @media (max-width: 768px) {
-  .carousel-track { animation-duration: 15s; gap: 12px; }
-  .product-card { min-width: 130px; padding: 15px 10px; }
-  .card-img-container { width: 80px; height: 80px; }
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .carousel-track {
+    gap: 15px;
+    animation-duration: 20s;
+  }
+  
+  .product-card {
+    min-width: 140px;
+    padding: 15px 10px;
+  }
+  
+  .card-img-container {
+    width: 80px;
+    height: 80px;
+    padding: 10px;
+  }
+  
+  .product-card p {
+    font-size: 1rem;
+  }
 }
 
-/* ✅ شاشات صغيرة جداً */
 @media (max-width: 480px) {
-  .carousel-track { animation-duration: 12s; gap: 10px; }
-  .product-card { min-width: 110px; }
-  .card-img-container { width: 70px; height: 70px; }
+  .popular-products {
+    padding: 20px 10px;
+  }
+  
+  .section-title {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+  }
+  
+  .product-card {
+    min-width: 120px;
+  }
+  
+  .card-img-container {
+    width: 70px;
+    height: 70px;
+    padding: 8px;
+  }
+  
+  .product-card p {
+    font-size: 0.9rem;
+  }
 }
 </style>
