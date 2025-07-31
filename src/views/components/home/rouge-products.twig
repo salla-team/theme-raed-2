@@ -1,103 +1,96 @@
 
-
 <style>
-.split-section {
+.rouge-section {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   min-height: 100vh;
-  direction: rtl;
-  overflow: hidden;
-}
-
-.split-image,
-.split-content {
-  width: 100%;
-  min-height: 50vh;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 @media (min-width: 768px) {
-  .split-image, .split-content {
-    width: 50%;
-    min-height: 100vh;
+  .rouge-section {
+    flex-direction: row;
   }
 }
 
-.split-image {
+.rouge-image {
+  width: 100%;
+  min-height: 300px;
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  transition: transform 0.5s ease;
 }
 
-.split-section:hover .split-image {
-  transform: scale(1.03);
-}
-
-.split-content {
-  background-color: #f8f8f2;
-  padding: 60px 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  text-align: right;
-  position: relative;
-  opacity: 0;
-  transform: translateX(50px);
-  animation: fadeSlideIn 1s ease forwards;
-  animation-delay: 0.2s;
-}
-
-.split-content h3 {
-  font-size: clamp(24px, 4vw, 40px);
-  margin-bottom: 20px;
-  font-weight: bold;
-  color: #6e7f59;
-}
-
-.split-content p {
-  font-size: clamp(16px, 2vw, 20px);
-  margin-bottom: 30px;
-  color: #333;
-  line-height: 1.8;
-}
-
-.split-content a {
-  display: inline-block;
-  background-color: #8f9779;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-
-.split-content a:hover {
-  background-color: #6e7f59;
-}
-
-/* Animation */
-@keyframes fadeSlideIn {
-  to {
-    opacity: 1;
-    transform: translateX(0);
+@media (min-width: 768px) {
+  .rouge-image {
+    width: 50%;
   }
+}
+
+.rouge-content {
+  width: 100%;
+  position: relative;
+  padding: 40px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f8f2;
+  direction: rtl;
+}
+
+@media (min-width: 768px) {
+  .rouge-content {
+    width: 50%;
+  }
+}
+
+.rouge-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(143, 151, 121, 0.5); /* ← فلتر زيتوني فاتح */
+  z-index: 0;
+}
+
+.rouge-text {
+  position: relative;
+  max-width: 600px;
+  text-align: center;
+  z-index: 1;
+  color: #fff;
+}
+
+.rouge-text h3 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  font-family: 'Georgia', serif;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.rouge-text p {
+  font-size: 18px;
+  line-height: 1.6;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
 }
 </style>
 
 {% for rouge in component.rouge %}
-<div class="split-section">
+<div class="rouge-section">
   <!-- الصورة -->
-  <div class="split-image" style="background-image: url('{{ rouge.image_section }}');"></div>
+  <div class="rouge-image" style="background-image: url('{{ rouge.image_section }}');" loading="lazy"></div>
 
-  <!-- النص + الزر -->
-  <div class="split-content">
-    <h3>{{ rouge.section_title }}</h3>
-    <p>{{ rouge.description }}</p>
+  <!-- النص -->
+  <div class="rouge-content">
+    <div class="rouge-overlay"></div>
+
+    <div class="rouge-text">
+      <h3>{{ rouge.section_title }}</h3>
+      <p>&ldquo;{{ rouge.description }}&rdquo;</p>
+    </div>
   </div>
 </div>
-{% endfor %}
+{% endfor %}
+
+
 
 
 
