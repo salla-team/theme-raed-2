@@ -49,6 +49,7 @@
   max-width: 100%;
   margin: 0 auto;
   background-color: var(--gray-light);
+  min-height: 100vh;
 }
 
 .luxury-product-card {
@@ -59,7 +60,7 @@
   position: relative;
   transition: all var(--transition-speed) ease;
   border: 1px solid rgba(0,0,0,0.05);
-  min-height: 100px;
+  min-height: 400px;
   display: flex;
   flex-direction: column;
 }
@@ -305,14 +306,14 @@
 /* Small Desktop Styles (1024px and up) */
 @media (min-width: 1024px) {
   .luxury-products-section {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 25px;
     padding: 25px;
-    max-width: 900px;
+    max-width: 1200px;
   }
   
   .luxury-product-card {
-    min-height: 380px;
+    min-height: 480px;
   }
   
   .luxury-product-card:hover {
