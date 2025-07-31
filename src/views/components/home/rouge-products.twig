@@ -257,4 +257,33 @@
     max-height: 300px;
   }
 }
+
+@media (max-width: 767px) {
+  .luxury-products-section {
+    grid-template-columns: 1fr; /* كارت واحد */
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .luxury-product-card {
+    min-height: 180px; /* ⬅️ تقليل الطول للموبايل */
+    max-height: 250px; /* ⬅️ أقصى طول */
+  }
+
+  .product-image-container {
+    padding-top: 75%; /* ⬅️ تصغير نسبة الصورة */
+  }
+
+  .product-title {
+    font-size: 14px;
+    min-height: auto; /* يخلي العنوان مش ياخد مساحة زيادة */
+  }
+
+  .add-to-cart-btn {
+    padding: 6px 10px;
+    font-size: 12px;
+    min-height: 30px;
+  }
+}
+
 </style>
