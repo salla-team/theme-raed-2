@@ -1380,7 +1380,7 @@
                             "multilanguage": false,
                             "required": false,
                             "minLength": 6,
-                            "maxLength": 30
+                            "maxLength": "500"
                         }
                     ],
                     "value": [],
