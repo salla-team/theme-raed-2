@@ -1366,6 +1366,21 @@
                             "icon": "sicon-image",
                             "value": null,
                             "required": false
+                        },
+                        {
+                            "id": "rouge.description",
+                            "type": "string",
+                            "format": "text",
+                            "label": "وصف القسم",
+                            "description": null,
+                            "labelHTML": null,
+                            "placeholder": "Placeholder text ..",
+                            "icon": "sicon-format-text-alt",
+                            "value": null,
+                            "multilanguage": false,
+                            "required": false,
+                            "minLength": 6,
+                            "maxLength": 30
                         }
                     ],
                     "value": [],
