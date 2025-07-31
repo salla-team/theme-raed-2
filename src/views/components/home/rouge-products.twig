@@ -61,20 +61,9 @@
   line-height: 1.8;
 }
 
-.split-content a {
-  display: inline-block;
-  background-color: #8f9779;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
 
-.split-content a:hover {
-  background-color: #6e7f59;
-}
+
+
 
 @keyframes fadeSlideIn {
   to {
@@ -93,9 +82,6 @@
   <div class="split-content">
     <h3>{{ rouge.section_title }}</h3>
     <p>{{ rouge.description }}</p>
-    {% if rouge.button_link %}
-      <a href="{{ rouge.button_link }}">{{ rouge.button_text | default('تسوقي الآن') }}</a>
-    {% endif %}
   </div>
 </div>
 {% endfor %}
