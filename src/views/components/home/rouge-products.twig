@@ -1,6 +1,6 @@
 
-<style>
-.rouge-section {
+ؤؤ<style>
+.fashion-glow {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -8,133 +8,121 @@
   background-size: cover;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 @media (min-width: 768px) {
-  .rouge-section {
+  .fashion-glow {
     flex-direction: row;
   }
 }
 
-.rouge-image {
+.shiny-flair {
   width: 100%;
   min-height: 50vh;
   background-size: cover;
   background-position: center;
-  transition: all 0.5s ease;
   position: relative;
+  transition: transform 0.5s ease;
 }
 
-.rouge-image::before {
+.shiny-flair::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(143,151,121,0.3) 0%, rgba(143,151,121,0.1) 100%);
+  inset: 0;
+  background: linear-gradient(145deg, rgba(110,127,89,0.25), rgba(248,248,242,0.1));
 }
 
 @media (min-width: 768px) {
-  .rouge-image {
+  .shiny-flair {
     width: 50%;
     min-height: 100vh;
   }
 }
 
-.rouge-content {
+.elegant-veil {
   width: 100%;
-  position: relative;
-  padding: 60px 30px;
+  padding: 50px 25px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #f8f8f2;
   direction: rtl;
-  transition: all 0.5s ease;
+  position: relative;
 }
 
 @media (min-width: 768px) {
-  .rouge-content {
+  .elegant-veil {
     width: 50%;
-    padding: 80px 40px;
+    padding: 80px 50px;
   }
 }
 
-.rouge-overlay {
+.veil-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(45deg, rgba(143, 151, 121, 0.7) 0%, rgba(168, 175, 142, 0.5) 100%);
+  background: linear-gradient(60deg, rgba(143,151,121,0.7), rgba(255,255,255,0.1));
   z-index: 0;
-  opacity: 0.9;
 }
 
-.rouge-text {
+.glow-box {
   position: relative;
   max-width: 600px;
-  text-align: center;
   z-index: 1;
+  text-align: center;
   color: #fff;
-  padding: 30px;
-  border-radius: 15px;
-  backdrop-filter: blur(5px);
-  background: rgba(255,255,255,0.1);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 40px 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease;
 }
 
-.rouge-text:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.25);
+.glow-box:hover {
+  transform: translateY(-8px);
 }
 
-.rouge-text h3 {
-  font-size: 2.5rem;
-  margin-bottom: 25px;
+.glow-box h3 {
   font-family: 'Playfair Display', serif;
-  font-weight: 700;
+  font-size: 2.4rem;
+  margin-bottom: 20px;
   color: #fff;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  line-height: 1.2;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.3);
   position: relative;
-  padding-bottom: 15px;
 }
 
-.rouge-text h3::after {
+.glow-box h3::after {
   content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
+  width: 70px;
   height: 3px;
   background: #fff;
+  display: block;
+  margin: 10px auto 0;
   border-radius: 3px;
 }
 
-.rouge-text p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  margin-bottom: 30px;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+.glow-box p {
   font-family: 'Open Sans', sans-serif;
+  font-size: 1.1rem;
   font-weight: 300;
+  line-height: 1.8;
+  color: #fefefe;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* تأثيرات الحركة */
+/* Motion */
 @media (prefers-reduced-motion: no-preference) {
-  .rouge-text {
-    animation: fadeInUp 0.8s ease-out;
+  .glow-box {
+    animation: popFade 0.7s ease-in-out both;
   }
-  
-  .rouge-image {
-    animation: fadeIn 0.8s ease-out;
+
+  .shiny-flair {
+    animation: fadeOnly 0.7s ease-in-out both;
   }
 }
 
-@keyframes fadeInUp {
+@keyframes popFade {
   from {
     opacity: 0;
     transform: translateY(20px);
@@ -145,7 +133,7 @@
   }
 }
 
-@keyframes fadeIn {
+@keyframes fadeOnly {
   from {
     opacity: 0;
   }
@@ -154,39 +142,37 @@
   }
 }
 
-/* التأقلم مع الأجهزة الصغيرة */
+/* Responsive Text */
 @media (max-width: 576px) {
-  .rouge-text {
-    padding: 20px;
+  .glow-box {
+    padding: 25px;
   }
-  
-  .rouge-text h3 {
+
+  .glow-box h3 {
     font-size: 1.8rem;
   }
-  
-  .rouge-text p {
+
+  .glow-box p {
     font-size: 1rem;
   }
 }
 </style>
 
 {% for rouge in component.rouge %}
-<div class="rouge-section">
-  <!-- الصورة -->
-  <div class="rouge-image" style="background-image: url('{{ rouge.image_section }}');" loading="lazy"></div>
+<div class="fashion-glow">
+  <!-- صورة -->
+  <div class="shiny-flair" style="background-image: url('{{ rouge.image_section }}');" loading="lazy"></div>
 
-  <!-- النص -->
-  <div class="rouge-content">
-    <div class="rouge-overlay"></div>
-
-    <div class="rouge-text">
+  <!-- محتوى -->
+  <div class="elegant-veil">
+    <div class="veil-overlay"></div>
+    <div class="glow-box">
       <h3>{{ rouge.section_title }}</h3>
       <p>&ldquo;{{ rouge.description }}&rdquo;</p>
     </div>
   </div>
 </div>
-{% endfor %}
-
+{% endfor %}
 
 
 
@@ -517,7 +503,6 @@
     padding: 6px 10px;
     font-size: 12px;
     min-height: 30px;
-        margin-bottom: 20px;
 
   }
 }
