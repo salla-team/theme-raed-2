@@ -13,7 +13,7 @@
 
 @media (min-width: 768px) {
   .rouge-section {
-    flex-direction: row-reverse; /* الصورة على اليمين */
+    flex-direction: row;
   }
 }
 
@@ -33,7 +33,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: none; /* إزالة التراكب */
+  background: linear-gradient(135deg, rgba(143,151,121,0.3) 0%, rgba(143,151,121,0.1) 100%);
 }
 
 @media (min-width: 768px) {
@@ -50,8 +50,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #fff; /* الخلفية بيضاء */
-  direction: ltr; /* الاتجاه يسار */
+  background-color: #f8f8f2;
+  direction: rtl;
   transition: all 0.5s ease;
 }
 
@@ -62,23 +62,32 @@
   }
 }
 
+.rouge-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, rgba(143, 151, 121, 0.7) 0%, rgba(168, 175, 142, 0.5) 100%);
+  z-index: 0;
+  opacity: 0.9;
+}
+
 .rouge-text {
   position: relative;
   max-width: 600px;
-  text-align: left;
+  text-align: center;
   z-index: 1;
-  color: #6e7f59; /* لون زيتوني */
+  color: #fff;
   padding: 30px;
   border-radius: 15px;
-  background: #fff;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.08);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(5px);
+  background: rgba(255,255,255,0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .rouge-text:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.15);
+  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.25);
 }
 
 .rouge-text h3 {
@@ -86,7 +95,8 @@
   margin-bottom: 25px;
   font-family: 'Playfair Display', serif;
   font-weight: 700;
-  color: #6e7f59;
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   line-height: 1.2;
   position: relative;
   padding-bottom: 15px;
@@ -96,10 +106,11 @@
   content: '';
   position: absolute;
   bottom: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: 80px;
   height: 3px;
-  background: #6e7f59;
+  background: #fff;
   border-radius: 3px;
 }
 
@@ -107,16 +118,17 @@
   font-size: 1.1rem;
   line-height: 1.8;
   margin-bottom: 30px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
 }
 
-/* حركة */
+/* تأثيرات الحركة */
 @media (prefers-reduced-motion: no-preference) {
   .rouge-text {
     animation: fadeInUp 0.8s ease-out;
   }
-
+  
   .rouge-image {
     animation: fadeIn 0.8s ease-out;
   }
@@ -142,16 +154,16 @@
   }
 }
 
-/* موبايل */
+/* التأقلم مع الأجهزة الصغيرة */
 @media (max-width: 576px) {
   .rouge-text {
     padding: 20px;
   }
-
+  
   .rouge-text h3 {
     font-size: 1.8rem;
   }
-
+  
   .rouge-text p {
     font-size: 1rem;
   }
@@ -165,13 +177,16 @@
 
   <!-- النص -->
   <div class="rouge-content">
+    <div class="rouge-overlay"></div>
+
     <div class="rouge-text">
       <h3>{{ rouge.section_title }}</h3>
       <p>&ldquo;{{ rouge.description }}&rdquo;</p>
     </div>
   </div>
 </div>
-{% endfor %}
+{% endfor %}
+
 
 
 
