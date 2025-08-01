@@ -167,7 +167,12 @@ color: #FFFFFFFF !important;
                         </button>
                     {% endif %}
                     <salla-cart-summary class="ml-4 rtl:ml-[unset] rtl:mr-4 modern-cart">
-                      <i slot="icon" class="header-btn__icon icon sicon-shopping-bag"></i>
+<span slot="icon" class="header-btn__icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="24" height="24" fill="currentColor">
+    <path d="M16 22h32l-3 30H19l-3-30z"/>
+    <path d="M24 22v-4a8 8 0 0 1 16 0v4" fill="none" stroke="currentColor" stroke-width="4"/>
+  </svg>
+</span>
                     </salla-cart-summary>
                 </div>
             </div>
