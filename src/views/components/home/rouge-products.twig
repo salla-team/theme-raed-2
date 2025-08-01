@@ -485,4 +485,56 @@
   }
 }
 
+
+
+
+/* الشبكة */
+.luxury-products-section {
+  display: grid;
+  grid-template-columns: 1fr; /* كارت واحد في كل صف */
+  gap: 20px; /* المسافة بين الكروت */
+  padding: 20px;
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: var(--gray-light);
+}
+
+@media (min-width: 768px) {
+  .luxury-products-section {
+    grid-template-columns: repeat(2, 1fr); /* كارتين في كل صف */
+    gap: 25px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .luxury-products-section {
+    grid-template-columns: repeat(2, 1fr); /* كارتين في كل صف */
+    gap: 30px;
+    max-width: 1200px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .luxury-products-section {
+    grid-template-columns: repeat(3, 1fr); /* ثلاثة كروت في كل صف */
+    gap: 35px;
+    max-width: 1600px;
+  }
+}
+
+/* كارت المنتج */
+.luxury-product-card {
+  width: 100%; /* اجعل الكارت يأخذ العرض الكامل */
+  max-width: 100%; /* منع تجاوز العرض */
+  background: var(--white);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  position: relative;
+  transition: all var(--transition-speed) ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 </style>
