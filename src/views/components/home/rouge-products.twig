@@ -4,8 +4,11 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: #f8f8f2;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
   overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 @media (min-width: 768px) {
@@ -16,10 +19,21 @@
 
 .rouge-image {
   width: 100%;
-  min-height: 300px;
+  min-height: 50vh;
   background-size: cover;
   background-position: center;
+  transition: all 0.5s ease;
   position: relative;
+}
+
+.rouge-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(143,151,121,0.3) 0%, rgba(143,151,121,0.1) 100%);
 }
 
 @media (min-width: 768px) {
@@ -31,45 +45,125 @@
 
 .rouge-content {
   width: 100%;
-  padding: 40px 20px;
-  background-color: #ffffff;
-  color: #6e7f59;
+  position: relative;
+  padding: 60px 30px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #f8f8f2;
   direction: rtl;
+  transition: all 0.5s ease;
 }
 
 @media (min-width: 768px) {
   .rouge-content {
     width: 50%;
-    padding: 80px 60px;
+    padding: 80px 40px;
   }
 }
 
+.rouge-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, rgba(143, 151, 121, 0.7) 0%, rgba(168, 175, 142, 0.5) 100%);
+  z-index: 0;
+  opacity: 0.9;
+}
+
 .rouge-text {
+  position: relative;
   max-width: 600px;
   text-align: center;
-  font-family: 'Cairo', sans-serif;
+  z-index: 1;
+  color: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+  background: rgba(255,255,255,0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rouge-text:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.25);
 }
 
 .rouge-text h3 {
-  font-size: 2rem;
-  color: #6e7f59;
-  margin-bottom: 20px;
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  line-height: 1.2;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.rouge-text h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: #fff;
+  border-radius: 3px;
 }
 
 .rouge-text p {
   font-size: 1.1rem;
-  color: #8f9779;
   line-height: 1.8;
+  margin-bottom: 30px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
 }
 
-@media (max-width: 576px) {
-  .rouge-text h3 {
-    font-size: 1.5rem;
+/* تأثيرات الحركة */
+@media (prefers-reduced-motion: no-preference) {
+  .rouge-text {
+    animation: fadeInUp 0.8s ease-out;
   }
+  
+  .rouge-image {
+    animation: fadeIn 0.8s ease-out;
+  }
+}
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* التأقلم مع الأجهزة الصغيرة */
+@media (max-width: 576px) {
+  .rouge-text {
+    padding: 20px;
+  }
+  
+  .rouge-text h3 {
+    font-size: 1.8rem;
+  }
+  
   .rouge-text p {
     font-size: 1rem;
   }
@@ -79,17 +173,20 @@
 {% for rouge in component.rouge %}
 <div class="rouge-section">
   <!-- الصورة -->
-  <div class="rouge-image" style="background-image: url('{{ rouge.image_section }}');"></div>
+  <div class="rouge-image" style="background-image: url('{{ rouge.image_section }}');" loading="lazy"></div>
 
   <!-- النص -->
   <div class="rouge-content">
+    <div class="rouge-overlay"></div>
+
     <div class="rouge-text">
       <h3>{{ rouge.section_title }}</h3>
-      <p>{{ rouge.description }}</p>
+      <p>&ldquo;{{ rouge.description }}&rdquo;</p>
     </div>
   </div>
 </div>
-{% endfor %}
+{% endfor %}
+
 
 
 
@@ -420,6 +517,8 @@
     padding: 6px 10px;
     font-size: 12px;
     min-height: 30px;
+        margin-bottom :5px;
+
   }
 }
 
