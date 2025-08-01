@@ -523,7 +523,7 @@
 /* استجابة الشاشات */
 @media (max-width: 1024px) {
   .luxury-products-section {
-    grid-template-columns: repeat(2, 1fr); /* كرتان في الصف للتابلت */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* توزيع الكروت بشكل متساوٍ */
     gap: 20px; /* زيادة المسافة بين الكروت */
     padding: 0 15px; /* تقليل المسافات الجانبية */
   }
@@ -531,7 +531,7 @@
 
 @media (max-width: 768px) {
   .luxury-products-section {
-    grid-template-columns: repeat(2, 1fr); /* كرتان في الصف للموبايل */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* توزيع الكروت بشكل متساوٍ */
     gap: 15px; /* تقليل المسافة بين الكروت */
     padding: 0 10px; /* تقليل المسافات الجانبية */
   }
@@ -539,7 +539,7 @@
 
 @media (max-width: 480px) {
   .luxury-products-section {
-    grid-template-columns: 1fr; /* كارت واحد في الصف للموبايل الصغير */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* توزيع الكروت بشكل متساوٍ */
     gap: 10px; /* تقليل المسافة بين الكروت */
     padding: 0 8px; /* تقليل المسافات الجانبية */
   }
