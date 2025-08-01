@@ -11,3 +11,68 @@
     
     <salla-products-list source="latest"></salla-products-list>
 </section> 
+
+/* الحاوية الرئيسية */
+.s-block--latest-products {
+  background: #fff;
+  border-radius: 16px;
+  padding: 30px 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  margin: 40px auto;
+  max-width: 1200px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* العنوان */
+.s-block--latest-products .s-block__title h2 {
+  font-size: 1.8rem;
+  color: #222;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+/* خط زخرفي تحت العنوان */
+.s-block--latest-products .s-block__title h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #ff6b6b;
+  border-radius: 2px;
+  margin: 8px auto 0;
+}
+
+/* المنتجات */
+salla-products-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* كارد المنتج */
+salla-products-list::part(product-card) {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+salla-products-list::part(product-card):hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+/* تحسين للأجهزة الصغيرة */
+@media (max-width: 768px) {
+  .s-block--latest-products {
+    padding: 20px 10px;
+  }
+
+  .s-block--latest-products .s-block__title h2 {
+    font-size: 1.5rem;
+  }
+}
+
