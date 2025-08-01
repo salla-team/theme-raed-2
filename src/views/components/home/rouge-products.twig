@@ -520,22 +520,11 @@
 
 
 
-/* الشبكة */
-.luxury-products-section {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* أربعة كروت في الصف للشاشات الكبيرة */
-  gap: 20px; /* المسافة بين الكروت */
-  padding: 0 20px; /* تقليل المسافات الجانبية */
-  max-width: 1400px; /* تكبير عرض القسم */
-  margin: 0 auto; /* توسيط القسم */
-  background-color: var(--gray-light);
-}
-
 /* استجابة الشاشات */
 @media (max-width: 1024px) {
   .luxury-products-section {
-    grid-template-columns: repeat(3, 1fr); /* ثلاثة كروت في الصف للتابلت */
-    gap: 15px; /* تقليل المسافة بين الكروت */
+    grid-template-columns: repeat(2, 1fr); /* كرتان في الصف للتابلت */
+    gap: 20px; /* زيادة المسافة بين الكروت */
     padding: 0 15px; /* تقليل المسافات الجانبية */
   }
 }
@@ -543,7 +532,7 @@
 @media (max-width: 768px) {
   .luxury-products-section {
     grid-template-columns: repeat(2, 1fr); /* كرتان في الصف للموبايل */
-    gap: 12px; /* تقليل المسافة بين الكروت */
+    gap: 15px; /* تقليل المسافة بين الكروت */
     padding: 0 10px; /* تقليل المسافات الجانبية */
   }
 }
