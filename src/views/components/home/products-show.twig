@@ -1,46 +1,92 @@
-<section style="background-color: #f8f8f2; padding: 60px 20px;">
+تمام<section style="background-color: #f8f8f2; padding: 60px 20px;">
   <h2 style="text-align: center; font-size: 32px; font-weight: bold; color: #6e7f59; margin-bottom: 40px;">
     أحدث المنتجات
   </h2>
 
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
+  <style>
+    .product-card {
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+      max-width: 260px;
+      width: 100%;
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: scale(1.03);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: auto;
+      border-bottom: 1px solid #eee;
+    }
+
+    .product-card-content {
+      padding: 16px;
+    }
+
+    .product-card-content p {
+      font-weight: bold;
+      font-size: 18px;
+      color: #6e7f59;
+    }
+
+    .product-card-content h3 {
+      color: #c4a35a;
+      font-size: 16px;
+      margin: 10px 0;
+    }
+
+    .product-card-content button {
+      background-color: #6e7f59;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .product-card-content button:hover {
+      background-color: #8f9779;
+    }
+
+    @media (max-width: 768px) {
+      .product-card {
+        max-width: 45%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .product-card {
+        max-width: 90%;
+      }
+
+      .product-card-content p {
+        font-size: 16px;
+      }
+
+      .product-card-content h3 {
+        font-size: 14px;
+      }
+    }
+  </style>
+
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 24px;">
     {% for product in component.product %}
-      <div style="
-        background-color: white;
-        border-radius: 16px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
-        max-width: 300px;
-        width: 100%;
-        overflow: hidden;
-        text-align: center;
-        transition: transform 0.3s ease;
-      " onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
-        
+      <div class="product-card">
         <img 
           src="{{ product.image }}" 
-          alt="{{ product.name }}" 
-          style="width: 100%; height: auto; border-bottom: 1px solid #eee;"
+          alt="{{ product.name }}"
         />
-
-        <div style="padding: 20px;">
-          <p style="font-weight: bold; font-size: 20px; color: #6e7f59;">
-            {{ product.name }}
-          </p>
-          <h3 style="color: #c4a35a; font-size: 18px; margin: 10px 0;">
-            {{ product.price }}
-          </h3>
-
-          <button style="
-            background-color: #6e7f59;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-          " onmouseover="this.style.backgroundColor='#8f9779'" onmouseout="this.style.backgroundColor='#6e7f59'">
-            أضف للسلة
-          </button>
+        <div class="product-card-content">
+          <p>{{ product.name }}</p>
+          <h3>{{ product.price }}</h3>
+          <button>أضف للسلة</button>
         </div>
       </div>
     {% endfor %}
