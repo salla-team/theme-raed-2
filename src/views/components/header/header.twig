@@ -157,7 +157,13 @@ color: #FFFFFFFF !important;
                       <salla-user-menu avatar-only show-header class="modern-user-menu"></salla-user-menu>
                     {% else %}
                         <button class="header-btn modern-header-btn" aria-label="user-icon" onclick="salla.event.dispatch('login::open')">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="50" height="50" fill="white">
+<span class="header-btn__icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="24" height="24" fill="currentColor">
+    <circle cx="32" cy="32" r="30" stroke="currentColor" stroke-width="4" fill="none"/>
+    <circle cx="32" cy="24" r="10" fill="currentColor"/>
+    <path d="M16 52c0-8 7-14 16-14s16 6 16 14" fill="currentColor"/>
+  </svg>
+</span>
                         </button>
                     {% endif %}
                     <salla-cart-summary class="ml-4 rtl:ml-[unset] rtl:mr-4 modern-cart">

@@ -1,111 +1,106 @@
 <section style="background-color: #f8f8f2; padding: 60px 20px;">
-  <h2 style="text-align: center; font-size: 32px; font-weight: bold; color: #6e7f59; margin-bottom: 40px;">
+  <h2 style="text-align: center; font-size: 28px; font-weight: bold; color: #6e7f59; margin-bottom: 40px;">
     أحدث المنتجات
   </h2>
 
   <style>
-    :root {
-      --olive-primary: #6B8E23;
-      --olive-dark: #556B2F;
-      --white: #FFFFFF;
-      --gray-light: #F8F8F8;
-      --text-dark: #333333;
-      --text-medium: #555555;
-      --transition-speed: 0.3s;
-    }
-
     .latest-products-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 30px;
-      padding: 0 20px;
       max-width: 1400px;
       margin: 0 auto;
     }
 
     .latest-product-card {
-      background: var(--white);
-      border-radius: 10px;
+      background: #ffffff;
+      border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-      position: relative;
-      transition: all var(--transition-speed) ease;
-      border: 1px solid rgba(0, 0, 0, 0.05);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
       display: flex;
       flex-direction: column;
       height: 100%;
-      min-height: 250px;
-      max-height: 350px;
+      min-height: 400px;
+      max-height: 450px;
+      padding: 16px;
+      transition: transform 0.3s ease;
     }
 
     .latest-product-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-      border-color: var(--olive-primary);
+      transform: scale(1.03);
     }
 
-    .latest-product-card img {
+    .latest-product-image {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      aspect-ratio: 1/1;
-    }
-
-    .latest-product-details {
-      padding: 16px;
-      text-align: center;
-      flex: 1;
+      height: 220px;
+      background-color: #e5e5d3;
+      border-radius: 12px;
+      overflow: hidden;
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
     }
 
-    .latest-product-details p {
-      font-weight: 600;
+    .latest-product-image img {
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .latest-product-name {
+      color: #6e7f59;
       font-size: 16px;
-      color: var(--text-dark);
-      margin-bottom: 8px;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 10px;
     }
 
-    .latest-product-details h3 {
-      color: var(--olive-primary);
-      font-size: 18px;
-      margin: 5px 0;
+    .latest-product-price {
+      color: #8f9779;
+      font-weight: bold;
+      font-size: 15px;
+      text-align: center;
+      margin-bottom: 16px;
     }
 
-    .latest-product-details button {
-      background-color: var(--olive-primary);
-      color: var(--white);
-      border: none;
-      padding: 8px 16px;
-      border-radius: 25px;
-      cursor: pointer;
+    .add-to-cart-btn {
+      background-color: #c4a35a;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 999px;
       font-size: 14px;
       font-weight: 600;
-      transition: all var(--transition-speed) ease;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
     }
 
-    .latest-product-details button:hover {
-      background-color: var(--olive-dark);
+    .add-to-cart-btn:hover {
+      background-color: #b38f45;
     }
 
     @media (max-width: 480px) {
       .latest-product-card {
-        min-height: 200px;
-        max-height: 280px;
+        min-height: 380px;
+        padding: 12px;
       }
 
-      .latest-product-details p {
+      .latest-product-image {
+        height: 200px;
+      }
+
+      .latest-product-name {
+        font-size: 15px;
+      }
+
+      .latest-product-price {
         font-size: 14px;
       }
 
-      .latest-product-details h3 {
-        font-size: 16px;
-      }
-
-      .latest-product-details button {
-        font-size: 12px;
-        padding: 6px 12px;
+      .add-to-cart-btn {
+        font-size: 13px;
+        padding: 8px 16px;
       }
     }
   </style>
@@ -113,15 +108,12 @@
   <div class="latest-products-grid">
     {% for product in component.product %}
       <div class="latest-product-card">
-        <img 
-          src="{{ product.image }}" 
-          alt="{{ product.name }}"
-        />
-        <div class="latest-product-details">
-          <p>{{ product.name }}</p>
-          <h3>{{ product.price }}</h3>
-          <button>أضف للسلة</button>
+        <div class="latest-product-image">
+          <img src="{{ product.image }}" alt="{{ product.name }}" />
         </div>
+        <div class="latest-product-name">{{ product.name }}</div>
+        <div class="latest-product-price">{{ product.price }}</div>
+        <button class="add-to-cart-btn">أضيفي للسلة</button>
       </div>
     {% endfor %}
   </div>
