@@ -1,11 +1,11 @@
 <!-- ====== التصنيفات الشائعة (ريسپونسيف بالكامل) ====== -->
 <section class="popular-products">
-  <h4 class="section-title">التصنيفات الشائعة</h4>
+  <h2 class="section-title">التصنيفات الشائعة</h2>
 
-  <!-- حاوية الكاروسيل -->
+  <!-- حاوية الكاروسيل / الشبكة -->
   <div class="carousel-container">
     <div class="carousel-track">
-      <!-- بطاقة منتج -->
+      <!-- بطاقات المنتجات -->
       <div class="product-card">
         <div class="card-img-container">
           <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/fafb67231260947.688739296cfe7.png" alt="بلاشر" loading="lazy">
@@ -13,7 +13,6 @@
         <p>بلاشر</p>
       </div>
 
-      <!-- بطاقة منتج -->
       <div class="product-card">
         <div class="card-img-container">
           <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/9c2642231260947.688739b5f09d9.png" alt="روج" loading="lazy">
@@ -21,7 +20,6 @@
         <p>روج</p>
       </div>
 
-      <!-- بطاقة منتج -->
       <div class="product-card">
         <div class="card-img-container">
           <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/8a1dea231260947.688739b5eee4b.png" alt="بدي سبلاش" loading="lazy">
@@ -29,9 +27,6 @@
         <p>بدي سبلاش</p>
       </div>
 
-      <!-- بطاقة منتج -->
-      
-      <!-- بطاقة منتج -->
       <div class="product-card">
         <div class="card-img-container">
           <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/aa9493231260947.688739b5ef7ee.png" alt="ليب جلوس" loading="lazy">
@@ -43,7 +38,6 @@
 </section>
 
 <style>
-/* ====== الأساسيات ====== */
 .popular-products {
   background: linear-gradient(135deg, #f8f9fa 0%, #e9f5ee 100%);
   padding: 30px 20px;
@@ -75,29 +69,25 @@
   border-radius: 3px;
 }
 
-/* ====== الكاروسيل (بدون حركة تلقائية) ====== */
 .carousel-container {
-  overflow-x: auto;             /* يتيح سحب الكروت على الموبايل */
-  -webkit-overflow-scrolling: touch; /* سحب ناعم على iOS */
   padding: 10px 0;
+  overflow: hidden;
 }
 
 .carousel-track {
   display: flex;
   gap: 25px;
   flex-wrap: nowrap;
-  width: max-content;           /* يمنع التفاف الكروت */
-  scroll-behavior: smooth;      /* تمرير سلس */
+  overflow-x: auto;
+  scroll-behavior: smooth;
 }
 
-/* شكل الـ scrollbar */
 .carousel-track::-webkit-scrollbar { height: 6px; }
 .carousel-track::-webkit-scrollbar-thumb {
   background-color: #c8e6d5;
   border-radius: 3px;
 }
 
-/* ====== بطاقة المنتج ====== */
 .product-card {
   min-width: 180px;
   flex: 0 0 auto;
@@ -117,7 +107,6 @@
   box-shadow: 0 12px 25px rgba(76, 175, 80, 0.2);
 }
 
-/* خط علوي ملوّن */
 .product-card::before {
   content: '';
   position: absolute;
@@ -160,54 +149,42 @@
   padding-top: 10px;
 }
 
-/* ====== استجابات الشاشات ====== */
-/* شاشات متوسطة (1024px وأقل) */
+/* ==== ريسبونسيف عبر تغيير طريقة العرض حسب حجم الشاشة ==== */
+
+/* 1024px وأقل: grid بدل من flex */
 @media (max-width: 1024px) {
-  .popular-products { padding: 25px 15px; }
-
-  .product-card      { min-width: 160px; }
-
-  .card-img-container {
-    width: 100px; height: 100px;
-    padding: 12px; margin-bottom: 12px;
+  .carousel-track {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 20px;
+    overflow-x: hidden;
   }
-}
-
-/* تابلت (768px – 1024px) */
-@media (max-width: 768px) {
-  .section-title { font-size: 1.5rem; }
-
-  .carousel-track { gap: 15px; }
 
   .product-card {
-    min-width: 140px;
-    padding: 15px 10px;
+    min-width: unset;
+    width: 100%;
   }
-
-  .card-img-container {
-    width: 80px; height: 80px;
-    padding: 10px;
-  }
-
-  .product-card p { font-size: 1rem; }
 }
 
-/* موبايل صغير (أقل من 480px) */
+/* موبايل (أقل من 480px): عمودين بالضبط */
 @media (max-width: 480px) {
-  .popular-products { padding: 20px 10px; }
+  .carousel-track {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
   .section-title {
     font-size: 1.3rem;
     margin-bottom: 20px;
   }
 
-  .product-card { min-width: 120px; }
-
   .card-img-container {
-    width: 70px; height: 70px;
+    width: 70px;
+    height: 70px;
     padding: 8px;
   }
 
-  .product-card p { font-size: 0.9rem; }
+  .product-card p {
+    font-size: 0.9rem;
+  }
 }
 </style>
